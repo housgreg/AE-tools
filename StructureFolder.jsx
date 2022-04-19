@@ -21,10 +21,10 @@ var panel1 = dialog.add("panel", undefined, undefined, {name: "panel1"});
     panel1.text = "Nom de dossier"; 
     panel1.orientation = "column"; 
     panel1.alignChildren = ["center","top"]; 
-    panel1.spacing = 10; 
+    panel1.spacing = 5; 
     panel1.margins = 10; 
 
-// GROUP1
+// GROUP1 - Valeurs Edittext
 // ======
 var group1 = panel1.add("group", undefined, {name: "group1"}); 
     group1.orientation = "row"; 
@@ -36,15 +36,35 @@ var edittext1 = group1.add( "edittext", undefined, "0000");
     //edittext1.text = "0000"; 
     edittext1.preferredSize.width = 60; 
 
-
-
 var edittext2 = group1.add("edittext", undefined, "Client"); 
     edittext2.preferredSize.width = 60; 
 
 var edittext3 = group1.add("edittext", undefined, "Type"); 
     edittext3.preferredSize.width = 60; 
 
-// PANEL1
+
+// GROUP2 - Format de la compo principale
+// ======
+var group2 = panel1.add("group", undefined, {name: "group2"}); 
+    group2.orientation = "row"; 
+    group2.alignChildren = ["left","center"]; 
+    group2.spacing = 5; 
+    group2.margins = 0; 
+
+var dropdown1_array = ["1920x1080","4k","-","1080x1080","720x720"]; 
+var dropdown1 = group2.add("dropdownlist", undefined, undefined, {name: "dropdown1", items: dropdown1_array}); 
+    dropdown1.selection = 0; 
+    dropdown1.preferredSize.width = 110; 
+
+var edittext4 = group2.add('edittext {properties: {name: "edittext4"}}'); 
+    edittext4.text = "120"; 
+    edittext4.preferredSize.width = 35; 
+
+var statictext1 = group2.add("statictext", undefined, undefined, {name: "statictext1"}); 
+    statictext1.text = "Secondes"; 
+
+
+// PANEL1 - Bouton créer
 // ======
 var button1 = panel1.add("button", undefined, undefined, {name: "button1"}); 
     button1.text = "Create"; 
@@ -57,13 +77,13 @@ dialog.onResizing = dialog.onResize = function () { this.layout.resize(); }
 
 
 //////////////////
-var FolderMaster = edittext1.text +"_"+ edittext2.text +"_"+ edittext3.text;
+var folderMaster = edittext1.text +"_"+ edittext2.text +"_"+ edittext3.text; //Ici je sais que ce n'est pas bon (Function .onChange ?)
 var slash = "/";    //le slash pour MAC. Sur windows c'est 2 antislash (je crois).
 
 
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 button1.onClick = function(){folderStructure()};
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -76,15 +96,15 @@ button1.onClick = function(){folderStructure()};
 
 function folderStructure(){
 
-  var b = Folder.selectDialog("Choisissez le dossier de destination");
+  var folderLocation = Folder.selectDialog("Choisissez le dossier de destination");
 
-  if(b != null){
+  if(folderLocation != null){
 
-  myDefaultFolders(b);
+  myDefaultFolders(folderLocation);
 
   }
 
-  saveProjet();
+  saveProjetAE(folderLocation);
 
 }
 
@@ -95,9 +115,9 @@ function myDefaultFolders(newRoot){
   var folderSrc, folderExp, folderElem, folderSrcLen, newCorePath, curFolderSrc, curFolderExp, curFolderElem;
 
 
-  folderSrc = FolderMaster+slash+"src"+slash+"assets"+slash+"audio"; 
-  folderExp = FolderMaster+slash+"export"; 
-  folderElem = FolderMaster+slash+"elements"; 
+  folderSrc = folderMaster+slash+"src"+slash+"assets"+slash+"audio"; 
+  folderExp = folderMaster+slash+"export"; 
+  folderElem = folderMaster+slash+"elements"; 
 
   //folderSrc = []; //new Array > je n'ai pas reussi sur curFolderSrc.
   //folderSrc[0] = "Master"+slash+"src";
@@ -114,8 +134,8 @@ function myDefaultFolders(newRoot){
 
 
   curFolderSrc = Folder(newCorePath+slash+folderSrc);  //ici erreur quand j'utilise new Array.
-  curFolderExp = Folder(newCorePath+slash+folderExp);  
-  curFolderElem = Folder(newCorePath+slash+folderElem);  
+  curFolderExp = Folder(newCorePath+slash+folderExp);
+  curFolderElem = Folder(newCorePath+slash+folderElem);
 
 
   if(curFolderSrc.exists === false){
@@ -143,9 +163,13 @@ function myDefaultFolders(newRoot){
 
 /////////////// Enregistrement du projet AfterEffects + créer structure dans AfterEffects ///////////////
 
-function saveProjet(){
+
+function saveProjetAE(){
+
     app.newProject(); //pour eviter de perdre un fichier deja ouvert
-    app.project.save();  //Je n'arrive pas à donner le même Nom de projet que le dossier principale (FolderMaster). Et j'aimerai qu'il s'enregistre dans le dossier "src".
+    
+    //var myNewFile = new File(folderLocation.toString() +slash+ "src" +slash+ folderMaster+".aep");
+    app.project.save(/*myNewFile*/); //Je n'arrive pas à donner le même Nom de projet que le dossier principale (folderMaster). Et j'aimerai qu'il s'enregistre dans le dossier "src".
 
     //Creation des dossiers
     var folderAssets = app.project.items.addFolder("assets");
@@ -181,7 +205,7 @@ if ( dialog instanceof Window ) dialog.show();
 
 
 /////////////////// En vrac /////////////////////////
-//app.project.save(new File (FolderMaster+".aep"));  // Save le projet AfterEffects, mais je ne sais pas pourquoi il se copie sur le bureau
+//app.project.save(new File (folderMaster+".aep"));  // Save le projet AfterEffects, mais je ne sais pas pourquoi il se copie sur le bureau
 //app.project.save(new File());  
 
 
