@@ -104,7 +104,7 @@ function folderStructure(){
 
   }
 
-  saveProjetAE(folderLocation);
+  saveProjetAE();
 
 }
 
