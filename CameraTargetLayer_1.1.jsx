@@ -233,5 +233,4 @@ app.endUndoGroup();
 }
 
 
-
-//alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
+alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
