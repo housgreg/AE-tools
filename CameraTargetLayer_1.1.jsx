@@ -68,14 +68,23 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
             controlcameratargetlayer.applyPreset(ffxFile); //Appliquer le preset
         };
 
+
+//copie le preset dans le system mac ou win
     if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
-        ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
+		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
+		if (os =="WINDOWS"){
+		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/Support Files/"+ "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
+		}else if (os=="MAC"){
+		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
+		}	
+		//ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
         makePseudoEffectLive(ffxFile);
     }
 
     pseudoEffect = effectsProp.addProperty(pseudoEffectData.matchName);
     return pseudoEffect;
 }
+
 
 
 	//Parametrer presets Calque de Controle
@@ -110,14 +119,13 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 		cameratargetlayer.setParentWithJump(controlcameratargetlayer); 
 
 
-// Supprimer empty Solids folder
-	var tempNullComp = app.project.items.addComp("tempNullComp", 100, 100, 1, 1, 24);
-	var tempNullLayer = tempNullComp.layers.addNull();
-	var nullFolder = tempNullLayer.source.parentFolder;
-		tempNullLayer.source.remove();
-		tempNullComp.remove();
-	if (nullFolder.numItems === 0)
-		nullFolder.remove();
+
+		//supprimer, si un 2e PseudoEffect s'affiche
+		try {
+			var Deuxiemeffx = controlcameratargetlayer.property("ADBE Effect Parade").property(2);
+			Deuxiemeffx.remove(); 
+			} catch (err) {}
+
 
 
 // Appliquer expressions 
@@ -226,4 +234,4 @@ app.endUndoGroup();
 
 
 
-alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
+//alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
