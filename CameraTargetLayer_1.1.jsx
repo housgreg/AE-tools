@@ -17,43 +17,15 @@ var pseudoEffectData = {
 
 try {
 
-var verifComp = app.project.activeItem;
-if (!verifComp || !(verifComp instanceof CompItem)) {
+var myComp = app.project.activeItem;
+if (!myComp || !(myComp instanceof CompItem)) {
 	alert("Lancer le script dans une composition");
 	return;
 }
 
-// CREATE FOLDER HIERARCHY START
-	var solids_folder_properties = {"name":"Solids","label":2,"comment":"","itemIsFolderItem":{"type":"function","arguments":["item"],"body":"return item instanceof FolderItem;"}};
-	var solids_folder = findProjectItem(app.project.rootFolder, false, solids_folder_properties);
-	if (solids_folder === null) {
-		solids_folder = app.project.items.addFolder(solids_folder_properties.name);
-		solids_folder.label = solids_folder_properties.label;
-	}
-
-
-// CREATE COMPOSITIONS START
-	var composition1_comp = verifComp;
-
-
-// CREATE NULL LAYERS START
-	var nul1_null_properties = {"name":"Control_CameraTargetLayer","comment":"","label":1,"height":100,"width":100,"mainSource":{"color":[1,1,1]},"itemIsFootageItem":{"type":"function","arguments":["item"],"body":"return item instanceof FootageItem;"}};
-	var nul1_null = findProjectItem(solids_folder, false, nul1_null_properties);
-	if (nul1_null === null) {
-		var nul1_tempNull = composition1_comp.layers.addNull();
-			nul1_null = nul1_tempNull.source;
-			nul1_null.name = nul1_null_properties.name;
-			nul1_null.label = nul1_null_properties.label;
-			nul1_null.mainSource.color = nul1_null_properties.mainSource.color;
-			nul1_null.parentFolder = solids_folder;
-		nul1_tempNull.remove();
-	}
-
-	composition1_comp.openInViewer();
-
 
 	// Creer la Camera "Camera_TargetLayer";
-	var cameratargetlayer = composition1_comp.layers.addCamera("Camera_TargetLayer", [0, 0]);
+	var cameratargetlayer = myComp.layers.addCamera("Camera_TargetLayer", [0, 0]);
 		cameratargetlayer.label = 10;
 		cameratargetlayer.autoOrient = AutoOrientType.NO_AUTO_ORIENT;
 		cameratargetlayer.moveToBeginning(); //si c'est a la fin > moveToEnd()
@@ -69,10 +41,8 @@ if (!verifComp || !(verifComp instanceof CompItem)) {
 
 
 	//Creer le calque de Controle
-	var controlcameratargetlayer = composition1_comp.layers.addNull();
-	var controlcameratargetlayer_source = controlcameratargetlayer.source;
-		controlcameratargetlayer.replaceSource(nul1_null, true);
-		controlcameratargetlayer_source.remove();
+	var controlcameratargetlayer = myComp.layers.addNull();
+		controlcameratargetlayer.source.name = "Control_CameraTargetLayer";
 		controlcameratargetlayer.label = 10;
 		controlcameratargetlayer.threeDLayer = true;
 		controlcameratargetlayer.moveToBeginning();
@@ -244,99 +214,16 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 				"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
 		} catch (err) {}
 
-composition1_comp.openInViewer();
-
-return {
-	compItem : composition1_comp
-};
-
 } catch (e) {
 	alert (e.toString() + "\nScript File: " + File.decode(e.fileName).replace(/^.*[\|\/]/, '') + 
 		"\nFunction: " + arguments.callee.name + 
 		"\nError on Line: " + e.line.toString());
 }
 
-
-function findProjectItem(searchFolder, recursion, userData) {
-	var folderItem;
-	for (var i = 1, il = searchFolder.items.length; i <= il; i++) {
-		folderItem = searchFolder.items[i];
-		if (propertiesMatch(folderItem, userData)) {
-			return folderItem;
-		} else if (recursion === true && folderItem instanceof FolderItem && folderItem.numItems > 0) {
-			var item = findProjectItem(folderItem, recursion, userData);
-			if (item !== null) return item;
-		}
-	}
-	return null;
-}
-
-function propertiesMatch(projectItem, userData) {
-	if (typeof userData === 'undefined') return true;
-
-	for (var propertyName in userData) {
-		if (!userData.hasOwnProperty(propertyName)) continue;
-
-		if (isFunctionObject(userData[propertyName])) {
-			var functionConstructor = new Function(
-				userData[propertyName].arguments,
-				userData[propertyName].body);
-			if (!functionConstructor(projectItem)) {
-				return false;
-			}
-		} else {
-			if (typeof userData[propertyName] !== typeof projectItem[propertyName]) {
-				return false;
-			}
-
-			if (isArray(userData[propertyName]) && isArray(projectItem[propertyName])) {
-				if (userData[propertyName].toString() !== projectItem[propertyName].toString()) {
-					return false;
-				}
-			} else if (isObject(userData[propertyName]) && isObject(projectItem[propertyName])) {
-				if (!propertiesMatch(projectItem[propertyName], userData[propertyName])) {
-					return false;
-				}
-			} else if (projectItem[propertyName] !== userData[propertyName]) {
-				return false;
-			}
-		}
-	}
-	return true;
-
-	function isFunctionObject(object) {
-		if (!isObject(object)) return false;
-
-		if (!object.hasOwnProperty('type') || !isString(object.type) || object.type !== 'function') {
-			return false;
-		}
-
-		if (!object.hasOwnProperty('arguments') || !isArray(object.arguments)) {
-			return false;
-		}
-
-		if (!object.hasOwnProperty('body') || !isString(object.body)) {
-			return false;
-		}
-
-		return true;
-	}
-}
-
-function isArray(object) {
-	return Object.prototype.toString.apply(object) === '[object Array]';
-}
-
-function isObject(object) {
-	return typeof object === 'object';
-}
-
-function isString(value) {
-	return typeof value === 'string' || value instanceof String;
-}
-}
-
 app.endUndoGroup();
+
+}
+
 
 
 alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
