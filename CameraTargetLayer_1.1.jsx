@@ -69,7 +69,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
         };
 
 
-//copie le preset dans le system mac ou windows
+	//copie le preset dans le system mac ou windows
     if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
 		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
 		if (os =="WINDOWS"){
@@ -86,7 +86,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 }
 
 
-//Parametrer presets Calque de Controle
+		//Parametrer presets Calque de Controle
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0003").setValue(1); //Target
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0008").setValue(140); //Ouverture
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0015").setValue(1); //Calque-1
@@ -119,107 +119,107 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 
 
 
-//supprimer, si un 2e PseudoEffect s'affiche
-		try {
-			var Deuxiemeffx = controlcameratargetlayer.property("ADBE Effect Parade").property(2);
-			Deuxiemeffx.remove(); 
-			} catch (err) {}
+	//supprimer, si un 2e PseudoEffect s'affiche
+	try {
+		var Deuxiemeffx = controlcameratargetlayer.property("ADBE Effect Parade").property(2);
+		Deuxiemeffx.remove(); 
+		} catch (err) {}
 
 
 
-//Appliquer expressions 
-		try {
-			cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_2").expression = "CameraZoom = -1866.6667" + "\n" + 
-				"" + "\n" + 
-				"ST = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
-				"Min = Math.floor(ST);" + "\n" + 
-				"Max = Min+1;" + "\n" + 
-				"" + "\n" + 
-				"try{L = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Min);M = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Max);exists = true;" + "\n" + 
-				"}catch (err){" + "\n" + 
-				"function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
-				"} " + "\n" + 
-				"    " + "\n" + 
-				"if(exists){ " + "\n" + 
-				"    Amin = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Min)+CameraZoom; " + "\n" + 
-				"    Amax = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Max)+CameraZoom;" + "\n" + 
-				"}else{" + "\n" + 
-				"    Amin = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+TargetCount)+CameraZoom; " + "\n" + 
-				"    Amax = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+TargetCount)+CameraZoom;}" + "\n" + 
-				"    " + "\n" + 
-				"if(thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Ease\") == 0){ linear(ST,Min,Min+1,Amin,Amax); }else{ ease(ST,Min,Min+1,Amin,Amax); } ";
-		} catch (err) {}
-		try {
-			cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Depth of Field").expression = "thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Profondeur de champ\")";
-		} catch (err) {}
-		try {
-			cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Focus Distance").expression = "-transform.zPosition";
-		} catch (err) {}
-		try {
-			cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Aperture").expression = "thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Ouverture\")";
-		} catch (err) {}
-		try {
-			controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Position").expression = "wig = wiggle(effect(\"CameraTargetLayer\")(\"WiggleSpeed\"),effect(\"CameraTargetLayer\")(\"WiggleAmplitude\"))-value;" + "\n" + 
-				"" + "\n" + 
-				"ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
-				"Min = Math.floor(ST);" + "\n" + 
-				"Max = Min+1;" + "\n" + 
-				"" + "\n" + 
-				"try{" + "\n" + 
-				"L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min); M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max); exists = true;" + "\n" + 
-				"}catch (err){" + "\n" + 
-				"function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a }  TargetCount = countItems(\"effect\") - 6; exists = false;" + "\n" + 
-				"} " + "\n" + 
-				"" + "\n" + 
-				"if(exists){  Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).position+wig; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).position+wig; }else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+(TargetCount)).position+wig; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).position+wig;}" + "\n" + 
-				"" + "\n" + 
-				"if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){ linear(ST,Min,Min+1,Amin,Amax); }else{ ease(ST,Min,Min+1,Amin,Amax); } ";
-		} catch (err) {}
-		try {
-			controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate X").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
-				"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
-				"    Min = Math.floor(ST);" + "\n" + 
-				"    Max = Min+1;" + "\n" + 
-				"    " + "\n" + 
-				"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
-				"    }catch (err){" + "\n" + 
-				"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
-				"    } " + "\n" + 
-				"    " + "\n" + 
-				"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.xRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.xRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.xRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.xRotation;}" + "\n" + 
-				"    " + "\n" + 
-				"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
-		} catch (err) {}
-		try {
-			controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Y").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
-				"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
-				"    Min = Math.floor(ST);" + "\n" + 
-				"    Max = Min+1;" + "\n" + 
-				"    " + "\n" + 
-				"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
-				"    }catch (err){" + "\n" + 
-				"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
-				"    } " + "\n" + 
-				"    " + "\n" + 
-				"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.yRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.yRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.yRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.yRotation;}" + "\n" + 
-				"    " + "\n" + 
-				"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
-		} catch (err) {}
-		try {
-			controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Z").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
-				"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
-				"    Min = Math.floor(ST);" + "\n" + 
-				"    Max = Min+1;" + "\n" + 
-				"    " + "\n" + 
-				"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
-				"    }catch (err){" + "\n" + 
-				"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
-				"    } " + "\n" + 
-				"    " + "\n" + 
-				"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.zRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.zRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.zRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.zRotation;}" + "\n" + 
-				"    " + "\n" + 
-				"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
-		} catch (err) {}
+	//Appliquer expressions 
+	try {
+		cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_2").expression = "CameraZoom = -1866.6667" + "\n" + 
+			"" + "\n" + 
+			"ST = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
+			"Min = Math.floor(ST);" + "\n" + 
+			"Max = Min+1;" + "\n" + 
+			"" + "\n" + 
+			"try{L = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Min);M = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Max);exists = true;" + "\n" + 
+			"}catch (err){" + "\n" + 
+			"function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
+			"} " + "\n" + 
+			"    " + "\n" + 
+			"if(exists){ " + "\n" + 
+			"    Amin = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Min)+CameraZoom; " + "\n" + 
+			"    Amax = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+Max)+CameraZoom;" + "\n" + 
+			"}else{" + "\n" + 
+			"    Amin = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+TargetCount)+CameraZoom; " + "\n" + 
+			"    Amax = thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Zoom_Calque-\"+TargetCount)+CameraZoom;}" + "\n" + 
+			"    " + "\n" + 
+			"if(thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Ease\") == 0){ linear(ST,Min,Min+1,Amin,Amax); }else{ ease(ST,Min,Min+1,Amin,Amax); } ";
+	} catch (err) {}
+	try {
+		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Depth of Field").expression = "thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Profondeur de champ\")";
+	} catch (err) {}
+	try {
+		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Focus Distance").expression = "-transform.zPosition";
+	} catch (err) {}
+	try {
+		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Aperture").expression = "thisComp.layer(\"Control_CameraTargetLayer\").effect(\"CameraTargetLayer\")(\"Ouverture\")";
+	} catch (err) {}
+	try {
+		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Position").expression = "wig = wiggle(effect(\"CameraTargetLayer\")(\"WiggleSpeed\"),effect(\"CameraTargetLayer\")(\"WiggleAmplitude\"))-value;" + "\n" + 
+			"" + "\n" + 
+			"ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
+			"Min = Math.floor(ST);" + "\n" + 
+			"Max = Min+1;" + "\n" + 
+			"" + "\n" + 
+			"try{" + "\n" + 
+			"L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min); M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max); exists = true;" + "\n" + 
+			"}catch (err){" + "\n" + 
+			"function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a }  TargetCount = countItems(\"effect\") - 6; exists = false;" + "\n" + 
+			"} " + "\n" + 
+			"" + "\n" + 
+			"if(exists){  Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).position+wig; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).position+wig; }else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+(TargetCount)).position+wig; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).position+wig;}" + "\n" + 
+			"" + "\n" + 
+			"if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){ linear(ST,Min,Min+1,Amin,Amax); }else{ ease(ST,Min,Min+1,Amin,Amax); } ";
+	} catch (err) {}
+	try {
+		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate X").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
+			"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
+			"    Min = Math.floor(ST);" + "\n" + 
+			"    Max = Min+1;" + "\n" + 
+			"    " + "\n" + 
+			"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
+			"    }catch (err){" + "\n" + 
+			"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
+			"    } " + "\n" + 
+			"    " + "\n" + 
+			"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.xRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.xRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.xRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.xRotation;}" + "\n" + 
+			"    " + "\n" + 
+			"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
+	} catch (err) {}
+	try {
+		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Y").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
+			"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
+			"    Min = Math.floor(ST);" + "\n" + 
+			"    Max = Min+1;" + "\n" + 
+			"    " + "\n" + 
+			"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
+			"    }catch (err){" + "\n" + 
+			"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
+			"    } " + "\n" + 
+			"    " + "\n" + 
+			"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.yRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.yRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.yRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.yRotation;}" + "\n" + 
+			"    " + "\n" + 
+			"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
+	} catch (err) {}
+	try {
+		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Z").expression = "if(effect(\"CameraTargetLayer\")(\"AutoRotation\") == 1){" + "\n" + 
+			"    ST = effect(\"CameraTargetLayer\")(\"Target\");" + "\n" + 
+			"    Min = Math.floor(ST);" + "\n" + 
+			"    Max = Min+1;" + "\n" + 
+			"    " + "\n" + 
+			"    try{L = effect(\"CameraTargetLayer\")(\"Calque-\"+Min);M = effect(\"CameraTargetLayer\")(\"Calque-\"+Max);exists = true;" + "\n" + 
+			"    }catch (err){" + "\n" + 
+			"    function countItems(obj) { a=0; while (true) { a++; try { eval(obj+\"(\"+a+\")\"); } catch(error) { a--; break; } } return a } TargetCount = countItems(\"effect\") - 5;exists = false;" + "\n" + 
+			"    } " + "\n" + 
+			"    " + "\n" + 
+			"    if(exists){ Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+Min).transform.zRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+Max).transform.zRotation;}else{Amin = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.zRotation; Amax = effect(\"CameraTargetLayer\")(\"Calque-\"+TargetCount).transform.zRotation;}" + "\n" + 
+			"    " + "\n" + 
+			"    if(effect(\"CameraTargetLayer\")(\"Ease\") == 0){linear(ST,Min,Min+1,Amin,Amax);}else{ease(ST,Min,Min+1,Amin,Amax); }}else{value}";
+	} catch (err) {}
 
 } catch (e) {
 	alert (e.toString() + "\nScript File: " + File.decode(e.fileName).replace(/^.*[\|\/]/, '') + 
@@ -230,6 +230,5 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 app.endUndoGroup();
 
 }
-
 
 alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
