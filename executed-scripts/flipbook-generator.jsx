@@ -58,7 +58,7 @@ function generate()
 	slider2.property(1).setValue(1.0);
 	var slider3 = nullObj.property("Effects").addProperty("ADBE Slider Control");
 	slider3.name = "distord"
-	slider3.property(1).setValue(40.0);
+	slider3.property(1).setValue(10.0);
 	var slider4 = nullObj.property("Effects").addProperty("ADBE Slider Control");
 	slider4.name = "thickness"
 	slider4.property(1).setValue(0.5);
@@ -135,7 +135,7 @@ function generate()
 		
 		p = layer.transform[ "opacity" ];
         p.expressionEnabled = true;
-        script = 'if (toCompVec([0, 0, 1])[2] > 0 ) value else 0;\n';
+        script = 'if (toCompVec([0, 0, 1])[2] > 0 ) { value } else { 0 };\n';
 		p.expression = script;
 		
 		//myLayer.property(“Effects”).property(“boxBlur”);
