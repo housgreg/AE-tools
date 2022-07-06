@@ -5,7 +5,7 @@
 CameraTargetLayerGreg();
 function CameraTargetLayerGreg() {
 
-app.beginUndoGroup("CameraTargetLayer");
+app.beginUndoGroup("CameraTargetLaye");
 
 /////PseudoEffect ffx en binaire
 var pseudoEffectData = {
