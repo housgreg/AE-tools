@@ -24,7 +24,7 @@ if (!myComp || !(myComp instanceof CompItem)) {
 }
 
 
-	// Creer la Camera "Camera_TargetLayer";
+	//Creer la Camera;
 	var cameratargetlayer = myComp.layers.addCamera("Camera_TargetLayer", [0, 0]);
 		cameratargetlayer.label = 10;
 		cameratargetlayer.autoOrient = AutoOrientType.NO_AUTO_ORIENT;
@@ -69,7 +69,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
         };
 
 
-//copie le preset dans le system mac ou win
+//copie le preset dans le system mac ou windows
     if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
 		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
 		if (os =="WINDOWS"){
@@ -86,8 +86,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 }
 
 
-
-	//Parametrer presets Calque de Controle
+//Parametrer presets Calque de Controle
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0003").setValue(1); //Target
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0008").setValue(140); //Ouverture
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0015").setValue(1); //Calque-1
@@ -120,7 +119,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 
 
 
-		//supprimer, si un 2e PseudoEffect s'affiche
+//supprimer, si un 2e PseudoEffect s'affiche
 		try {
 			var Deuxiemeffx = controlcameratargetlayer.property("ADBE Effect Parade").property(2);
 			Deuxiemeffx.remove(); 
@@ -128,7 +127,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 
 
 
-// Appliquer expressions 
+//Appliquer expressions 
 		try {
 			cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_2").expression = "CameraZoom = -1866.6667" + "\n" + 
 				"" + "\n" + 
