@@ -6,7 +6,7 @@
 	\_/   \____/\_/\_/   \____/\____/\____/\_|\_\  \____\\____\\_/  \|
 	
 									   By Damien Doussaud - namide.com
-									                Mise a jour : Greg
+									                Mise a jour: Greg
     Usage: 
 	
 		Select layers in AE (the pages of your Flipbook). 
