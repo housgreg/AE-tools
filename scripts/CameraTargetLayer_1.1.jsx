@@ -15,13 +15,12 @@ var pseudoEffectData = {
 };
 
 
-try {
 
+try {
 var myComp = app.project.activeItem;
 if (!myComp || !(myComp instanceof CompItem)) {
 	alert("Lancer le script dans une composition");
-	return;
-}
+	return;}
 
 
 	//Creer la Camera;
@@ -49,7 +48,9 @@ if (!myComp || !(myComp instanceof CompItem)) {
 
 
 //// Generer le pseudoEffect
-applyPseudoEffect(pseudoEffectData, app.project.activeItem.selectedLayers[0].property("ADBE Effect Parade"));
+var effectsProp = app.project.activeItem.selectedLayers[0].property("ADBE Effect Parade");
+
+var pseudoEffect = applyPseudoEffect(pseudoEffectData, effectsProp);
 app.project.activeItem.selectedLayers[0].effect(1).name = "CameraTargetLayer";
 //alert("Application du preset " + pseudoEffect.name );
 
@@ -60,25 +61,31 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
             var fileObject = new File(pathToFile);
             fileObject.encoding = encoding || "utf-8";
             fileObject.open("w");
-            fileObject.write(content);
+            fileObject.write();
             fileObject.close();
             return fileObject;
         },
         makePseudoEffectLive = function (ffxFile) {
+			var tempComp, tempLayer;
+            tempComp = app.project.items.addComp("tempComp", 100, 100, 1, 1, 25);
+            tempLayer = tempComp.layers.addShape();
+            tempLayer.applyPreset(ffxFile);
             controlcameratargetlayer.applyPreset(ffxFile); //Appliquer le preset
+			tempComp.remove();
+
         };
 
 
 	//copie le preset dans le system mac ou windows
     if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
-	    	////// Choix OS et preset dans l'app After ////////
+	    ////// Choix OS et preset dans le dossier app AfterEffects ////////
 		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
 		if (os =="WINDOWS"){
 		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/Support Files/"+ "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
 		}else if (os=="MAC"){
 		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
 		}
-	    	////// ou le preset s'enregistre sur le Bureau ////////
+	    ////// ou le preset s'enregistre sur le Bureau ////////
 		//ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
         makePseudoEffectLive(ffxFile);
     }
