@@ -81,9 +81,9 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 	    ////// Choix OS et preset dans le dossier app AfterEffects ////////
 		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
 		if (os =="WINDOWS"){
-		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/Support Files/"+ "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
+		ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/Support Files/"+ "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
 		}else if (os=="MAC"){
-		var ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
+		ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
 		}
 	    ////// ou le preset s'enregistre sur le Bureau ////////
 		//ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
