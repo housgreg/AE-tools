@@ -71,24 +71,16 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
 
 
 	//copie le preset dans le system mac ou windows
-    if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
-	    ////// Choix OS et preset dans le dossier app AfterEffects ////////
-		var os = $.os.indexOf("Mac") != -1 ? "MAC": "WINDOWS";
-		if (os =="WINDOWS"){
-		ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/Support Files/"+ "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
-		}else if (os=="MAC"){
-		ffxFile = writeFile(Folder.appPackage.parent.absoluteURI + "/presets" + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY");
-		}
-	    ////// ou le preset s'enregistre sur le Bureau ////////
-		//ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
-        makePseudoEffectLive(ffxFile);
+if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
+    ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
+    makePseudoEffectLive(ffxFile);
     }
 
     pseudoEffect = effectsProp.addProperty(pseudoEffectData.matchName);
     return pseudoEffect;
 }
 
-
+            
 		//Parametrer presets Calque de Controle
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0003").setValue(1); //Target
 		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0008").setValue(140); //Ouverture
@@ -234,4 +226,8 @@ app.endUndoGroup();
 
 }
 
-alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
+/////// Supprimer le preset sur le bureau //////////////////
+var folderPreset = File("~/desktop/CameraTargetLayer.ffx");
+folderPreset.remove();
+
+//alert('Activer la 3D des calques, puis les selectionner dans la partie "Calques" !');
