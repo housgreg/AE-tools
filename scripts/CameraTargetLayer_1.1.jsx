@@ -25,26 +25,26 @@ if (!myComp || !(myComp instanceof CompItem)) {
 
 	//Creer la Camera;
 	var cameratargetlayer = myComp.layers.addCamera("Camera_TargetLayer", [0, 0]);
-		cameratargetlayer.label = 10;
-		cameratargetlayer.autoOrient = AutoOrientType.NO_AUTO_ORIENT;
-		cameratargetlayer.moveToBeginning(); //si c'est a la fin > moveToEnd()
-		cameratargetlayer.property("ADBE Transform Group").property("ADBE Position").dimensionsSeparated = true;
-		cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_0").setValue(0);
-		cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_1").setValue(0);
-		cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_2").setValue(-1866.66666685);
-		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Zoom").setValue(1866.66666685);
-		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Depth of Field").setValue(1);
-		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Focus Distance").setValue(1866.66666685);
-		cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Aperture").setValue(154);
-		cameratargetlayer.selected = false;
+	cameratargetlayer.label = 10;
+	cameratargetlayer.autoOrient = AutoOrientType.NO_AUTO_ORIENT;
+	cameratargetlayer.moveToBeginning(); //si c'est a la fin > moveToEnd()
+	cameratargetlayer.property("ADBE Transform Group").property("ADBE Position").dimensionsSeparated = true;
+	cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_0").setValue(0);
+	cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_1").setValue(0);
+	cameratargetlayer.property("ADBE Transform Group").property("ADBE Position_2").setValue(-1866.66666685);
+	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Zoom").setValue(1866.66666685);
+	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Depth of Field").setValue(1);
+	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Focus Distance").setValue(1866.66666685);
+	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Aperture").setValue(154);
+	cameratargetlayer.selected = false;
 
 
 	//Creer le calque de Controle
 	var controlcameratargetlayer = myComp.layers.addNull();
-		controlcameratargetlayer.source.name = "Control_CameraTargetLayer";
-		controlcameratargetlayer.label = 10;
-		controlcameratargetlayer.threeDLayer = true;
-		controlcameratargetlayer.moveToBeginning();
+	controlcameratargetlayer.source.name = "Control_CameraTargetLayer";
+	controlcameratargetlayer.label = 10;
+	controlcameratargetlayer.threeDLayer = true;
+	controlcameratargetlayer.moveToBeginning();
 
 
 //// Generer le pseudoEffect
@@ -61,18 +61,12 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
             var fileObject = new File(pathToFile);
             fileObject.encoding = encoding || "utf-8";
             fileObject.open("w");
-            fileObject.write();
+            fileObject.write(content);
             fileObject.close();
             return fileObject;
         },
         makePseudoEffectLive = function (ffxFile) {
-			var tempComp, tempLayer;
-            tempComp = app.project.items.addComp("tempComp", 100, 100, 1, 1, 25);
-            tempLayer = tempComp.layers.addShape();
-            tempLayer.applyPreset(ffxFile);
             controlcameratargetlayer.applyPreset(ffxFile); //Appliquer le preset
-			tempComp.remove();
-
         };
 
 
