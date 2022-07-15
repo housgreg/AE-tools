@@ -22,7 +22,6 @@ if (!myComp || !(myComp instanceof CompItem)) {
 	alert("Lancer le script dans une composition");
 	return;}
 
-
 	//Creer la Camera;
 	var cameratargetlayer = myComp.layers.addCamera("Camera_TargetLayer", [0, 0]);
 	cameratargetlayer.label = 10;
@@ -37,7 +36,6 @@ if (!myComp || !(myComp instanceof CompItem)) {
 	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Focus Distance").setValue(1866.66666685);
 	cameratargetlayer.property("ADBE Camera Options Group").property("ADBE Camera Aperture").setValue(154);
 	cameratargetlayer.selected = false;
-
 
 	//Creer le calque de Controle
 	var controlcameratargetlayer = myComp.layers.addNull();
@@ -70,7 +68,7 @@ function applyPseudoEffect(pseudoEffectData, effectsProp) {
         };
 
 
-	//copie le preset dans le system mac ou windows
+//copie le preset dans le system mac ou windows
 if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
     ffxFile = writeFile(Folder.desktop.fsName + "/" + pseudoEffectData.name + ".ffx", pseudoEffectData.binary, "BINARY"); //copie le preset sur le bureau
     makePseudoEffectLive(ffxFile);
@@ -81,36 +79,36 @@ if (!effectsProp.canAddProperty(pseudoEffectData.matchName)) {
 }
 
             
-		//Parametrer presets Calque de Controle
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0003").setValue(1); //Target
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0008").setValue(140); //Ouverture
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0015").setValue(1); //Calque-1
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0016").setValue(1); //Calque-2
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0017").setValue(1); //Calque-3
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0018").setValue(1); //Calque-4
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0019").setValue(1); //Calque-5
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0020").setValue(1); //Calque-6
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0021").setValue(1); //Calque-7
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0022").setValue(1); //Calque-8
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0023").setValue(1); //Calque-9
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0024").setValue(1); //Calque-10
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0025").setValue(1); //Calque-11
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0026").setValue(1); //Calque-12
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0027").setValue(1); //Calque-13
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0028").setValue(1); //Calque-14
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0029").setValue(1); //Calque-15
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0030").setValue(1); //Calque-16
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0031").setValue(1); //Calque-17
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0032").setValue(1); //Calque-18
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0033").setValue(1); //Calque-19
-		controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0034").setValue(1); //Calque-20
+	//Parametrer presets Calque de Controle
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0003").setValue(1); //Target
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0008").setValue(140); //Ouverture
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0015").setValue(1); //Calque-1
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0016").setValue(1); //Calque-2
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0017").setValue(1); //Calque-3
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0018").setValue(1); //Calque-4
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0019").setValue(1); //Calque-5
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0020").setValue(1); //Calque-6
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0021").setValue(1); //Calque-7
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0022").setValue(1); //Calque-8
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0023").setValue(1); //Calque-9
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0024").setValue(1); //Calque-10
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0025").setValue(1); //Calque-11
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0026").setValue(1); //Calque-12
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0027").setValue(1); //Calque-13
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0028").setValue(1); //Calque-14
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0029").setValue(1); //Calque-15
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0030").setValue(1); //Calque-16
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0031").setValue(1); //Calque-17
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0032").setValue(1); //Calque-18
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0033").setValue(1); //Calque-19
+	controlcameratargetlayer.property("ADBE Effect Parade").property(1).property("Pseudo/315362-0034").setValue(1); //Calque-20
 
-		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Position").setValue([960,540,0]);
-		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate X").setValue(0);
-		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Y").setValue(0);
-		controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Z").setValue(0);
-		controlcameratargetlayer.selected = false;
-		cameratargetlayer.setParentWithJump(controlcameratargetlayer); 
+	controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Position").setValue([960,540,0]);
+	controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate X").setValue(0);
+	controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Y").setValue(0);
+	controlcameratargetlayer.property("ADBE Transform Group").property("ADBE Rotate Z").setValue(0);
+	controlcameratargetlayer.selected = false;
+	cameratargetlayer.setParentWithJump(controlcameratargetlayer); 
 
 
 
