@@ -16,14 +16,6 @@ var group1 = uiWindow.add("group", undefined, {name: "group1"});
     group1.spacing = 5; 
     group1.margins = 0; 
 
-// GROUP2
-// ======
-var group2 = uiWindow.add("group", undefined, {name: "group1"}); 
-    group2.orientation = "row"; 
-    group2.alignChildren = ["left","center"]; 
-    group2.spacing = 5; 
-    group2.margins = 0; 
-
 // Ajout d"un champ de texte pour le nom du dossier
 var folderNameField = group1.add("edittext", [0, 0, 180, 25], "0000_Client_Type");
 //folderNameField.alignment = ["left", "top"];
