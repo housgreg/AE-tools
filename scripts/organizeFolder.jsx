@@ -1,13 +1,13 @@
 function organizeFolder() {
-    var items = [];
-    var aiFolder = findFolder("ai");
-    var imageFolder = findFolder("images");
-    var videoFolder = findFolder("videos");
-    var audioFolder = findFolder("audio");
-    var compsFolder = findFolder("comps");
-    var precompsFolder = findFolder("pre-comps");
+    var aiFolder = findFolder("ai") || createFolder("ai");
+    var imageFolder = findFolder("images") || createFolder("images");
+    var audioFolder = findFolder("audio") || createFolder("audio");
+    var videoFolder = findFolder("videos") || createFolder("videos");
+    var compsFolder = findFolder("comps") || createFolder("comps");
+    var precompsFolder = findFolder("pre-comps") || createFolder("pre-comps");
 
     // Store all items in the project array
+    var items = [];
     for (var i = 1; i <= app.project.numItems; i++) {
         items.push(app.project.item(i))
     }
@@ -52,6 +52,11 @@ function organizeFolder() {
             }
         }
         return null;
+    }
+
+    function createFolder(folderName){
+        var newFolder = app.project.items.addFolder(folderName);
+        return newFolder;
     }
 }
 
