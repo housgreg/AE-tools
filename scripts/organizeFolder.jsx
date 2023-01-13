@@ -1,4 +1,6 @@
 function organizeFolder() {
+    app.beginUndoGroup("Organize Project");
+    
     var aiFolder = findFolder("ai") || createFolder("ai");
     var imageFolder = findFolder("images") || createFolder("images");
     var audioFolder = findFolder("audio") || createFolder("audio");
@@ -80,6 +82,8 @@ function organizeFolder() {
         var newFolder = app.project.items.addFolder(folderName);
         return newFolder;
     }
+
+    app.endUndoGroup();
 }
 
 organizeFolder();
