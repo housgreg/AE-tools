@@ -47,7 +47,7 @@ var groupLigne2 = group0.add("group", undefined, {name: "groupLigne2"});
     groupLigne2.margins = 0; 
 
 // Ajout champ de texte pour le nom du dossier
-var folderNameField = groupLigne1.add("edittext", [0, 0, 160, 25], "0000_Client_Type");
+var folderNameClient = groupLigne1.add("edittext", [0, 0, 160, 25], "0000_Client_Type");
 
 // Image boutons
 var imgSettings_imgString = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%10%00%00%00%10%08%06%00%00%00%1F%C3%B3%C3%BFa%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%05%C3%A0iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.171c27fab%2C%202022%2F08%2F16-22%3A35%3A41%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Aa5c64ca2-a541-4da7-94d8-0100b52f9b05%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A0B79FB2FC55511EC95FECB1D6097022E%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2022.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222022-05-06T16%3A05%3A33%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3Ace269a7f-025c-4fd0-97ed-26d81591ac86%22%20stRef%3AdocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A63bc48f0-a9f9-b742-86ce-db79c04da5f5%22%2F%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20stEvt%3Awhen%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C2%88%09s4%00%00%018IDAT8%C2%8D%C2%8D%C2%93%C2%BBJCA%14EW%12%C2%8D%C2%92B%C3%A2%C2%A3%10%C3%93(%C2%88X%C2%99%C3%82B%7C%C2%80%20%C2%88%C2%B5%C3%B8%0D%C2%A2%C3%81%7FH'%04%C3%BC%07-%C2%AC%14k%0B%11%C3%BC%07%C2%B1%09%C2%BE%3A%C2%AD%C2%B4H%13T%C3%8C%C2%B20W%C3%87%C3%89%C2%BD%C3%A0%C2%86%0B%C3%83%C2%99%C3%8D%C3%99k%C3%A6%C3%8CE%25%C3%A3k%C3%BA%C2%ABJ%C2%96%2F%C3%8F%C2%B7r%40%038%00%26%C2%80-%60%C2%92_m%03%C3%A3%40%0D8%06%C3%8A%3F%3B%C3%9DN%C2%8D%20%C3%AD%C3%95t%C2%BD%04%C3%ABKu%20%24%C3%A8%0B%C3%92%C2%86I%C3%97H%C2%B0%C3%AE%07%0C%09%C3%8AQB%C2%A2N%06%C3%8Djx%07%05%60%0D%18%0A%12Z%C3%80%1EP%056%C2%81%C3%9B%C2%88f%1D(%25%04%C3%97%C3%AA%7B%C2%94%C2%B0%1B%C3%9D%C3%B6%C2%BC%C3%9A%C2%8E%3C%C3%B7%C3%AA%0E%19%C3%98%C3%93%C3%B6%C2%8E%C3%AC.%C3%85%7B%C2%96%07%C3%9A%11%5E%0E%C2%98%C2%8Dj%15%60%2C%C2%AAu%C2%80%26%C3%9D%C2%B4z%C3%94%C2%B9%C2%A9.%C2%A8%C2%83%C3%AA%C2%94z%1E%C3%AD%C2%9F%C2%A8U%C2%B5%C2%98%C3%A0%C2%95%C3%AC%C2%9D%C3%82%C2%87%C3%BA%C2%A0%C2%B6R%C3%90%17%C2%93%C2%A3%25%0Dj%C3%AAg%C2%8A1KGj%C3%81%C3%A0!%C2%AD%C3%80%C3%8F%C3%BA%3FZ%06%C2%8A%C3%A1C%1AU%2F%C3%94%2BuC%C3%9D%C2%8F%C2%88N%C3%95u%C3%B5P%C2%BDQ%C3%A7%C3%A2%23%C2%A0%C3%A6%C3%BD%3B%C2%B6%C3%A7%C2%A0%C3%81LP%1F%08%7D%C3%A1%3F%C3%90%C2%890%C3%AB%C3%80%12%C3%B0%04%3C%06%C3%B5%C2%B7%C3%90%C3%B4%05%C2%A1TH%C3%B44%C2%A3e%C3%BC%00%00%00%00IEND%C2%AEB%60%C2%82"; 
@@ -102,7 +102,7 @@ createButton.onClick = function() {
     }
 
     // Récupération du nom du dossier à partir du champ de texte
-    var folderName = folderNameField.text;
+    var folderName = folderNameClient.text;
     
     // Ouvre une fenêtre de dialogue "Enregistrer sous" pour sélectionner un dossier
     var saveFolder = Folder.selectDialog("Sélectionner le dossier de déstination");
@@ -342,7 +342,7 @@ btnSettingsWindow.onClick = function () {
 
     // PANEL3 Creer dans le system les dossiers 2
     var panel3 = panel1.add("panel", undefined, undefined, {name: "panel3"}); 
-        panel3.text = "Folder Export"; 
+        panel3.text = "Folder Exports"; 
         panel3.orientation = "column"; 
         panel3.alignChildren = ["left","top"]; 
         panel3.spacing = 5; 
