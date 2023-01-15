@@ -9,7 +9,7 @@ var defaults = [];
 var defaultFile = File(targetFolder.fullName + "/" + "Settings_StructureFolder.txt");
     if(!defaultFile.exists) {
         defaultFile.open("w");
-        defaultFile.write("src\rassets\rimages\rvideo\rai\raudio\rexport\relements\r1920\r1080\r120\rassets\rimages\rvideo\rai\raudio\rcompos\rpre-comps");
+        defaultFile.write("src\rassets\rimages\rvideos\rai\raudios\rexports\relements\r1920\r1080\r120\rassets\rimages\rvideos\rai\raudios\rcomps\rpre-comps");
         defaultFile.close();
     } else {
         defaultFile.open("r");
@@ -263,7 +263,6 @@ btnSettingsWindow.onClick = function () {
         }
     
     try {
-    ////// creer un fichier texte settings ////////
 
     // SETTINGSWINDOW
     var settingsWindow = new Window("dialog"); 
@@ -282,7 +281,7 @@ btnSettingsWindow.onClick = function () {
 
     // PANEL1
     var panel1 = group1.add("panel", undefined, undefined, {name: "panel1"}); 
-        panel1.text = "System Folder"; 
+        panel1.text = "System"; 
         panel1.orientation = "column"; 
         panel1.alignChildren = ["left","top"]; 
         panel1.spacing = 10; 
@@ -290,14 +289,14 @@ btnSettingsWindow.onClick = function () {
 
     // PANEL2 Creer dans le system les dossiers 1
     var panel2 = panel1.add("panel", undefined, undefined, {name: "panel2"}); 
-        panel2.text = "Folder 1"; 
+        panel2.text = "Folder Ae"; 
         panel2.orientation = "column"; 
         panel2.alignChildren = ["left","top"]; 
         panel2.spacing = 10; 
         panel2.margins = 10; 
 
     var edittextSrc = panel2.add('edittext {properties: {name: "edittextSrc"}}'); 
-        edittextSrc.helpTip = "Master Folder"; 
+        edittextSrc.helpTip = "Source Folder"; 
         edittextSrc.text = defaults[0]; 
         edittextSrc.preferredSize.width = 190; 
 
@@ -310,6 +309,7 @@ btnSettingsWindow.onClick = function () {
 
     var caseAssetsDossier = group2.add('edittext {properties: {name: "caseAssetsDossier"}}'); 
         caseAssetsDossier.text = defaults[1]; 
+        caseAssetsDossier.helpTip = "Assets Folder"; 
         caseAssetsDossier.preferredSize.width = 50; 
         caseAssetsDossier.alignment = ["left","top"]; 
 
@@ -322,22 +322,22 @@ btnSettingsWindow.onClick = function () {
 
     var caseImageDossier = group3.add('edittext {properties: {name: "caseImageDossier"}}'); 
         caseImageDossier.text = defaults[2]; 
-        caseImageDossier.helpTip = "jpg, png, psd, gif, pdf";
+        caseImageDossier.helpTip = "Images: jpg, png, psd, pdf, heif, tif, tga, hdr";
         caseImageDossier.preferredSize.width = 140; 
 
     var caseVideoDossier = group3.add('edittext {properties: {name: "caseVideoDossier"}}'); 
         caseVideoDossier.text = defaults[3]; 
-        caseVideoDossier.helpTip = "mp4, mov, avi, wmv";
+        caseVideoDossier.helpTip = "Videos: mp4, mov, m4v, gif, mpg, 3gp, avi, wmv";
         caseVideoDossier.preferredSize.width = 140; 
 
     var caseAiDossier = group3.add('edittext {properties: {name: "caseAiDossier"}}'); 
         caseAiDossier.text = defaults[4]; 
-        caseAiDossier.helpTip = "ai"; 
+        caseAiDossier.helpTip = "Illustrator: ai"; 
         caseAiDossier.preferredSize.width = 140; 
 
         var caseAudioDossier = group3.add('edittext {properties: {name: "caseAudioDossier"}}'); 
         caseAudioDossier.text = defaults[5]; 
-        caseAudioDossier.helpTip = "mp3, wav";
+        caseAudioDossier.helpTip = "Audios: mp3, wav, aac, aif, m4a";
         caseAudioDossier.preferredSize.width = 140;     
 
     // PANEL3 Creer dans le system les dossiers 2
@@ -454,22 +454,22 @@ btnSettingsWindow.onClick = function () {
 
     var caseImagesAe = group8.add('edittext {properties: {name: "caseImagesAe"}}'); 
         caseImagesAe.text = defaults[12]; 
-        caseImagesAe.helpTip = "jpg, png, psd, pdf, gif"; 
+        caseImagesAe.helpTip = "Images: jpg, png, psd, pdf, heif, tif, tga, hdr"; 
         caseImagesAe.preferredSize.width = 140; 
 
     var caseVideoAe = group8.add('edittext {properties: {name: "caseVideoAe"}}'); 
         caseVideoAe.text = defaults[13]; 
-        caseVideoAe.helpTip = "mp4, mov, avi, wmv"; 
+        caseVideoAe.helpTip = "Videos: mp4, mov, m4v, gif, mpg, 3gp, avi, wmv"; 
         caseVideoAe.preferredSize.width = 140; 
 
     var caseAiAe = group8.add('edittext {properties: {name: "caseAiAe"}}'); 
         caseAiAe.text = defaults[14]; 
-        caseAiAe.helpTip = "ai Illustrator"; 
+        caseAiAe.helpTip = "Illustrator: ai"; 
         caseAiAe.enabled = true; 
         caseAiAe.preferredSize.width = 140; 
 
         var caseAudioAe = group8.add('edittext {properties: {name: "caseAudioAe"}}'); 
-        caseAudioAe.helpTip = "mp3, wav"; 
+        caseAudioAe.helpTip = "Audios: mp3, wav, aac, aif, m4a"; 
         caseAudioAe.text = defaults[15]; 
         caseAudioAe.preferredSize.width = 140; 
 
@@ -516,7 +516,7 @@ btnSettingsWindow.onClick = function () {
     ///////// Btn Reset et Save /////////
     resetButton.onClick = function() {
         defaultFile.open("w");
-        defaultFile.write("src\rassets\rimages\rvideo\rai\raudio\rexport\relements\r1920\r1080\r120\rassets\rimages\rvideo\rai\raudio\rcompos\rpre-comps");
+        defaultFile.write("src\rassets\rimages\rvideos\rai\raudios\rexports\relements\r1920\r1080\r120\rassets\rimages\rvideos\rai\raudios\rcomps\rpre-comps");
         defaultFile.open();
         settingsWindow.close();
     }
@@ -584,7 +584,7 @@ btnOrganizeProject.onClick = function () {
                     var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
                     if (extension == "ai") {
                         hasAi = true;
-                    } else if (extension == "jpg" || extension == "png" || extension == "psd") {
+                    } else if (extension == "psd") {
                         hasImages = true;
                     }
                 }
@@ -603,13 +603,13 @@ btnOrganizeProject.onClick = function () {
         if (item instanceof FootageItem && item.file) {
             var file = new File(item.file.fsName);
             var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
-            if (extension == "ai") {
+            if (extension == "ai" || extension == "eps") {
                 item.parentFolder = aiFolder;
-            } else if (extension == "jpg" || extension == "png" || extension == "psd") {
+            } else if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "psd" || extension == "heif" || extension == "pdf" || extension == "tif" || extension == "tga" || extension == "hdr") {
                 item.parentFolder = imageFolder;
-            } else if (extension == "mp3" || extension == "wav") {
+            } else if (extension == "mp3" || extension == "wav" || extension == "aac" || extension == "aif" ||  extension == "aiff" || extension == "m4a") {
                 item.parentFolder = audioFolder;
-            } else if (extension == "mp4" || extension == "mov" || extension == "avi") {
+            } else if (extension == "mp4" || extension == "mov" || extension == "m4v" || extension == "mpg" || extension == "gif" || extension == "mxf" || extension == "3gp" || extension == "avi" || extension == "wmv") {
             item.parentFolder = videoFolder;
             }
         }
