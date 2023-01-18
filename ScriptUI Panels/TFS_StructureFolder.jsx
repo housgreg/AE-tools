@@ -664,13 +664,14 @@ btnRenderExport.onClick = function () {
         var pathexport = "../" + defaults[6];  //"~/Desktop"
         var path = app.project.file.path+"/"+pathexport;
         if(!BridgeTalk.isRunning("ame")) {
-            BridgeTalk.launch("ame", "background");
+            BridgeTalk.launch("ame"); //pour lancer AME en arriere plan ("ame", "background")
             //alert("Ouverture de Media Encoder");
             }
             var rqItem = app.project.renderQueue.items.add(comp);
             var module = rqItem.outputModule(1);
-            module.file = File(path+"/"+comp.name);
+            module.file = File(path+"/"+comp.name.replace(".", "-"));
             app.project.renderQueue.queueInAME(true); 
+            //module.file.parent.execute();
         }
     ameRender(app.project.activeItem);
     //system.callSystem("open " + app.project.file.path + "/" + "../" + defaults[6]);
