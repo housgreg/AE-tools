@@ -1,660 +1,1473 @@
 //// My Folder Structure for AfterEffects /////
-//// Version Beta 0.7.2 - By Greg /////
-
-////// creer un fichier texte settings ////////
-var targetFolder = new Folder(Folder.userData.fullName +"/"+ "Aescripts"+"/"+"MyFolderStructure");
-!targetFolder.exists && targetFolder.create();
-
-var defaults = [];
-var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
-    if(!defaultFile.exists) {
-        defaultFile.open("w");
-        defaultFile.write("src\rassets\rimages\rvideos\rai\raudios/_preview\rexports\relements\r1920\r1080\r120\rassets\rimages\rvideos\rai\raudios\rcomps\rpre-comps");
-        defaultFile.close();
-    } else {
-        defaultFile.open("r");
-        while(!defaultFile.eof) {
-            defaults.push(defaultFile.readln().toString());
-        }
-}
-////// creer un fichier texte settings ////////
-
-
+//// Version Beta 0.7.6 - By Greg /////
+  
 var panelGlobal = this;
 
-var uiWindow = (panelGlobal instanceof Panel) ? panelGlobal : new Window("palette", undefined, undefined, {resizeable: true}); 
-if ( !(panelGlobal instanceof Panel) ) uiWindow.text = "MyFolderStructure";
+    // PanelFolderStructure
+    var PanelFolderStructure = (panelGlobal instanceof Panel) ? panelGlobal : new Window("palette"); 
+        if ( !(panelGlobal instanceof Panel) ) PanelFolderStructure.text = "Folder Structure"; 
+        PanelFolderStructure.orientation = "column"; 
+        PanelFolderStructure.alignChildren = ["center","top"]; 
+        PanelFolderStructure.spacing = 0; 
+        PanelFolderStructure.margins = 10; 
 
-// GROUP1
-var group0 = uiWindow.add("group", undefined, {name: "group1"}); 
-    group0.orientation = "column"; 
-    group0.alignChildren = ["left","center"]; 
-    group0.spacing = 5; 
-    group0.margins = 0; 
-
-// GROUPLIGNE1
-var groupLigne1 = group0.add("group", undefined, {name: "groupLigne1"}); 
-    groupLigne1.orientation = "row"; 
-    groupLigne1.alignChildren = ["left","center"]; 
-    groupLigne1.spacing = 0; 
-    groupLigne1.margins = 0; 
-
-// GROUPLIGNE2
-var groupLigne2 = group0.add("group", undefined, {name: "groupLigne2"}); 
-    groupLigne2.orientation = "row"; 
-    groupLigne2.alignChildren = ["left","center"]; 
-    groupLigne2.spacing = 0; 
-    groupLigne2.margins = 0; 
-
-// Ajout champ de texte pour le nom du dossier
-//var folderNameClient = groupLigne1.add("edittext", [0, 0, 160, 25], "0000_Client_Type");
-
-
-// Image boutons
-var imgSettings = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%10%00%00%00%10%08%06%00%00%00%1F%C3%B3%C3%BFa%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%05%C3%A0iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.171c27fab%2C%202022%2F08%2F16-22%3A35%3A41%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Aa5c64ca2-a541-4da7-94d8-0100b52f9b05%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A0B79FB2FC55511EC95FECB1D6097022E%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2022.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222022-05-06T16%3A05%3A33%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3Ace269a7f-025c-4fd0-97ed-26d81591ac86%22%20stRef%3AdocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A63bc48f0-a9f9-b742-86ce-db79c04da5f5%22%2F%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20stEvt%3Awhen%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C2%88%09s4%00%00%018IDAT8%C2%8D%C2%8D%C2%93%C2%BBJCA%14EW%12%C2%8D%C2%92B%C3%A2%C2%A3%10%C3%93(%C2%88X%C2%99%C3%82B%7C%C2%80%20%C2%88%C2%B5%C3%B8%0D%C2%A2%C3%81%7FH'%04%C3%BC%07-%C2%AC%14k%0B%11%C3%BC%07%C2%B1%09%C2%BE%3A%C2%AD%C2%B4H%13T%C3%8C%C2%B20W%C3%87%C3%89%C2%BD%C3%A0%C2%86%0B%C3%83%C2%99%C3%8D%C3%99k%C3%A6%C3%8CE%25%C3%A3k%C3%BA%C2%ABJ%C2%96%2F%C3%8F%C2%B7r%40%038%00%26%C2%80-%60%C2%92_m%03%C3%A3%40%0D8%06%C3%8A%3F%3B%C3%9DN%C2%8D%20%C3%AD%C3%95t%C2%BD%04%C3%ABKu%20%24%C3%A8%0B%C3%92%C2%86I%C3%97H%C2%B0%C3%AE%07%0C%09%C3%8AQB%C2%A2N%06%C3%8Djx%07%05%60%0D%18%0A%12Z%C3%80%1EP%056%C2%81%C3%9B%C2%88f%1D(%25%04%C3%97%C3%AA%7B%C2%94%C2%B0%1B%C3%9D%C3%B6%C2%BC%C3%9A%C2%8E%3C%C3%B7%C3%AA%0E%19%C3%98%C3%93%C3%B6%C2%8E%C3%AC.%C3%85%7B%C2%96%07%C3%9A%11%5E%0E%C2%98%C2%8Dj%15%60%2C%C2%AAu%C2%80%26%C3%9D%C2%B4z%C3%94%C2%B9%C2%A9.%C2%A8%C2%83%C3%AA%C2%94z%1E%C3%AD%C2%9F%C2%A8U%C2%B5%C2%98%C3%A0%C2%95%C3%AC%C2%9D%C3%82%C2%87%C3%BA%C2%A0%C2%B6R%C3%90%17%C2%93%C2%A3%25%0Dj%C3%AAg%C2%8A1KGj%C3%81%C3%A0!%C2%AD%C3%80%C3%8F%C3%BA%3FZ%06%C2%8A%C3%A1C%1AU%2F%C3%94%2BuC%C3%9D%C2%8F%C2%88N%C3%95u%C3%B5P%C2%BDQ%C3%A7%C3%A2%23%C2%A0%C3%A6%C3%BD%3B%C2%B6%C3%A7%C2%A0%C3%81LP%1F%08%7D%C3%A1%3F%C3%90%C2%890%C3%AB%C3%80%12%C3%B0%04%3C%06%C3%B5%C2%B7%C3%90%C3%B4%05%C2%A1TH%C3%B44%C2%A3e%C3%BC%00%00%00%00IEND%C2%AEB%60%C2%82"; 
-var imgCreate = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%13%00%00%00%10%08%06%00%00%00%C3%B4%C3%84Db%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%06%C2%AFiTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.171c27fab%2C%202022%2F08%2F16-22%3A35%3A41%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Aa5c64ca2-a541-4da7-94d8-0100b52f9b05%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A0B79FB2FC55511EC95FECB1D6097022E%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A40310657-e9ef-4d33-930b-1871b3f21d00%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2022.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222022-05-06T16%3A05%3A33%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-01-14T13%3A08%3A47%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-01-14T13%3A08%3A47%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3Ace269a7f-025c-4fd0-97ed-26d81591ac86%22%20stRef%3AdocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A63bc48f0-a9f9-b742-86ce-db79c04da5f5%22%2F%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20stEvt%3Awhen%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A40310657-e9ef-4d33-930b-1871b3f21d00%22%20stEvt%3Awhen%3D%222023-01-14T13%3A08%3A47%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C3%96%C2%B9h%C2%BE%00%00%01%13IDAT8%C2%8D%C2%95%C2%93%C2%B1JCA%10EODH%23H%C2%B0%13%C2%AC%C3%AC%C3%BC%C2%82%C2%94%16vib%C3%A5%07%08%C2%82%C3%9D%C2%83%20%C2%A4%14%C3%B2%03)%C3%93%C3%9B%C3%B9%01~D%C2%AAT!)%14%0B%13%C2%B0I%1E%24%C2%82B%C2%92k%C2%91Y%7DYv%C2%93%C3%8D%C2%85eg%C3%9F%C3%9C%19%C3%AE%C3%9Ey%C2%8B%24%22%C2%AB.i%C2%A24%C3%8C%24%C3%9D%C2%95%24%11%C3%81%2B%C3%B0%09%3C%C3%87%08%05%C3%94%C2%80%C3%AA%C3%A1%16%C3%82%09%C3%B0%04%C2%B4%13%C2%9A%01%5C%1Dx%1F%C2%AEMQ%0E%1C%03M%C2%8BC%C2%AB%0F%5CnT%7B%3E%C2%A5z%C3%A4%C3%90%C2%B7%C2%BAL%C2%92%7Ce%C2%95%C2%80%C3%BC%1F%C2%A0%03%C2%84%C3%8C%3D-%1E%C3%BCf!%0C%C2%80%7B%C3%A0c%171%C2%A5%C2%99%C3%83j%17!6%C3%8D%050%C2%B2xl%C2%BBSV%02%C3%8El%C3%9F%C2%847%00%C2%87%C3%87-%3F3%C2%92%3A%C3%86%C3%8B%C2%8B%03%C2%88)%7B%00%C3%AA%16%0F%C2%81%1B%C3%A0%C2%85%7F%C3%83%2F%C2%82U%11eE%C3%B4%2C%C3%B7%1E%C3%88%7D%C3%9B-%C2%BA%C2%92%26%C3%BB%0C%20%C2%842%C2%90%C2%B1~-%C2%B7)%C3%8A%C2%BE%24%C2%B5%24-%039%C3%A7%19%C2%92%C3%B0%1F%C3%BA%0C8%C3%9AC%C3%99%1Bp%C3%AE%0E%C3%BE5%1B%C3%80%3C%C2%B1%C3%91%C3%94%C3%B8%7F%C3%B8%05%C3%A2%C3%88%7C%C2%89%C2%A2%C2%88xD%00%00%00%00IEND%C2%AEB%60%C2%82"; 
-var imgOrganize = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%1A%00%00%00%11%08%06%00%00%00%C3%83%C2%8D%C2%BC%0D%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%06%C3%81iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.171c27fab%2C%202022%2F08%2F16-22%3A35%3A41%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Aa5c64ca2-a541-4da7-94d8-0100b52f9b05%22%20xmpMM%3ADocumentID%3D%22adobe%3Adocid%3Aphotoshop%3Aff63111d-6d28-f94a-8b3b-5ae1a201c080%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A15971f87-4bdf-4392-9336-2d0bb0996d93%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2022.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222022-05-06T16%3A05%3A33%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-01-14T14%3A12%3A03%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-01-14T14%3A12%3A03%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3Ace269a7f-025c-4fd0-97ed-26d81591ac86%22%20stRef%3AdocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A63bc48f0-a9f9-b742-86ce-db79c04da5f5%22%2F%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20stEvt%3Awhen%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A15971f87-4bdf-4392-9336-2d0bb0996d93%22%20stEvt%3Awhen%3D%222023-01-14T14%3A12%3A03%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3EV%3B%C2%9F%C3%BF%00%00%01%04IDAT8%C2%8D%C3%AD%C3%95%C2%BDJ%03A%14%05%C3%A0%2Fb%C2%A9%C2%9D%C2%AD%C3%81%3C%40%10%5BI%11Q%C2%B1%C3%B2%05%C3%84J%1B%7B%7B%25y%01%1B%5B%C3%B5%0D%2C%7C%01%05%25%C2%AD%C2%85%C2%8D%C2%85%10%C2%89%C2%A5%60%C2%93%07X%C2%8B%C2%9D%C3%85a%C3%98%C2%815%C2%A0U%0E%5Cv%C3%AE%C2%B9%C3%839s%C3%B7%C3%A7n%C2%AB%C3%B7ZHp%C2%8F~%C2%94O%C2%B1%C2%837%3C%C2%A3%1D%C3%95%26%C3%98%C3%80W*%C2%92b%C2%A1%C2%86%C3%AB'%C3%B926%C3%91ML%C2%84%C2%BC%C2%8Bu%7C%C2%A2%C2%88%C3%A2.%C3%9E%C2%B8%C2%989%C3%805%1EC%C3%BD2p%C2%ADp%3D%C3%83%07V1%0C%C3%BC%16V%12%C2%8D%C3%BD%26FG!%C3%AA0%C3%8C%C3%B0%C3%AF%C2%A1V%C3%A0%10%C3%9BM%C2%8C%C3%AA%3A%C2%AAp%C2%AE%7C6m%0C%22~%0D%17a%C2%BD%C2%94%0A%C3%8E%C3%92%C3%91%20%C3%83%C2%8Fq%C2%AA%C3%AC%C3%A8%04%7BM%C2%8CfA%07%C2%B7%C2%B9b%C3%9D%5B%C3%B7'%C2%98%1B%C3%8D%C2%8D%C3%BE%C3%9F(%C3%B7%1D%5D%C3%A1%C3%89%C3%AF%26%C3%83%C3%98%C3%8Fx%3A%C3%80n%13%C2%A3%C3%A3%101%C2%AA%C3%BFI%3A%19*%C2%BE%C2%83%C2%9B%C2%8C%5E%C3%AD%C2%AD%7BH%C3%B2)FxQv%12c%12%C3%B8Q%C3%98%C2%97%C3%95%C3%B9%06S%C2%AC3.%C2%83j%C2%BF%C2%B7%00%00%00%00IEND%C2%AEB%60%C2%82"; 
-var imgExport = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%1C%00%00%00%10%08%06%00%00%00%05%C3%8F%1F%C3%AF%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%06%C3%81iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.171c27fab%2C%202022%2F08%2F16-22%3A35%3A41%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Aa5c64ca2-a541-4da7-94d8-0100b52f9b05%22%20xmpMM%3ADocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A6aecad24-830f-474a-8b15-bae1a7da679d%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3Acc2ccd40-bf8b-42cd-8f05-9bae89548700%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2022.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222022-05-06T16%3A05%3A33%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-01-14T14%3A11%3A31%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-01-14T14%3A11%3A31%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3Ace269a7f-025c-4fd0-97ed-26d81591ac86%22%20stRef%3AdocumentID%3D%22adobe%3Adocid%3Aphotoshop%3A63bc48f0-a9f9-b742-86ce-db79c04da5f5%22%2F%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A6dca8639-e01a-4ac6-b121-97b60d7351dc%22%20stEvt%3Awhen%3D%222023-01-11T19%3A09%3A35%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22saved%22%20stEvt%3AinstanceID%3D%22xmp.iid%3Acc2ccd40-bf8b-42cd-8f05-9bae89548700%22%20stEvt%3Awhen%3D%222023-01-14T14%3A11%3A31%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20stEvt%3Achanged%3D%22%2F%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C3%A6%01%C2%B3%C3%9A%00%00%00%C3%BDIDAT8%C2%8D%C3%8D%C3%94%C2%BF.DA%14%C3%87%C3%B1%C3%8F%C2%95%25!%12%C3%9BJ4%2B%12%C2%8D(D%C2%A3%C2%90%C3%A8%C2%BD%01%0F%C2%A0%C2%92%C2%88M%C2%88R%3C%C2%80R%C2%A9%C3%B4%18%1EB!%1A%C2%95B%C2%89%25(%C3%BC)vd%C3%87uB%C3%B6%C2%B27~%C3%89%C3%A4%C3%A4%C3%8C7s~%C2%999%C2%93S%C2%9C%C2%B6%C3%9Fd%C3%BA%C2%94%C3%BC%C2%B1%0A%18%0A%C3%80%01Z%C2%A5%C2%B5%C2%91%C3%98y%C3%80Z%C3%A8%24%C2%BE%1A%C2%B0%C3%A3%C2%BCx%230%7C%C3%84Mi%C3%AF!%C3%85%C2%97%C2%80%C3%91%7B%C2%99N%C3%80%C2%9F%C3%B3%C2%A4%C3%B8%0FO%C3%BA%C2%93%C2%AE~%C3%A3Z%C3%85p%13k%C2%B8%C2%AE%C3%8B%10N0%C2%8BC%C3%9D%C2%BE%0E%C3%9C%10%C3%AE%C2%B0%C2%8D%05%5C%C3%96a%08%C2%93%C3%98%C3%85%C3%B4%C2%A0%0D%1B%C3%98%C3%82%C2%85n%3F%C3%BB%3A%C3%98%C2%AF%C2%96%C2%B0%C2%8F%C3%B9%0Ag%2B%19%C3%AET1%C3%BA%C3%8E%C3%B0Ii%3A%60%18cx%C3%95%1Bc%C2%B9%26R%C2%BC%C3%B7%C3%B5%C3%97%C2%8Eb%C3%A4%23%C2%89z%C2%B8%C2%87fi%C2%AD'v%16%C2%B0%26n%13_%0E%C3%98Q%5E%3C%C2%BA%C3%A1%0CVJ%7Bs)%C2%8E%07%2C%C2%AF%C2%B3%C2%98LrM%C3%A5I%C3%AD%C2%B3%C3%B4%1D%03%C2%8D.%3E6pu%C2%A9%00%00%00%00IEND%C2%AEB%60%C2%82"; 
-
-
-var createButton = groupLigne2.add("iconbutton", undefined, File.decode(imgCreate), {name: "btnCreate", style: "toolbutton"});
-    createButton.text = "Create structure"; 
-    createButton.helpTip = "Create Folders & Ae";
-    createButton.preferredSize.width = 120; 
-
-var btnSettingsWindow = groupLigne2.add("iconbutton", undefined, File.decode(imgSettings), {name: "imgSettings", style: "toolbutton"});
-    btnSettingsWindow.helpTip = "Settings";
-    btnSettingsWindow.preferredSize.width = 40; 
-
-var divider0 = groupLigne2.add("panel", undefined, undefined, {name: "divider0"}); 
-    divider0.alignment = "fill"; 
-
-var btnOrganizeProject = groupLigne2.add("iconbutton", undefined, File.decode(imgOrganize), {name: "imgOrganize", style: "toolbutton"});
-    btnOrganizeProject.helpTip = "Organizer Project"; 
-    btnOrganizeProject.text = ""; 
-    //btnOrganizeProject.preferredSize.width = 50; 
-
-var btnRenderExport = groupLigne2.add("iconbutton", undefined, File.decode(imgExport), {name: "imgExport", style: "toolbutton"});
-    btnRenderExport.helpTip = "Export Media Encoder";
-    btnRenderExport.text = ""; 
-    //btnRenderExport.preferredSize.width = 50; 
-
-
-uiWindow.layout.layout(true);
-uiWindow.layout.resize();
-uiWindow.onResizing = uiWindow.onResize = function () { this.layout.resize(); }
-
-
-
-///////////// Creer dossiers et fichier //////////////
-createButton.onClick = function() {
-    try {
-
-    var targetFolder = new Folder(Folder.userData.fullName +"/"+ "Aescripts"+"/"+"MyFolderStructure");
+    ////// creer un fichier texte settings ////////
+    var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
     !targetFolder.exists && targetFolder.create();
+  
     var defaults = [];
     var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
-    if(!defaultFile.exists) {
-        defaultFile.open("w");
-        defaultFile.close();
-    } else {
-        defaultFile.open("r");
-        while(!defaultFile.eof) {
-            defaults.push(defaultFile.readln().toString());
-        }
-    }
-
-    // Récupération du nom du dossier à partir du champ de texte
-    var folderNameClient = prompt("Entrer le nom de dossier", "0000_Client_Type");
-    var folderName = folderNameClient; //ancienne methode folderNameClient.text
-    
-    if (folderNameClient == null) {
-        return;
-    } else {
-    // Ouvre une fenêtre de dialogue "Enregistrer sous" pour sélectionner un dossier
-    var saveFolder = Folder.selectDialog("Selectionner le dossier de destination");
-    
-    // Si l"utilisateur a sélectionné un dossier, crée le dossier et enregistre le fichier After Effects
-    if (saveFolder) {
-        // Création du chemin d"accès au dossier et creation du dossier
-         var folderPath = saveFolder.fsName + "/" + folderName;
-         var folder = new Folder(folderPath);
-         folder.create();
-        }
-
-
-
-    /////////// Structure dossiers //////////
-    var foldersrc = defaults[0];
-    var Dossier1 = [foldersrc, defaults[1]];
-    var Dossier1b = [foldersrc, defaults[1], defaults[2]];
-    var Dossier1c = [foldersrc, defaults[1], defaults[3]];
-    var Dossier1d = [foldersrc, defaults[1], defaults[4]];
-    var Dossier1e = [foldersrc, defaults[1], defaults[5]];
-    var Dossier2 = [defaults[6]];
-    var Dossier3 = [defaults[7]];
-
-    /////////
-    var baseFolder1 = folderPath;
-    var baseFolder1b = folderPath;
-    var baseFolder1c = folderPath;
-    var baseFolder1d = folderPath;
-    var baseFolder1e = folderPath;
-    var baseFolder2 = folderPath;
-    var baseFolder3 = folderPath;
-
-    // Boucle sur la liste des noms de dossiers
-    for (var i = 0; i < Dossier1.length; i++) {
-        var folderName1 = Dossier1[i];
-        var folderPath1 = baseFolder1.toString() + "/" + folderName1;  // Chemin d"accès du dossier à créer
-        var folder1 = new Folder(folderPath1); 
-        folder1.create();
-        baseFolder1 = folder1;  // Met à jour le dossier courant pour la prochaine itération de la boucle
-    }
-    for (var i = 0; i < Dossier1b.length; i++) {
-        var folderName1b = Dossier1b[i];
-        var folderPath1b = baseFolder1b.toString() + "/" + folderName1b;
-        var folder1b = new Folder(folderPath1b); 
-        folder1b.create();
-        baseFolder1b = folder1b;
-        }
-    for (var i = 0; i < Dossier1c.length; i++) {
-        var folderName1c = Dossier1c[i];
-        var folderPath1c = baseFolder1c.toString() + "/" + folderName1c;
-        var folder1c = new Folder(folderPath1c); 
-        folder1c.create();
-        baseFolder1c = folder1c; 
-    }
-    for (var i = 0; i < Dossier1d.length; i++) {
-        var folderName1d = Dossier1d[i];
-        var folderPath1d = baseFolder1d.toString() + "/" + folderName1d;
-        var folder1d = new Folder(folderPath1d); 
-        folder1d.create();
-        baseFolder1d = folder1d;
-        }
-    for (var i = 0; i < Dossier1e.length; i++) {
-        var folderName1e = Dossier1e[i];
-        var folderPath1e = baseFolder1e.toString() + "/" + folderName1e;
-        var folder1e = new Folder(folderPath1e); 
-        folder1e.create();
-        baseFolder1e = folder1e;
-        }
-
-    for (var i = 0; i < Dossier2.length; i++) {
-        var folderName2 = Dossier2[i];
-        var folderPath2 = baseFolder2.toString() + "/" + folderName2; 
-        var folder2 = new Folder(folderPath2); 
-        folder2.create();
-        baseFolder2 = folder2;
-        }
-
-    for (var i = 0; i < Dossier3.length; i++) {
-        var folderName3 = Dossier3[i];
-        var folderPath3 = baseFolder3.toString() + "/" + folderName3; 
-        var folder3 = new Folder(folderPath3); 
-        folder3.create();
-        baseFolder3 = folder3;
-        }
-
-    /////////// Structure dossiers //////////
-
-        
-    /////////// After Effects //////////
-
-    // Enregistrement du fichier After Effects dans le dossier
-    app.newProject(); //pour eviter de perdre un fichier deja ouvert
-    app.project.save(new File (folderPath + "/" + foldersrc + "/" + folderName + ".aep"));
-
-    //Creer et Renomer la compo principale et mettre une couleur verte
-    var compW = parseInt(defaults[8]);
-    var compH = parseInt(defaults[9]);
-    var projName = app.project.file.name.replace(/.aep/gi,"_1.0");
-    var masterComp = app.project.items.addComp(projName, compW, compH, 1, defaults[10], 25);
-    masterComp.label = 9; //couleur du calque
-    masterComp.name = masterComp.name.replace(/%20/g, " ").trim(); //pour avoir des espaces dans le nom de la composition
-
-    //Creation des dossiers Ae
-    var folderAssets = app.project.items.addFolder(defaults[11]);
-    folderAssets.items.addFolder (defaults[12]);
-    folderAssets.items.addFolder (defaults[13]);
-    folderAssets.items.addFolder (defaults[14]);
-    folderAssets.items.addFolder (defaults[15]);
-    var folderComps = app.project.items.addFolder(defaults[16]);
-    folderComps.items.addFolder (defaults[17]);
-
-    //Supprime les dossiers Ae en double
-    var project = app.project;
-    var folders = [];
-    for (var i = 1; i <= project.numItems; i++) {
-        var item = project.item(i);
-        if (item instanceof FolderItem) {
-            folders.push(item);
-        }
-    }
-    var folderNames = {};
-    folders.forEach(function(folder) {
-        if (folderNames[folder.name]) {
-            folder.remove();
+        if(!defaultFile.exists) {
+            defaultFile.open("w");
+            defaultFile.write("src\rassets\rimages\rvideos\rai\raudios\rexports\relements\r1920\r1080\r120\rcomps\rpre-comps\re-mail de reception\rfalse\rfalse\rtrue");
+            defaultFile.close();
         } else {
-            folderNames[folder.name] = true;
-        }
-    });
-
-    //Ouvrir la compo principale (masterComp)
-    masterComp.openInViewer(); 
+            defaultFile.open("r");
+            while(!defaultFile.eof) {
+                defaults.push(defaultFile.readln().toString());
+            }
     }
-    /////////// After Effects //////////
+    ///////////////////////////////////////////////
+  
+  
+    // GROUP1
+    var group0 = PanelFolderStructure.add("group", undefined, {name: "group1"});
+        group0.orientation = "column"; //column
+        group0.alignChildren = ["left","center"];
+        group0.spacing = 0;
+        group0.margins = 0;
+  
+    // GROUPLIGNE1
+    var groupLigne1 = group0.add("group", undefined, {name: "groupLigne1"}); 
+        groupLigne1.orientation = "row"; 
+        groupLigne1.alignChildren = ["left","center"]; 
+        groupLigne1.spacing = 0;
+        groupLigne1.margins = 0;
+  
+    // GROUPLIGNE2
+    var groupLigne2 = group0.add("group", undefined, {name: "groupLigne2"});
+        groupLigne2.orientation = "row";
+        groupLigne2.alignChildren = ["left","center"];
+        groupLigne2.spacing = 0;
+        groupLigne2.margins = [0,0,0,5]; 
+  
+    var divider1 = group0.add("panel", undefined, undefined, {name: "divider1"}); 
+        divider1.alignment = "fill"; 
+  
+    // GROUPLIGNE3
+    var groupLigne3 = group0.add("group", undefined, {name: "groupLigne3"});
+        groupLigne3.orientation = "column";
+        groupLigne3.alignChildren = ["left","center"];
+        groupLigne3.spacing = 0;
+        groupLigne3.margins = [0,5,0,0]; 
+  
+ 
+    // Image boutons
+    var imgCreateStructure = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%C2%B2%00%00%00%1E%08%06%00%00%00%C2%88TD%C3%BD%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B4iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c000%2079.da4a7e5ef%2C%202022%2F11%2F22-13%3A50%3A07%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-03-19T12%3A22%3A41%2B01%3A00%22%20xmp%3AModifyDate%3D%222023-03-19T12%3A32%3A49%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-03-19T12%3A32%3A49%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A5fb86880-29ac-4c26-9214-3d7b44e810fe%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A5fb86880-29ac-4c26-9214-3d7b44e810fe%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3A5fb86880-29ac-4c26-9214-3d7b44e810fe%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A5fb86880-29ac-4c26-9214-3d7b44e810fe%22%20stEvt%3Awhen%3D%222023-03-19T12%3A22%3A41%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.1%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C2%86%C2%A4c%C3%8F%00%00%08%C2%95IDATx%C2%9C%C3%AD%C2%9CkL%C2%9B%C3%97%19%C3%87%7F%C2%BE%01%C3%86%18%C2%96%0B%1E%C2%A1%C2%AA%0B%12%19%C3%93%C2%80%C2%ADl%C3%94%C3%BBb%C2%B4%C2%90O%25q%C2%A3%7D1%C2%A1%C2%B0Ur%C2%92iI%C2%96PEJF%C2%9Cf%C2%91%1A%25!%11UP%C3%92%2C%C3%896%10%5B%26H%C2%8A%C3%B7%C2%A1K%20d%C3%93%14%C3%92aMk%C3%82D%26%C2%A0%1D%0D*%C3%94S%09u%C2%964%5C%C3%8C%C3%8D%17%C3%B6%C3%81%C2%BCom%C2%B0%C3%B1%C2%8544%C3%9B%C3%BB%C3%BB%C3%A4%C3%97%C3%A7%7D%C3%8Ey%0E%C3%BE%C2%9F%C3%BFy%C3%9Ecd%19%C3%B3%C3%A8%C2%8D%15%15%C3%80%C3%AB%40!%C2%A0BB%C3%A2%C2%AB%C2%8B%1B%C3%A8%06%C3%8E8%C3%AC%C3%8D%C3%8D%002%00%C2%BD%C2%B1%C3%A2%C2%97%C3%80%C3%AE%15LLB%22%5E%C3%8E%3B%C3%AC%C3%8D%3F%C2%93%C3%8D%3Bq%C3%93Jg%23!%C2%B1%0C*%C3%A5%C3%B8%C3%8B%09%09%C2%89g%C2%99%C3%97%C3%A5%C3%B8kb%09%C2%89g%C2%99B%251%3E%C3%98%7D%2F%C3%BF%1B%7C%C3%BB%C2%9B%C3%99%C3%88%C3%A5%C2%B2%C2%A8c%1E%C2%8F%C2%B9%C2%B8%C3%B1%C3%9E%1D%5CS%C3%93%C2%B1%26(!%11%0D*y%2Cw%C3%BF%C3%B4U%13G%C2%AA~%C2%84J%C2%A5%C2%8Ci%C2%94%C2%82%C3%9Cl%C3%9E%C3%BD%C3%95%C2%9B%C2%A4h%C3%941%C3%85IHDKL%C2%8A%C3%9Cf~%C2%99%C2%8D%C2%95%C3%BB%C3%A3r%C3%96%23%7B%7F%C3%8C%C2%A6%0D%06Z%C3%9A%C3%9E%C2%8B9VB%22%1219%C2%B2%C3%97%C3%AB%C2%8D%C2%BB%3C%C3%B8%C3%B4%C2%B3%07h%25G%C2%96%C3%B8%C2%92%C2%88I%C3%88%12%C3%913v%C2%BC%C2%9A%C2%87%C3%97%2F%C2%85m%7Fx%C3%BD%12c%C3%87%C2%AB%C2%9FbF%C3%BF%C3%9BD%2C-f_%C3%BA%0E%C2%AE%C2%AAm%C3%B8%C3%96%C2%AC%22%17%60%C2%89%0FG%C3%ACt%60%08%C3%AD%C3%B1%C2%B3%C3%88%3F%C3%BBO%C3%8C%09%C2%A5i5%1C%C3%9CY%C3%8E%C3%A6%C2%92%C3%AF%C2%93%C2%A6%C3%950%3A%C3%AE%C3%82%C2%B4%C3%A30%C2%8Eag%C3%8C%7D-D%C2%9F%C2%A9%C2%A3%C2%A9%C3%8EJ%C3%B1%C3%96%7D1%C3%85%C2%85%12d%C3%AA%1B%C2%A7Pu%C3%B7-%3B%C2%A7%C3%A52e61S%C2%BA%01o%C2%86%0E%C3%99%C2%84%0B%C2%B5%C2%AD%0D%C2%B5%C2%AD%C2%95)%C2%B3%C2%89)%C3%B3fV%C2%97%C3%ADz%C3%A2c%0A%0B0%C3%B5%C2%8DSO%C2%BC%C3%AFx%C2%89(dA%C3%84%C2%B1%C3%A0%C3%89%C3%89b%C2%B2%C3%A2%C2%87%C2%A4%C3%94%C3%95%C3%87%14%C2%97%C2%A6%C3%95%C3%90Z%7F%C2%8C%C3%91q%17%C3%96%C3%9A%06%1C%C3%83N%0Ar%C2%B3%19%1Dw%C3%85%C3%94O8%C3%B4%C2%99%3A%C3%B4%C2%99%C2%BA%C2%B8b%15%23N%12%C3%9Bo%C2%89%C3%97%C2%B2'%C2%94%C3%93r%C2%98.-a%C3%92R%C2%86%C2%AA%C2%BB%C2%8F%C3%84%C3%B6%5Bxr%C2%B2%C3%846%C3%B7%C2%8By%C3%8C%C2%A5h%C2%BE%C2%94q%C3%9D%C2%85y_%C2%89E%1CHD!%C2%87%15%C2%B1%C3%8F%C2%87%C3%A2%C3%9F%C3%B7%C3%B1%C2%BE%C3%B0%5C%C3%A8%C3%A6%C2%8C%C3%98%05Ss%60%C2%BB%C3%A8%C3%80%02%3D%C3%BD%C2%83%00%18%C2%8B%C3%B2i%C2%AA%C2%B3r%C2%A1%C3%A9%1A%C2%BB*_%C3%A1%C2%85%C3%A2J%C3%B4%C2%99%3A%C3%8E%1F%C2%AD%C2%A2%207%C2%9B%C2%9E%C3%BEAv%1F9%C2%8Bc%C3%98%C3%89%C3%81%C2%9D%C3%A5%C3%AC%C2%AA%7C%05%00km%03%C3%8DWo%C2%8An%0C%C3%B0Ig%13%C3%96%C3%9A%06%C3%9A%3A%C3%9E%C3%A7%C3%BC%C3%91*%C2%8CE%C3%B98%C2%86%C2%9DXk%1B%C2%B0w%C3%B5%C2%86%C3%8CM~%C3%BF%01j%5B%C3%AB%C2%A2%C3%B7%05%C3%A7%03Hj%C3%AF%20%C2%B9%C2%B1%25%C3%AC%C3%BCf%C2%8B%0DL%C2%99MA%C2%82%5B%C3%98%C2%8F%7C%C3%82E%C2%92%C2%AD%C2%8D%C2%A4%C3%B6%0E%C3%80%C2%BF%1B%24t%C3%9E%16E%19%C3%A8%C2%82%C3%9E%C3%B9~%C2%B45%C3%A7%C2%90M%7C%C2%B1%C2%B0%5C%7B-%C2%B8%0B%C3%B3%C3%84xm%C3%8D9%C2%A6_.aN%C2%ABAyo%C2%90%C2%99b%03%C2%AB%C3%8Bv1v%C2%BC%1Awa%1Ek6%C2%BD%26%C3%9E%C2%AB%C3%AA%C3%AE%13%C3%87%C3%B0%C3%A4d1i%C3%99%C2%8A%C2%BB0%0F%C3%99%C2%84%C2%8BU%C3%9B%C3%B63z%C3%B6M%C3%80%2F%C3%A6%C2%87%C3%97%2F%C2%B1%C2%BAl%17%C2%8FZ.%04%C3%85%05%C3%B6%13.%C3%BFp%C3%B3%C2%8D%C2%97%C2%B8k%C3%A4%04%C3%BB%1D%C2%BE%C2%B6%C3%BB%10%C3%B2%C3%87c%C3%8BJ%20%10cQ%3E%C3%8DWo%C2%86l%13%C2%9C%C3%94X%C2%94%C3%8F%C3%89%C2%8BW%00%C2%BF%C3%B0%1D%C3%83NL%3B%0E3%3A%C3%AE%C2%A2%C3%A6%C3%80v%00F%C3%87%5DT%C3%AE%C2%AB%C3%A1%C3%A4%C3%85%2B%C3%94%1C%C3%98N%C2%9AV%C2%83c%C3%98%C3%89%C2%85%C2%A6k%00%C2%98v%1C%16E%2C%5C%C3%9B%C2%BBz%C3%85%C3%ABh%C2%992%C2%9BDGTu%C3%B7%C3%8D%7F8%C2%A6%C2%90%C3%B7%C3%8E%16%1B%18%C2%B7%C3%AE%01X%C2%B4%20%04gMj%C3%AF%40qo(H%C2%88B%C2%ACo%5D%3A%C3%8A%C2%81%C3%81%C2%A08%C3%85%C3%80%10%00c'%C2%AA%C2%99-6%C2%88%C3%AF'%C3%98o%C2%A3%18%C3%B1%C2%97b%C3%89%C2%8D-%C3%88%C3%AF%C3%BB_%7Br%C2%B2%C2%98)6%C2%A0%C2%BC7%14qn%C2%9E%C2%9C%2C%C3%86NT%C3%A3Y%C2%9F%C2%85%C3%9A%C3%96*%0A-%C3%89%C3%96%C3%A6%1F%7B%C3%84%C2%B9%C3%A4%C2%A2%5D8%C3%B7%C3%80%C3%BC%23%C3%8D7%1Eb%3B%10%0E%406%C3%AB%C2%86%C2%B99%C2%98%C2%9D%5DV%02%C2%81%C2%A4i%23o%C2%85%C2%82%5B%C3%AB3u%18%C2%8B%C3%B2)%C3%9E%C2%BA%0F%C3%87%C2%B0%C2%93%C3%A6%C2%AB7E!%0A%C2%82%C2%B5w%C3%B5rpg9%05%C2%B9%C3%99%C3%98%C2%BBz%C3%85%3A%C2%BB%C2%A7%7FP%C2%8C7%C3%AD8LO%C3%BF%20'%2F%5E%C2%A1b%C3%8BF%C2%8CE%C3%B9!%5DYp%20%C2%815%C2%9B%5Ec%C2%A6t%03%C2%8A%11'%C3%9A%C2%9As%00%3C%5E%C3%BF%163%C2%A5%1B%C3%82%3A%C2%B7l%C3%82E%C3%AA%C2%A1S%C3%88%26%5CA%C2%82%C2%9F)-%11%C2%851%C2%97%C2%A2%C3%A1Q%C2%B1%01%C3%B7%C2%8B_l%C3%9F%C3%8A%C2%81!%C3%92%C2%AA%C2%8E%2C%C3%AA3%C2%A9%C2%BD%03_F%3ASf%13%C3%A3%C3%96%3D(%C3%8DC%C2%A4%C2%9C8%C2%87%C2%AA%C2%BB%0F%C3%B9%C3%BD%07x3t%C2%8BrY%C2%B5m%7F%C2%90%7B%C2%87c%C2%A6%C2%B4%C2%84%C2%B9%14%0DiUGP%C3%8E%2F%18aL%C3%97%5EK%C3%98%1D*%14%0B%C3%B3%C2%8F4%C3%9Fx%C2%88%5B%C3%88%2B%C2%8D%C2%B1(%1F%C2%80%C3%8Ew%C3%AA%16%C2%B5Ul%C3%99%C3%88%C3%81%C2%9D%C3%A5%C3%A2%C3%82%08U%17%0B%C3%B1%C2%AD%C3%B5%C3%87%C2%A2%1Aoa%C2%8D%0C%C3%A0%C3%8D%C3%90%05%C3%BD%C3%B1%C3%A5%C3%B7%1F%C2%84u%16ON%16%C2%AA%C3%AE%C2%BE%C2%90%22%12J%C2%8D%C3%80%C2%85%12X%C3%9F.U%C2%8F'7%C2%B6%C2%90%C3%98~%C2%8Bi%C3%B3f%C2%A6KK%C2%988%C2%B4'%C2%A4%C3%A8%C3%85%C2%BE%C2%A2%101%C3%B8%C3%A7%06%04%C2%898%5E%16%C3%A6%1Fi%C2%BE%C3%B1%10%C2%BD%C2%90%7D%3E%12o%C3%BE%0D%C2%99%C3%8B%C2%9F%C2%94%C2%B2%C3%BFc%00%C2%92%C3%BE%C3%BCW%7C%C3%B3%C2%82%C3%B1%3E%C3%BF%1C%C3%AE%C3%AF%C3%A6%C3%87%C2%9D%C2%8C%C2%BD%C2%AB%C2%97%C2%8A-%1B%C3%83%C2%96%17%C2%81%08%C3%AE*8%C2%B2%40An65%07%C2%B6%C2%8B%C3%B5r8%C2%A1%C2%86%C2%8B%0FG(%07R%C2%8C8%C3%B1%C2%ADK%17%C2%AF%7D%C3%AB%C3%92%C3%85-%7D!%0B%C3%AF%0DD%10W%C3%A0V%1D%C2%8B%3B)F%C2%9Ch%C3%9En%C3%84%C2%B3%3E%3Bd%C3%BD%1D%0F%C2%8A%11'n%C3%B2%C3%B0%C3%A4d%3D%111%07%C2%B2%C3%9C%C3%B9%C2%86%22j!%2B%3E%1D!%C2%A5%C3%AE7%C3%BEr%22%00u%C3%B3%C2%BB%C3%A2k%C3%9F%C3%97%C3%97%C3%B2y%C3%A3%C3%A9%C2%B8%C2%93%C2%B1%C3%966%C3%90Z%7F%C2%8C%C3%96%C3%BAc%5Ch%C2%BA%C2%86c%C3%98%C2%89%3ES%17r%C2%AB%C2%B7w%C3%B5%C2%8Au%C2%B1PJ%00%C3%A2%09G%C2%A82E%10%C2%AC%C2%B1(%C2%9F%C2%9E%C3%BEA%1C%C3%83%C3%8E%C2%A0x%7D%C2%A6.%C2%AAE%24%C2%90%C3%98~%C2%8BIK%C2%99X%C3%BBz3t%C2%8B%C3%AA%C3%86%C3%99b%03%09%C2%9D%C2%B7%C3%85%7BG%C3%8F%1E%25%C2%A1%C3%B3vp%3F%C2%9D%C2%B7%C2%99.-a%C3%96h%40u%C2%B7%0F_F%3A%C2%89%0B%C3%AE%09%C2%85k%C2%AF%05o%C2%86%0E%C3%A5%C3%80%20s)%1A%C3%91%C3%B5%03%C2%99%C2%B4%C2%94-%C3%9AI%04%04%C2%B1%C2%8E%5B%C3%B7%20_%C3%A0%C3%94%09v%7FNc'%C2%AA%C3%85%C3%BAXmkC6%C3%A1B6%C3%A1%C3%82%C2%B3%3E%C2%8B)%C2%B3%09%C2%B5%C2%AD%15%C3%A5%C3%80%10%C3%AE%C3%82%3C%26-e%C2%A2%C2%93%2FE%C2%BC%C3%B3%5D%C2%8A%C2%A8%C2%85%C3%AC%7D%3E%C2%93G%C2%97%C3%8F!%C2%9B%C2%9E%C3%B1'c%C2%BFCr%C3%BDeF%C3%9F%C3%BA%05%C2%BE%C2%B5%C3%BE%C2%93%C2%8D%C2%B9T%C3%AD%C2%B2%C2%92%11%1E%C3%9C%0E%C3%AE%2C%17%1F%C3%92%C2%96%3AG%C2%AE%C3%9CWC%C3%8D%C2%81%C3%AD4%C3%95Y%19%1Dwq%C3%B2%C3%A2%15%C2%9A%C2%AF%C3%9E%C3%A4B%C3%935%C3%B1%C3%81%C2%AF%C2%A7%7FP%5C%08%C3%B6%C2%AE%5E%C3%AC%5D%C2%BD4%C3%95Y%C2%B1%C3%966%04%C3%85%03%C2%B4u%C2%BC%1F%C2%93%C2%90%C3%95%C2%B6V%C3%A6R%C2%92%C2%99.-%01%C3%BC%0E%23%C2%B8v%C3%92%C2%8D%0E%C3%9C%C2%85y%C3%8C%18%C3%BDB%16%C3%9E%C2%9F)%C3%9D%C3%80%C2%A4%C2%A5%0C%C3%A5%C3%80%10%C2%AA%C2%BB~%C3%91i%C3%9EnD6%C3%A1b%C2%B6%C3%98%C3%80daY%C3%94%0E%C2%A8%C2%BA%C3%9B%C2%87%C3%9B%C2%92%C3%87%C3%94%C3%BC%C2%A9B%C3%A0%C2%A9%C2%89%C3%BA%0F%C2%ADx%C3%96g1%5DZ%C2%B2h%C3%A1%08%247%C2%B6%C3%A0%C3%8D%C3%901%5Bl%4090%14%C2%B4%C2%9B%08%C2%A7%0E%C2%93%C2%96%C2%ADb%7D%C2%AF%C2%9E%7F%C3%90S%C3%9B%C3%9A%C2%98%C2%B4%C2%941e%C3%9E%C2%8C%C3%9A%C3%96Jr%C3%A3%3B%C2%B8%C3%B6Z%C2%982%C2%9BPu%C3%B7%C2%85%C3%9D%C2%95%04%C3%A2%C2%9D%C3%AFR%C3%88%C3%B4%C3%86%C2%8A%C2%B9%C2%A5n%08%C3%B7%C3%ADT%C3%A2_%C3%AC%C2%A4%C2%9C%C3%BE5%C2%9F%C3%BF%C3%B64%3E%C3%9D%C3%9AE%C3%AD%C2%AA%C2%9E%7F%C2%91Z%7DB%C2%BC%C3%BEI%C3%B9%26%7C%3E%1F%0D-7%C2%96%C2%99%C2%B2%C2%84%C3%84b%C2%9E%C3%8AW%C3%94%C2%9A%C3%A4%246%C3%BD%C3%80%40%C3%9FG%C2%9F%3C%C2%8D%C3%A1%24%C3%BE%0F%C2%89%C3%BB%C3%94%C3%82%C2%97%C2%91%C2%8E7C%C3%87%C2%9C6%25d%7B%C3%A1%C2%B7r%C3%B8%C2%BD%C3%AD%0C%00r%C2%85%C2%9CF%C3%9B%C2%9F%C3%B8%C3%BB%C3%9D%0F%C3%A3%1DNBbI%22%C2%97%16m%C2%BF%03Y%C3%B4%C3%BFD%2F%C2%A0%C3%BA%C3%A7%07%C2%A4ZO%C3%86%C2%9D%C2%98%C2%84D%2CD%2C-%C2%94%1F%7D%1CW%C3%87%C3%8A%0F%C3%AE%C3%85%15'!%11%0F%11%1D%C3%99%C2%A7%5B%C3%8B%C3%A4%C2%AB%5B%C3%B0efD%C3%97%C2%A3%C3%97%C2%8B%C3%B2%C3%83%01%C2%92%2F%C3%BF%11%3C%C2%9E'%C2%91%C2%A3%C2%84DDdzc%C3%85%2C%C3%92%0F%C2%B2H%3C%C3%9B%C2%B8%C3%A5%C3%B8%7F%C2%B1EB%C3%A2Y%C2%A6%5B%0E%C2%9CY%C3%A9%2C%24%24%C2%96%C3%89%19%C3%85%C2%A8%C2%A3%C2%A7'M_%C2%A0%03%5EZ%C3%A9l%24%24%C3%A2%C3%A0%C2%BC%C3%83%C3%9E%7CJ%010%C3%AA%C3%A8%C2%B9%C2%9E%C2%A6%2F%C2%B8%07%3C%0F%C3%A8%00%C3%85%C2%8A%C2%A6%26!%C2%B14n%C3%A0%1F%C3%80%C3%8F%1D%C3%B6%C3%A6S%00%C3%BF%05%C2%B6U%C3%8F%C2%AB%C2%9AN%C3%82%C3%90%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgBrief = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%1E%00%00%00%1E%08%06%00%00%00%3B0%C2%AE%C2%A2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-06-08T09%3A06%3A17%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-06-08T09%3A06%3A58%2B02%3A00%22%20xmp%3AMetadataDate%3D%222023-06-08T09%3A06%3A58%2B02%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A9855c196-1f50-41ad-9e45-8b82123b2b47%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A9855c196-1f50-41ad-9e45-8b82123b2b47%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3A9855c196-1f50-41ad-9e45-8b82123b2b47%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A9855c196-1f50-41ad-9e45-8b82123b2b47%22%20stEvt%3Awhen%3D%222023-06-08T09%3A06%3A17%2B02%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.5%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C2%96%3DHv%00%00%03iIDATH%C2%89%C3%85%C2%96mhSW%18%C3%87%7F%C3%B7%C3%9C%C2%B6%2B%C2%89%C3%90Z%C3%B3R%C3%97%19%C2%9C%08s%1F%02uu%C3%9D%C3%84V%14%C3%A6V%C3%86%3E%C3%A8%C3%86%C2%A0f%22%C2%A2%C3%A06%C3%AB%C3%AC%26%7B%C2%A1Xf%C3%9D%3A%C2%A58%06%09%C3%93n%C2%93%15q%C3%B4%C2%AE01R%C2%86%06%C2%A9%C2%A85%C3%B5mU%C3%8B*l%C2%B01%C2%B6%C2%BBElz%C2%9D%C2%B13%C2%B7%C2%B517%C3%BBpkL%1A%3Au%C2%84%C3%9B%C3%9F%C2%A7%C3%83%C2%B9%C3%8F9%7F%C3%8Es%C3%BE%C3%8Fs%C2%8F%C3%84%04%C2%9E%1A%C2%9F%0Fh%04%16%02%C2%85%C3%A4%C2%97%04p%19%C3%B0%C2%ABaE%01%C2%90%26D%C3%B7%00%C2%9B%C3%B2%2C6%15%7B%C3%95%C2%B0%C3%92%20M%C2%9C%C2%B4%C3%93%22%C3%91%C2%BB%C2%BC%260%C3%93k5%C2%8D%02%C3%B3N%C2%ADf%C2%A1%20%C3%BFFz%10%0A%C3%854%C2%88%02P%C3%B0%C2%B0%0Bl%C3%85%C2%8F0%7Fn%05nG)%00CZ%C2%8C_%7F%C2%8F%C2%A0%C2%8F%C3%9D%C3%8E%C2%BF%C2%B0%10%12%2F.%7B%C2%86%C3%BA%C2%97%C2%96%C3%B1l%C3%A5%C2%93%5C%C3%93np5z%1D%C2%80G%5D%C2%B3(w%C3%8C%C3%A4%C3%9C%C3%80Ot%7D%7F%C2%92%23'%C3%8Fc%18%C2%A9%C3%BB%C3%AE)yj%7C%C3%BF%19%C2%B5%7Cq%25%C3%9B6%C3%B9%C2%90%C2%85%C2%A0%C3%A3%C2%BB%10%C2%A1%C3%9E~%C2%86%C3%BF%C2%8Ee%C3%858%C3%8BJ%C2%A9%5B%C2%BA%C2%88%C3%B5%C2%AF%C3%96a%C2%A4%0CZ%C3%B7(%C2%9C8%3B%C3%B0%C3%BF%C2%84%C3%AD%C2%B6bZ%1A%C3%97%C2%B2bI%15%3B%C3%9B%15%0E%C2%85%C3%82%C3%9CI%26'VI%24%C3%9DN%00%C3%A4%C2%A1aH%C2%99%5B%14%C3%882%2F%C3%97%C3%95%C3%90%C3%B4%C3%A6jz%C3%BA.%C3%91%C3%A2%3F%40%5C%1F%7Bp%C3%A1%C2%8Ar%07%1Dm%C3%AF%12%C3%95bl%C3%BD%C3%A4%C2%8B%C2%AC%13%C2%8E%C3%97V%13%C3%9FP%C2%8F%C3%A1r%00%20%C2%A2%1A%C3%B6%C2%AF%C2%BB(%3A%7D!%2B%03%C2%9Fm%7B%03%C2%97%C2%A3%C2%94%C3%B5%1F%7CJ%C3%A4%C2%9A%C2%96%23%2C%C2%97x%C2%BC-%C2%99%13s%1Fss%C3%B0%C3%B3%C3%AD%C2%9C87%C3%80%C3%96%C3%96vn%C3%A9%C2%A3Y%C2%A2%C3%BF4m%26e%C2%B7%C2%A5%C3%A7Rv%1B%C3%A3%C2%B5%C3%95%14%C2%A8%11d5%02%C2%80%3E%3AFw%C3%8F%19%1E%C2%9FSNs%C3%83%1Az%C3%BA.%12%1B%C2%89g%09g%C2%95%C3%93lg%19%5D%C2%81f%3A%C2%BB%C2%8F%C3%93%C3%A2%3F%40%C3%9202r%23%11%C3%9FPo%0E%C3%A3%3A%C3%B6%7D%0A%C3%B6%7D%0AR%5C%070%C2%BFIR%3A%3Ci%18%C3%AC%08%7CCg%C3%B7q%C2%BA%02%C3%8D%C3%8Cv%C2%96M-%C2%BC%C2%BBi%23%C3%87z%C3%BB%09%C3%AC%0F%C3%A6%C2%A4%26%C3%A9v%C2%A6%C3%93kS%0ES%1C%0CQ%1C%0CaS%0E%03%60%C2%B8%1C%C3%A9%7B%C3%8F%24%C2%B0%3F%C3%88%C2%B1%C3%9E~v7m%C2%9CZ%C3%98J%C2%B2%C3%AA%C3%B8%C2%BD%5D_%11%C3%BCr%07Zl%24%C3%A7%C3%94%C3%B2%C3%900%22%C2%AAa%C2%B8%1C%C3%A8%C2%BE%C2%95%C3%A9%C3%B9%C2%BBc%11%C3%95L%C2%87Ob%C3%8B%C2%BAU%3C%C2%BFt%11%C2%AB%5E%C3%9F%C2%9E%C2%BD_%C2%A6%C2%B9n%C3%A9%C2%A3%C3%B4%C3%B4%5D%C3%A2%C2%A3%C2%B7%C3%97Q%C3%A1%C2%9EE%C3%B8%C2%87%2B%C2%A4R%C3%B7L%2F_%C2%BF%C3%81xm5%14%15%C2%92%C2%A8%C3%B2%C2%92%C2%A8%C3%B2B%C2%91%C3%99%C3%AAg%04%3A%C2%90%C3%BF%C2%88%C3%9C%C2%8B%15%C2%82%0F%C3%9FZ%C3%83%2B%2F%C3%94R%C2%BF%C2%A5%C2%95%C2%BF%269%3B%C3%87%C3%95%C2%B1%C2%918GO%5D%60%C3%B3%C3%9A%C2%95%C2%AC%C2%A8%C2%A9%22%C3%9C%7F%05%7D%C3%94%C2%ACEY%C2%8DP%C2%A0F%C2%B8%C3%B3%C3%84%C2%BC%C2%B4%C2%B3ETcF%C2%A0%23%C2%A7%C2%9C%C3%9A%3Fnd%C3%81%7C%0F%C2%BEwv%C3%B2%C3%A7%C3%95%C3%9CL%C3%9C%C2%B7%C2%81%3C%C2%B7%C3%A4)v%C2%B5%7FkM%03%C3%89d%C3%B9%C3%A2J%C2%9A%1B%7C%08%C3%89%C2%A2%C2%96%C2%99%C3%89%C2%B4%C3%BC%24%26c%C3%A9o1%13%7D%C3%AC6%3F%C3%BE%C3%BC%C3%9B%C3%83.%C3%8Ba%C3%9A%1A%C2%88%C3%80%7Cl%5BMB%60%C2%BE%C3%B0%C2%AD%C3%A6%C2%B2%00%C3%BC%C3%93%20%C3%AC%C2%97o%C2%AA%C2%83%C2%83%25%1E%C2%AF%0Bx%C3%9A%22%C3%91%C2%BDjXi%C2%93%01n%C2%AA%C2%83GJ%3C%C3%9E_%C2%809%C2%80%0B%C2%90%C3%B3%2C%C2%96%00.%02%C3%AF%C2%ABa%C2%A5%0D%C3%A0_%5D%C3%ABx%C2%A9I%C2%971%5D%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgSettings = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%1E%00%00%00%1E%08%06%00%00%00%3B0%C2%AE%C2%A2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.5%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-06-08T09%3A06%3A17%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-06-08T09%3A06%3A33%2B02%3A00%22%20xmp%3AMetadataDate%3D%222023-06-08T09%3A06%3A33%2B02%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A1378aa3b-c987-4d66-bd0d-aaa3e16707c6%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A1378aa3b-c987-4d66-bd0d-aaa3e16707c6%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3A1378aa3b-c987-4d66-bd0d-aaa3e16707c6%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A1378aa3b-c987-4d66-bd0d-aaa3e16707c6%22%20stEvt%3Awhen%3D%222023-06-08T09%3A06%3A17%2B02%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.5%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%60%C2%89%C3%A41%00%00%02%C2%B8IDATH%C2%89%C2%BD%C2%97MHTQ%18%C2%86%C2%9FoR%C2%92%20%C3%86%C2%A0%1FI%C2%99M%12%11%C2%98%C2%B8%C3%88EHDeY%C2%B4%09%22c%0C%C2%83%C2%84(%04k%1B%C2%B4%14j%C3%91%22%17FAJ%C2%B4%18*%C3%A9g%C3%91d%20D%C2%8B%C2%A1%C2%85%C2%81R%C3%AEB%C2%A2%06%C2%A5%04%C3%83%C3%AC%C2%87%22%C2%8B%C2%B7%C3%85%3D%03%C3%97%C3%A1%C3%8E%C2%BD%C3%9EA%7B%C3%A1.%C3%A6%C3%BB%C3%9E%C3%AF%7B%C3%AE%C2%99s8%C3%B7%1C%C3%83)%C3%95%C2%92N%03%C3%A7%C2%81%26%C2%A0%C2%92%C3%A5%C3%95%020%0E%C3%B4%C3%A5s%C2%99%0C%C2%809h%3Fp%04%C2%B8%04%C2%8C%00%C2%BF%C2%96%19%5C%05%C2%B4%02%C2%BD%C3%80%C2%93%7C.%C3%93mn%C2%A4%C2%97%C2%81%C3%A6%7C.3%C2%B3%C3%8C%C3%80EJ%C2%B5%C2%A47%01%C2%A3%C3%80%C3%85U%C3%89T%C3%83-%C3%A0J%3E%C2%97y%C2%B9%C2%92P%C2%80%C3%B9%C3%BC%C3%84%C2%8Fd%C2%AA%C3%A13%C3%90%C2%93%C3%80%C2%9B%C3%93%C2%91%C2%95%C2%86%C3%BA4%024%25%C3%B0%16R%C2%AC9%C2%95tV%C3%925%C3%B7t%C3%86%C2%A9%C3%8D%C3%A72%C2%9F%C2%80%C3%8A%C2%8A8E%0EZ%05%C3%B4%03%09%17%C2%9A%05%C3%AE%C3%84%C3%AD%C2%93%C2%882H%C2%AA%C2%97%C3%B4T%C3%92A%17%C3%9A%5ET%C2%B7%5E%C3%92%06%C3%A7%3D*)%2B%C2%A9%3E%C2%AAo%C3%A8%C2%88%5D%C2%83%17%40-pH%C3%92%00%C3%90%1C%60%7D%2C%C3%A9%3D%C2%90v%C2%BF%1B%25%C3%AD1%C2%B3%C3%89R%C2%BD%C2%A3F%C3%9C%C3%AF%C2%A0%05u%01%0D%01%C2%BE%5D%3E(%C2%AE%C3%A6jX%C3%A3(%C3%B0%C3%8D%C2%88%7C%C3%99%C2%B5%C2%A1%603%7B%08%C3%9C%0DH%C3%8D%02%C3%B7%C2%80!%60%3E%20%3Fhf%C3%83a%C2%BD%C2%A3%C3%A6%C2%B8%16%C3%98R%14~%04t%C2%9A%C3%99w%C3%A7Y%07%C3%9C%07%C3%B6%C3%BB%3C%5B%25%C3%95%C2%9A%C3%99t%C2%A9%C3%9E%C2%81%23%C2%96%C3%94%25%C3%A9%0B0%05%C3%AC%C3%B4%C2%A5%3E%02%1D%05(%C2%80%C2%99%C3%8D%01%C3%87%C2%81%C2%AF%3E_%0B0%25iN%C3%92%C3%A9%25%C2%83%C3%B1%16P2%20%C2%9E5%C2%B3%C2%9F%C3%85A%07%7F%1E%C3%A0%C2%AF%06v%C3%84%01%C2%97%C2%A3%C2%BFq%C3%8C%C2%A5%C3%80oK4j%C2%93%C2%B4%C2%BA8()%09%C3%AC%0B%C3%B0%C3%8F%03%13K%06%C2%9B%C3%99u%60%0D%C3%90XTX%07%C3%9Cv%C3%9Bf%01%C2%BA%16%C3%88%C3%A0%C3%BD%C2%AD%05%C2%BD%02%C3%AA%C3%8C%C2%AC%C3%9A%C3%8C%06%C2%82%18%25W%C2%B5%C2%99%C3%BD%06%C3%9EHz%C3%8D%C3%A2M%C3%A3%04%C2%B0%5B%C3%923W%C3%9F%06l%2C*%7F%17%C2%B6%C2%A2C%C3%81%00%C2%92%C2%8E%01'%03R%C2%9B%C2%81%C3%80%C3%95%C3%AA%C3%94.i%C3%88%C3%8C%1E%C2%942D-%C2%AE%0B%11%C3%B90%C2%9D%09KF%C2%81%C3%8F%C3%A1%C3%ADR%05%0D%02c%01%C2%BEQ%16%7F%1A%C2%A7%C2%81%C3%AE%C2%B2%C3%81f6%01%C3%AC%05%C2%86%C2%81%03f%C3%96%05t%04X%C3%9B%C3%8D%C3%AC%14%C3%9E%C2%81q%18%08%C3%BD2A%C3%84%1C%C3%BB%C3%A0%C2%87%7D%C2%A1I%C2%BC%C3%A3j%C3%A1%08%C3%BC%0D%C3%B8%C3%A0%C2%BCY%20%1B%C3%95sI%C3%A0%C2%80%17%C3%B9%23%C2%A9%07%C3%98%C3%A6Bcf%C2%A6%C2%B8%7D*%C3%B0%C3%9E%C2%BE*%C3%8AX%04%C2%BF%11%17TP%C2%AA%25%5D%03%2C%24%C3%B0N%C3%B8%C2%AD%C3%A56*C%C2%AD%C3%80x%02%C3%A8%03z%C3%9Da%7BE%C3%A5%18%C2%BD%40_%C2%A9%2B%C3%8CL%3E%C2%97%C2%89%3Do!%C3%80%1A%C2%8A%C2%AF0%C2%BE%C3%A4%7F%C2%BD%C2%B4%C3%BD%03%C3%9B%0C%C3%B2%207%C3%92%11%03%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgSyncFolder = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%5E%00%00%00%1E%08%06%00%00%00%C2%A5%C2%8A%C2%A9%02%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-05-11T15%3A09%3A10%2B02%3A00%22%20xmp%3AMetadataDate%3D%222023-05-11T15%3A09%3A10%2B02%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3Adca918dd-09b7-4148-a9cf-abc354765dd3%22%20xmpMM%3ADocumentID%3D%22xmp.did%3Adca918dd-09b7-4148-a9cf-abc354765dd3%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Adca918dd-09b7-4148-a9cf-abc354765dd3%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3Adca918dd-09b7-4148-a9cf-abc354765dd3%22%20stEvt%3Awhen%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3Eg%C2%B5%09%C3%8A%00%00%07%40IDATh%C2%81%C3%AD%C2%9AmL%5B%C3%97%19%C3%87%7F~%C3%83%C3%846%18%C2%8A%C2%83S%C2%82M%C3%81%C3%8B%60%0B%C2%B8%C3%89%C3%84%C2%86B%C3%9Cf%C3%89F5-%25J%C2%A4%C2%A9%C3%8Ap%C2%BE%25%1F%C2%80ITU%C2%97(H%1D%C3%95P%2B%C3%BA%C2%96E%C2%894%C2%92I%C3%AD%C2%A6J%01U%C2%9B%C2%BA%C2%A8I%C2%B3%2Fl%C2%B4S%104%12YV%C2%9B%C2%BC%C2%B8%1D%10lBry%C2%B3%0Dvp%0C%0E%C3%BB%C3%A0%C3%B8%C3%86%60%C3%BCB%C2%84%C3%82%C2%96%C3%B0%C2%93%10%C3%97%C3%A7%3C%C2%BE%C3%B7%C2%B9%C3%BF%7B%C3%8E%C3%BF9%C3%B7%C3%88%12%1E%60%C2%B4%C3%94%C3%94%00%C2%AF%02%5B%01%05k%C2%AC%24%C2%B3%C3%80%15%C3%A0%C2%84%C2%B3%C2%AB%C2%BD%1D%40%02%60%C2%B4%C3%94%C3%BC%1E%C2%A8_%C3%85%C3%84%C2%9E%26Z%C2%9D%5D%C3%AD%C2%BF%C2%92%3C%18%C3%A9m%C2%AB%C2%9D%C3%8DS%C2%86UJ%C3%98%5E%C3%96x%C2%BC%C2%BC*'%C3%AC%C3%A9%C3%8BB%C2%A1U%C2%92e%C3%96%C2%A32h%C2%91%C2%A6%C3%8B%C2%99%0F%C3%9D%C3%A7%C2%9E%C3%A0%C3%87%C3%9B7%C3%8A%C3%9D%C3%A1%C2%A9%C2%98x%C2%89T%C2%82%C2%BA0%0B_%C2%BF%7B%25%C2%92~%12%C3%98*g%19%C2%85T%C2%95%C2%9F%C2%89%C2%B1%C2%A6%C2%8C%C2%9C%1F%C3%A5%C2%81D%C2%B2d%C2%8C%7F%C3%90%C2%8D%C3%AB%2F%C3%97%C2%98%C2%B8t%0B%08%C2%8B%C2%BE%C2%A9%C2%A1%C2%82%C3%80%C3%AD%C3%A95%C3%A1%1F%C2%A2%C2%90%C2%A6%1A%C3%B9%C3%AC%C3%8F7%C2%B1%C3%A5w%2F%C2%91S%C2%B1q%C2%81%C3%A8%C2%A1%C3%80%C3%9C%C2%828ua6%25G%C2%B6S%C3%B2%C3%ABJd%C3%AB%C3%A4lj%C2%A8%60%C3%BD%0B%C3%86%C2%95K%C3%B9%09A%C2%9EJ%C2%90%C3%B1%C2%97%C2%A5%18~%C3%B1%7D%C3%B1%C3%B3%C3%84W%C3%83%08%C3%BF%18d%C3%AA%C3%9A%18%C2%A1%C3%80%1C%12%C2%99%14u%C2%81%16%C2%9D%C3%85%C3%88%C2%B3%3F%C3%BB%0ER%C2%A5%C2%8C%C2%9Cm%C3%B9h%C3%8Dz%C3%A4%C3%AA%C2%B5%C2%95%C3%A9R%24%15%5E%C2%B7%C3%9D%20%C2%8A%3E%C3%A7%0B%C3%A2%C3%B8%C2%A0%07%C2%8F%5DX%103%1F%C2%BA%C2%8Fo%C3%80%C2%8Do%C3%80%C3%8D%C3%88%C2%85o(9%5CI%C3%86%C2%A6%C2%9C5%C3%91%13%C2%90%C3%90jd%C3%AB%C3%A4%14%1D%C3%BA%01%00%C2%A1%7Bs%C3%B45%7D%19%23%C3%BAbf%C3%9D%01%02%C2%82%7F%C3%A52%5C%05%2C%C3%A5%C2%A5%0C%5D%5Cz%C2%85%C2%9D%C2%A8o9%24%1C%C3%B1%C3%BA%C2%9F%16%C2%A1%C3%88T%02p%C3%B3O%C3%BF%C3%86%3F%C3%A4Ix%C2%B2H!%5DoI%C3%9D%C3%93%C3%B3%C3%B7%C2%95%C2%B0qo%09rMZxF%1D%C3%AB%C3%81cK%C3%BCp%C2%97%C2%83%C2%A5%C2%BC%C2%94%C2%B6%C3%A3%C2%8D%0B%C3%9A%C2%BAz%C3%BB%C2%B0%C2%BE%C3%96%12%C3%B7%3B%C3%86%C2%BC%C3%9CG%C3%AA%5B%0E%09%C2%85%C2%8F%14%C3%85%C3%A0%C3%84%0CB%C3%A7%60%C3%92%C2%93%C3%A5U%7F%17%C2%95!%13%C3%BFMOL_%C3%90%13%C2%88i%C3%9BPUD%C3%81%013%C3%A3%C3%9D.%C3%BC%03n%C2%B4f%7D%C2%8Ai%C2%A7ND%C2%A8%C2%97%0F%C2%BD!%C2%B6y%C2%A7W%7FF%C3%86%15%5E%C2%9A%26CS%C3%B4%0C%00%13%C2%97%C2%86%C2%99%0F%C3%8D'%3D%C3%99%C2%AD%C3%8F%1C%C3%9C%C3%BA%C3%8C%C2%91%C3%B2%C3%85%C3%95%C2%A6%C3%B0%C3%B9%1D%C3%87z%00%18%3E%7B%03%C2%80%C2%8A%C2%8F%C3%B7%12%10%C3%BC%7C%7D%C2%A4%03%C2%80%C3%8Do%C3%AE%20%5D%C2%AF%C3%A1r%C3%BD%05%C2%B6%7F%C3%BA%0A%1E%C2%9B%C2%80%5C%C2%9D%C2%86%C3%86%C2%94%C2%8D%C3%87%26%C3%A08%C3%96%C3%83%C2%9C%2F%08%C2%84%1F%C2%A6%C2%BE%C3%8A%C2%84%C3%86%C2%94%1D%5E%C2%BEv%C2%85%00%C2%B0%3Bb%07%C2%8E1%2F%C2%97%C2%96%C3%83%07%C2%B1%C2%94%C2%97bw%0CR%C3%9Ft%12%C3%A7%C3%88hL%C3%9C%C3%AE%C2%9D%15%C3%94Y%C2%AB)%2B.%C2%8C%C3%A9kmn%60%C3%B7%C3%8E%0A%C2%BC%C3%93~%C3%AA%C2%9BN%C3%92%C3%95%C3%9B'%C3%8E%C2%B2Sm%C3%A7%C2%A9%C2%B3VS%C3%B0%C2%825%C3%A6%7Bq%3D%5E%C2%A9S%3D%C3%98%C3%89%C2%81%C2%BB%C2%AE%C3%98%C2%97%C2%A2%C2%95%C3%80%C3%9F%3F%09%C3%80%C3%B3%C3%AFU%C2%91%155%C3%9A%3D6%01%C2%8D)%C2%9Bt%C2%BD%C2%9At%C2%BD%C2%9A%2C%C2%B3%C2%9E%C3%B1n%C2%97%C3%98%C2%9Fe%C3%96%C3%A3%1Bp3%C3%9E%C3%AD%22%C3%8B%C2%ACg%C3%A3%C3%9E%12%20%2C%C2%BA%C2%A9%C2%B6%1C%08%3F%C3%84%C2%89%1E%17%C2%89hmn%C3%80%3B%C3%AD%C3%87%C3%BAZ%0B%C3%9Ei%7F%C2%8C%25AX%C3%B4%C3%96%C3%A6%06%C3%91%C2%9E%C3%9E9%C3%BD%C2%89%C3%98w%C2%B4v%3Fe%C3%85%C2%85%C2%BC%7C%C3%A8%0D%C3%9A%C3%8Fu%C3%92%C3%9A%C3%9C%00%3C%C2%9Ce%C2%96%C3%B2%C3%92%05%C3%B1%C3%91%C3%84%1D%C3%B1%C3%81%C3%89%19%C3%BA%C2%9A%C2%BE%04%C3%A0%C2%AE%C3%8B%C2%9B%C3%B0%06%C3%A2!%C2%91J%C3%88%C3%BC%C3%9Ez%00%02c~%C3%AE%C2%8D.%C2%9C%C3%A2w%3A%06P%C3%AA5%C3%A4%C3%AF%2Ba%C3%B3%C2%9B%3B%18%C3%AFv%C3%91%C3%BF%C2%87%C3%8B%08%1D%03%C3%A8*%0D%C3%A8*%0D%C3%A2H%C3%B6F%C3%B9%C2%BE%C3%87%26%C3%90%7F%C2%BA%17%00%5D%C2%A5%01%C2%8D)%1B%00%7D%C2%95%C2%899_P%C2%9C)%00%C3%AC%C3%89%03XP%10%1B%C3%9F%C3%BF%08%C2%BBc%C2%90%C2%B2%C3%A2B%C3%B1%C3%98%3B%C3%AD%C3%A7%C3%B3%0F%C3%9F%C2%8A%19%C3%95Gk%C3%B7s%C2%AA%C3%AD%C2%BC(%60%C2%B4%C3%87%C3%AF%C3%9EY%C3%81%C2%A9%C2%B6%C3%B3%C3%98%1D%C2%838GF%C2%A9%C2%B3Vc)%2F%15%C3%BB%C2%A3%C3%ADm1q%C2%85%0F%05%C3%A6%C3%B0%5E%C2%8D%C2%9Dv%C3%8BA%C2%A1UR%C3%9A%C3%BCc%00n~%C3%BC5%C2%B7%C3%8E%C3%85%C3%9A%C3%90%C3%90%19%1B%13%3D.%0A%0E%C2%98%C3%91U%1A%08%08~%C2%86%C3%8E%C3%98%08%08~%C3%91%C3%B3%03%C2%82%3F%C2%A5%C2%82%1B%C2%B1%C2%9E%C2%A5%C2%88%16%C3%8192%C3%8A%C3%AE%C2%9D%15%C3%80C%0B%C2%8A%C3%BC_%2C%C2%BC1%2FwI%C3%BB%C2%89%C3%B4%C2%B5%1C%3EH%C3%8B%C3%A1%C2%83Is%5BLJ%2FP%C2%8F%C2%8A*_%2B%1E%07%C3%86%C3%A2%174_%C2%BF%C2%9B%C2%AB%C2%BF%C3%BD'%C3%9B%3F%7DE%1C%C2%BD%C3%A3%C3%9D.%C3%B2%C3%B7%C2%85-%24%C3%A2%C3%BD%C3%89%08%08~4E%C3%99K%C3%B6-%C3%B6%C3%B8h%C2%A1%23%C2%A3%3F%C3%92%1E-%C2%BEw%C3%9A%C2%8F6C%1D%C3%B7%C2%9A%C2%8D%C3%AF%7FD%C3%BB%C2%B9%C3%8E%05m5%7Bv%25%C3%8D5%C2%AE%C3%B0%C3%AB%C3%B22(~%7D%C3%9B%C2%92%7D%C3%81%C2%89%19%1C%C3%87%C2%BF%2243%C2%9B%C3%B0%C3%A49%C3%9B%C3%B2%C3%85%C3%A3i%C3%87DL%C2%BF%C2%A9%C2%B6%C2%9Ct%C2%BD%1A_%C2%BF%C2%9Bt%7D%C3%B8%C3%A6%22%C2%96%22t%C3%B4%C2%8B%C3%82%0B%1D%C3%BDIn%031%C2%AE%C3%A0%C2%80%C2%99%C3%A7%C3%9F%C2%AB%C3%82c%13%08%C3%B9%C2%83%10Z%3A%C3%96%C3%AE%18%C3%84%C3%AE%18%14%C2%AD%C2%A4%C3%8EZ-%C2%B6E%C2%84%2F%2B.%C2%A4%C3%BD%5C'u%C3%96j%20%C2%BC%0C%C2%8D~%08%17%C2%BE%C2%B8D%C2%9D%C2%B5Z%C2%9C%11%C3%86%C2%BC%C3%9C%C2%98%C2%87%10%C2%8F%C2%B8%C3%85U%C2%AA%C2%94%C2%A1~.%2B%C3%A6O%C2%91%C2%A9d%C3%A0%C2%8FW%C2%92%C2%8A%C2%AE%C3%94%C2%A9%C3%88%C3%9D%C3%B5%1C%00S%C3%97%C3%87%08N%C3%8E%C3%84%C3%84xm%02%C3%A9%0F%3C%5Ecz%C2%86%C3%A1%C2%B37%C3%84%C3%91%1D%10%C3%BC%C3%8C%C3%B9%C2%82xlB%C3%8A%2Fd%C3%83go0t%C3%86%C2%86%5C%C2%93F%C3%BE%C2%BE%12%C2%B4f%7D%5C%C2%9B%00%C2%A8o%3A%C2%896CM%C3%9B%C3%B1F%C2%B4%19j%C3%AA%C2%9BN%02aA%C2%9D%23%C2%A3%1C%C2%AD%C3%9D%C3%8F%3B%C2%A7%3F%C2%A1%C3%BD%5C'5%7Bv%C3%B1%C3%B9%C2%87oq%C2%B4v%3F%5D%C2%BD%7D%C3%80%C3%83Z%C3%91v%C2%BC%C2%91%C2%B6%C3%A3%C2%8D%C2%A2%C2%BF'%C2%BAf%04%C2%89%C3%91R%C2%B3%C3%A4%3AQ%5D%C2%98%C3%85%C2%96%0F%5EZ%C3%90%16%C2%9C%C2%9C%C3%81%C3%BE%C2%9B%2F%08%C3%9C%C3%B1%25%3E%C2%A9%5CJY%C3%B3N2%C2%8As%00%C2%B8%C3%B6%C3%B6E%C3%9C%C3%BF%C2%BA%C2%9D4%C2%99ht%C2%95%06%C2%8A_%C3%9F%C2%86%C3%A3X%C3%8F%C2%82%15%C3%8D%C2%93B%C3%8A%C2%BB%C2%93%10%5E%C2%A5(%C2%B4%C3%8A%C2%841%0A%C2%AD%C2%92%C3%8DM%3BD%C3%91%C3%87%C2%BB%5D%C3%8B%16%1D%40_U%C3%84%C2%9C%2F%C3%B8D%C2%8A%0E)%16%C3%97%C3%BB%C3%81%10%C3%924%19%C2%8A%C2%ACt%C3%8Co%C3%BF%C2%84%C2%B1%C2%8BC%08%7F%1F%60%C3%AA%C3%BA8%C3%B3%C3%B7%C3%83%13f%5D%5E%06%C2%BA%C3%AD%066%C3%AE)F%C2%A6%0Ao%C2%8E%C3%B9%C2%BE%C2%9D%C3%A4%3F%C2%AD%C2%BD%C2%8F%C2%94%C3%98%C2%AD%C2%B37%08%08%C2%89g%C3%96%C3%BF3I%C2%85%C2%8F%C3%98%C2%8B%C2%AE%C3%92%40AM)H%24%C2%AC%7F%C2%B1%C2%80%C3%B5%2F%16%C3%80%C3%BC%3C%C2%B3SAd*%05%C3%92E%5B%C3%BB%C2%93%C2%BD%23%7Cs%C3%A2R%C3%92Z%10%C2%8F%C2%95%C3%9C%C2%AF%C3%B9_%24%C2%A1%C3%B0%C3%91%C2%9E%3E%C3%BC%C3%97%C3%AB%C2%B8%C2%AF%C3%9C%C2%A1%C3%80ZF%C3%B6%C3%96%0D%C3%A1%00I%C2%AC%C3%B5%C3%8C%C2%8CL%C3%A3%C3%BA%C3%B3U%C3%86%C2%BA%C2%9C%C2%90%7C%C2%97%C3%A1%C2%A9%25nqU%C3%AATH%C3%A4%C3%92%25%0B%C2%A9R%C2%A7%22k%C3%8B%06T%C2%86L%C3%A4%C2%9A4%C3%AE%07C%04n%C3%BB%C3%B0%5E%1B%C3%83%C3%97%3F%C2%B9%26x%0AH%C2%8C%C2%96%C2%9A%20k%3F%60z%C3%9C%C3%8CJ%09%C3%BF%C3%82i%C2%8D%C3%87%C3%8B%15)pb%C2%B5%C2%B3x%0A9!%C3%B3%3A%C3%ADv%C2%AD%C2%B1%2C%17%C3%B8%C3%A1jg%C3%B3%C2%94%C3%90%C3%AA%C3%ACj%7FW%06%C3%A0u%C3%9A%C3%BF%C2%A65%C2%96%7D%0B%18%C2%80%5C%40%C2%B6%C2%AA%C2%A9%3Dy%C3%8C%02%C2%97%C2%81%23%C3%8E%C2%AE%C3%B6w%01%C3%BE%0B%C3%AE%C3%AD%C3%96%C3%B1%C3%90%24%C2%B0G%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgOrganize = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%22%00%00%00%1E%08%06%00%00%00I%C3%BF%C3%8C%14%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-05-11T15%3A00%3A25%2B02%3A00%22%20xmp%3AMetadataDate%3D%222023-05-11T15%3A00%3A25%2B02%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A2c453879-da20-406f-8c17-11fa607794c5%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A2c453879-da20-406f-8c17-11fa607794c5%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3A2c453879-da20-406f-8c17-11fa607794c5%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A2c453879-da20-406f-8c17-11fa607794c5%22%20stEvt%3Awhen%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C3%B3%C2%80%C2%8B%C2%8E%00%00%02%C3%B6IDATX%C2%85%C3%AD%C2%97MO%13Q%14%C2%86%C2%9F%3BS%C2%A0%C2%B4%7C%C2%B4%C3%92%40%C3%A5%C2%A3B4%01%C2%A3%10%C3%91%18%C2%82!%C2%9A%C3%A8%C3%8A%C2%85%0B%C2%96b%C3%BC%03%C2%BA%60Ab%C3%9C%C2%B8R%16%2CY%C3%A8%0F0%C2%B1%1B%17%26.%5C%19%17%C2%8A%26%C2%92((Q1%1A%C3%91b%C3%B1%03(%1F%C2%B5-%C3%ADt%C3%AEuQ(N%C3%9B%C2%A9%C2%8A%C3%81nxW%C2%93%C3%B3f%C3%AEy%C3%8E9%C3%B7%C3%8E%C3%A4%0A%C3%96%15%C3%A8%1B%18%00%06%C2%81n%C2%A0%C2%8C%C3%AD%C2%95%01L%00%C2%A3%C2%A1%C2%B1%60%10%40%C2%ACC%5C%07.lsr%3B%C3%9D%08%C2%8D%05%2F%C2%8A%C3%B5N%C3%9C*%11%C3%84%C2%86%C3%8Eid%C3%86Qj%0D%3A%C3%88%C3%AC%C2%89%C2%82%C3%92%2B%1C%08%C2%87%00%40)0%C3%A3%C2%86%C3%95%C2%AF%2CCh%C2%99ge*%C3%8C%C2%B5%C3%B4VA%C2%BA%1D%C3%98l%C3%8C%C3%B6%C2%A1%5E%7C%C3%87Z%2C%C2%B1%C3%84%5C%C2%94%C2%97%C2%97%C3%AF%23%C3%93%C2%92%C2%AE%C3%A1S%C2%B8%C3%9B%3C%16%7Fy%C3%B2%2B%C2%AF%C2%AE%3E%C3%9C%0AH%C2%99%C2%A3PTw%3A%C3%B2%20%00*%1B%C2%AB%C2%A9%C3%AE%C3%B0a%C3%86%C2%8D%3C%08%00%C3%8F!%3F%C3%A5%C2%BB*IE%12%20%C3%80%C3%A1%C3%9A%C2%ACQ%1A%12%C2%992mI%0A%C2%82%08%3D3%0Ec5I%7Cv%15%C2%80%0A%C2%9F%0Bg%C2%83%1BM%C3%97%C2%90Zf%1E%C3%89%C3%AF1%C3%96%C3%A6%C3%A3%00%C2%B8%C2%9A%C2%AA)%C3%B38%11%0E%0D%C2%A7%C2%BF%C2%8A%C3%8Ek')%C3%B7%3A7%17U%10%C2%BE%C3%BB%C2%96%C2%8F7_%14%04%C3%91l%11%C2%81D8Jd%3CLd%3C%C3%8C%C3%AA%C2%9B%C3%B9%3C%3F%C3%BA%3E%C2%92%C3%B5c%C2%A1%C2%95l%C3%9C%C3%9B%C3%AD%C2%B7B%00%08h8%C3%99f%C2%9B%C2%AB%60G6T%C2%B3%C3%9FG%C3%8D~%C2%9F%C2%AD%C3%AF%3B%C3%96Rp%C2%84B%C3%8F%C3%94%17%7D%C2%BB%C2%88LK%C2%84%26%C2%A8%C3%A9%C2%A8%C3%8Bv%C3%BA%C2%AFA%16%C2%9F%C2%86%C2%99%C2%BD%C3%BD%0A%C2%80%5DG%1A%09%C2%9C%3Dh%C3%B1%3F%C3%9F%C2%99f%C3%A1q%08%C2%80%C3%863%C3%AD%C3%94%C2%9F%C3%98%C2%93%C3%B5%C2%94)Y%1C%0F%C2%A3%C3%96A%C3%9C%C2%AD%C2%B5%C3%85R%15%07%C2%A9%C3%ABi%C2%A2%C2%AE%C2%A7%C3%89%C3%96o%C3%AE%C3%AF%C2%A0%C2%B9%C2%BF%C2%A3%C2%A0't%C2%8D%C3%96%C3%B3%5D%C2%96X%C3%AE%C3%B1%C3%BFc%C2%90%7F%C2%91%C2%92%C2%8A%C3%97%C3%83%C2%8FP%C2%86D%C3%A8%C2%82%C3%B6%C2%A1%5E%C2%84%C2%B6%C3%85%C3%91%C3%BC%C2%8B%C2%84%268p%C3%A5%C2%B8%25V%C2%AC%23EO%C3%8D%C3%BF%C3%94%0EH%C2%AEv%40r%C2%B5%03%C2%92%C2%AB%C2%A2%C3%9F%C2%91%C3%A4%7C%C2%9C%C3%98%C3%8C%12%00%C3%A5u.%C2%AA%C3%B6z-~%C3%AC%C3%932%C3%89o1%00%5C%C2%81Z%C2%9C%C3%BE%C2%AAMSA%C3%A4%C3%99%1CH%05B%C3%A0%3D%C3%AC%C3%9F%3AH%3A%C2%96%C3%8A%C3%BE%C3%A67~d%C2%BF%C3%8AXIf%C3%BDro%25Xr)%C2%92%C3%B3q%C2%94T%08%012-%C3%BF%1ED%C2%99%0A%00w%C2%AB%07w%C2%AB%C3%87%C3%A2IS%C2%A2dfQOW%03%C2%9E%C2%AE%06%C3%AB%C2%BBi%C2%892%25%08%C3%81%C3%AE%C3%93%C3%BB%C2%AC%C2%85ES%C2%B6%20%05%C3%B7%C2%88%C2%B9%C2%96f%C3%A1%C3%89l%5E%3C1%17%25%3A%C2%BD%C3%80%C2%8F%0FK%C3%84f%C2%96%C3%B3%C3%BC%C3%A5%C3%89%C2%AF%C2%A4%22%09%C2%96%C2%9E%7F!%C2%B5%C2%B4%C2%96S%1D%7C%7B0c%0B%22%02%7D%03)%C2%B6%C3%BFB%C3%B5%3B%19%1A%C2%99%1BW%C2%A95%C2%A1%01%C2%A3%C2%A5%C2%A6%00F%C3%B5%C2%95%C3%90%C3%94Tm%C2%A0%C2%B3%1E8Z%22%C2%88%1B%C2%A1%C2%B1%C3%A0%C2%88%0E%C2%B0%12%C2%9A%C2%BAW%1B%C3%A8%7C%07%C2%B4%00%C3%B5%C2%80%C2%BE%C3%8D%C3%89%0D%C3%A0%19p)4%16%1C%01%C3%B8%09%C3%A2%C3%B1%01%3Fk6%C3%BD%7C%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgCollect = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00F%00%00%00%1E%08%06%00%00%00%C2%91%C3%B3h%1E%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20xmp%3AModifyDate%3D%222023-05-11T15%3A19%3A21%2B02%3A00%22%20xmp%3AMetadataDate%3D%222023-05-11T15%3A19%3A21%2B02%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3Ac38e61d1-d03c-4a05-90ac-ae720bd50518%22%20xmpMM%3ADocumentID%3D%22xmp.did%3Ac38e61d1-d03c-4a05-90ac-ae720bd50518%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3Ac38e61d1-d03c-4a05-90ac-ae720bd50518%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3Ac38e61d1-d03c-4a05-90ac-ae720bd50518%22%20stEvt%3Awhen%3D%222023-05-11T14%3A59%3A42%2B02%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.4%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3ERt%C3%B1y%00%00%04%C3%A2IDATh%C2%81%C3%AD%C2%99%5DlSe%18%C2%80%C2%9F%C3%BE%00%1B%C3%BB)d%C2%A6%C2%B0%0E%C2%AA%C2%95%C2%9F.%C2%B15%C2%99%1B.%C2%91r1b%02d%0Ccv%C2%A1i%C2%BD%C2%91A%C3%82%20%C2%8E%C3%ACb%C3%84%26%C2%84%C2%98fI%25%24N%C2%A6vFGL%C2%8C%C2%ADz!%17c%10%C2%B8%C2%A0%5C%C2%B4j%C3%80%C3%8A%22mB%C3%96%0D%C2%BB%C2%9D%C3%88%C2%9C%1D%10%C2%BB%C3%83%C3%81I%C3%99%C3%B0%C2%A2%C2%B4%C2%AE%C2%B6%C2%ACg%C2%8C%C3%91!%3CI%C3%93%C3%93s%C2%BE%C3%AF%3D%C3%AF%C3%B7%C3%A4%C3%BD%C2%BE%C3%B3S%05%C3%B7%C3%90%5B%C2%ACV%60%3FP%05%2C%C3%A2%C3%89%22%0E%C3%B4%01G%05%C2%BF%C3%87%03%C2%A0%00%C3%90%5B%C2%AC%C2%9F%00%7B%C3%B3%C2%98%C3%98B%C3%82%25%C3%B8%3D%C3%BB%14%C3%B7*%C3%85%C2%9D%C3%AFl%16%186%25%C2%89%C3%A9%C3%B3%C2%94t%C3%B6%C2%ABI%C2%AC)3RV%5BA%C3%A9%0BZY%11%C3%BF%1E%C2%93%18%C3%A9%0D%C3%83%C3%9D%C2%B9%C3%A6%C2%96W%C2%AA%C3%94%C3%88Xh%C3%8B%C3%AB%C3%97S%C2%B2%C2%BE%C2%8C%C3%B8%C2%9F%133%C2%B6S%17%2FFU%C2%A8%C2%A6%60E1%C2%BFv_%7CXI%C3%A6%C2%83Ej%C2%B9-%C3%85%C3%B0uB%C2%87%C3%8E%C3%8D%C3%98%C3%86%C2%B0%C2%B3%0A%5D%C3%BD%3A%C3%8A%C2%B7%C2%ADer%C3%A2%0E%C3%83_%5D%C2%9As%C2%86%C3%B9B9_%C2%81W%C2%BD%5E%C3%89%C2%B3o%C2%BD8_%C3%A1%C3%A7%C2%9Dy%13%03%C2%8F%C2%B7%C2%9Cy%15%03%099%15%C2%AF%19%1FZ%3CK%C2%8D%C2%89a%C2%9F%3Bc%C3%BBa%23%5B%C3%8C%1D)%C2%9E%C3%9AV-%C3%8D%C2%BE%5E%C3%BFuu%C2%9C%3BR%C2%9C%C3%89%5B%C3%BF~%C3%AENNQ%C2%BEu%C3%AD%7D%C3%A3%C2%9A%C2%8D%06%C3%9C%1Dv%C2%86%7Dn%C2%86%7Dnz%C2%BB%C3%9Bg%C3%8CC%C2%AF%C3%93f%C3%9D~%10%C3%9C%1Dv%2C5%C2%A6%C2%AC%C3%87d%2F%C2%BE%13%C2%BF%C2%8B%00%14%C2%AC%2C%C2%A6%C3%BA%C3%A3m%5C%C3%B9%C3%BC%22%C2%A3g%C2%AE%C2%A4%C2%B5%19%3Ds%25c%C3%9F%C2%BAw%5EFs%C2%9FK%C2%BD%C2%A5%C3%86%C2%84%C2%BB%C3%83%C3%8E%C3%89s%C3%A7%C2%B1%C2%B5%3A%C2%89%C2%89%C3%92%C2%9C%07%3B%1B%2C5%26N%C2%9E%3B%C2%9F%C3%B5%C2%98%C2%AC%C2%8A%19%C2%BF%7C%C2%8D%C2%89%C2%A8%04%C3%80%C3%84%C3%A8M%C3%86%7C%02kvW%C2%B3r%C3%8B%C2%9A9%25%C3%A6r%C2%B4%C3%A0%C3%A9%C3%B1%C2%B2%C3%B7P'%C3%BE%40%C2%88%60%7F%24%C2%95%C2%A8%5E%C2%A7MURow%C2%BB%2Caz%C2%9D%C2%96%C3%9E%C3%AE%C3%B6%C2%8C%3E%C2%9A%C2%92%22%5C%C2%8E%C2%96TUZwl%C3%A6%C3%92%C2%A9%C3%8F%00p%C2%B65%C3%A1r%C2%B4d%C3%84%C2%92%25F%C3%B8%3A%C3%88%C3%A8%C3%A9%C3%81%C3%94%C3%AFp%C3%A7%05%C3%86%7C%C3%83s%C2%92c6%1A%C3%90%C2%94%14%C3%91%C3%A5%3E%C2%91%C3%B5%C2%B8%C3%8B%C3%91BL%C2%94R%C2%95%C3%A4%C3%AE%C2%B0%C3%A7%C2%8C%C3%A9lkB%18%C2%89%C2%B2%7D%C3%97Ab%C2%A2%C2%84%C2%B3%C2%AD)%15K%C2%AF%C3%93bkubku%C3%A2%0F%C2%84%C3%98%C2%BE%C3%AB%20%00%5D%C3%AE%13%C3%98%C2%8F%1C%C3%8B%C2%88%C2%95%3E%C2%95%14%0AJ%2B%C3%8BP(%159%C2%93%C3%B8%C3%83%1B%C2%A1%C3%A8%C2%B9e%C2%AC%C3%99%5D%0D%C2%901%C2%85ra6%1A%00%10F%C2%A2Y%C2%8F%C2%99%C2%8D%06%C3%ACG%C2%8E%11%C3%AC%C2%8F%10%13%25z%C2%BB%C3%9BS%7D%C2%B2%C2%A1%C3%97i%C2%B1%C3%94%C2%98%C3%98%C3%B4F%2B%C3%82H%14O%C2%8F7%25%C3%84Rcb%C3%BB%C2%AE%C2%83%04%C3%BB%23%19%C3%BD%C2%84%C2%91(1Q%C3%8A%C3%98%C2%9F%26%C2%A6%C2%B4%C2%B2%0Cs%C3%BB%C3%A6Y%0D%10%C3%A0%C3%B9%C2%A6*%C2%A2%C3%9E!%C2%A6%C3%A2%C2%93%C2%B2%C3%BB%24%C2%85%C3%A8u%C3%9A%0C9I%01%C3%89%C2%81%24%C2%BFg%12%C2%93%5CD%7D%C3%9Fvd%C3%9D%C2%9FM%C3%8AL%C2%A4%C2%89%19%C2%BF%7C%C2%8D%C2%BE%C3%BD%C2%A7Q%C2%A8s%C3%8F0%C2%85Z%C3%89%C2%BA%7D%1B(%5CU%C3%8A%C3%80G%17f%25%05%C3%80%1F%08%11%13%25%C2%9Am%0D%19%C2%A5%3C%5DD%C2%B0%3F%C2%92%26%C3%AA~r%C2%92r%C2%93%15%C2%93%24%C3%99%3E%19K.%19W%C2%A5%5B%C2%BF%C2%8D%C3%A7%C3%AC%C2%A4P)%C2%A9l%7B%25!%C2%A5%C3%B3%3Cc%3EA%C3%B6%09%C2%A7c%3Fr%0C%C2%97%C2%A3%05MI%11%C2%9E%1E%2F1Q%C3%82l4%C3%A0%C3%A9%C3%B1%12%C3%AC%C2%8F%C3%B0%C3%AE%C2%9E7%C3%A9r%C2%9F%C2%A0%C3%99%C3%96%40%C2%B0%3F%C2%92%26f%C2%BA%20%C2%B3%C3%91%C2%90%12%C3%ADlkJ%5B%C2%B7%C2%92%C2%8B%C2%BA%C2%B3%C2%AD%C2%89%C3%B7%3F%C3%BD%06HHL%C3%8A%C3%93%C2%94%14e%C2%ADZ%C2%95Fo~%2F%C3%97%00%0CoW%C2%B1t%C2%B5%061%7C%1D%C2%85RA%C3%A5%C2%81%C2%8D%2C%C2%AF.%C2%97%25%C2%A5%C2%AC%C2%B6%C2%82%02mQ%C3%A2%C2%89%C3%BB%3F%0C%0C%5D%25%10%0CS_WK%C2%B3%C2%AD%01%C3%AB%C2%8E%C3%8D%C2%ACxf9%C2%9E%1E%2F%C3%BE%40%C2%88%C3%86%C2%AD%C2%9Bh%C2%B65%10%13%25%C3%B6%1E%C3%AA%24%26J%08%23Q%C3%AA%C3%ABj1%1B%0D%7C%C3%B8%C3%85%C3%B1%C3%94%C3%B6%C3%B13~%C3%BC%C2%81P*%C3%96%C2%AB%1B_J%C3%89%C3%B4%07BXjL%C2%B4%C3%AEl%C2%A4q%C3%AB%26%02%C3%810%03CW)X%C2%B2%C2%98%C3%96%C2%9D%C2%8D%14%2CY%C3%8C%C3%99%1F%C3%BA%C3%92rS%C3%A8-%C3%96%C2%9C%2F%08L%C2%8E%3An%0E%C3%9E%60%C3%A8%C3%8B_(XYL%C3%95%07%5B%18%C3%AC%C3%BAIV%C2%A5%24%C3%AFc%02%7Bzs%C2%B6%5DH%C3%88%C2%BE%C3%81%2B%C2%AC(%05%12%C3%B71%3F%C3%9A%C2%BE%7B%C3%9C%C3%9F%C2%B7%C3%A4D%C3%B6%23%C2%81%C2%AAp%C2%9A%C3%83%C3%BF%C2%B9%14x%04%0F%C2%91%C2%8F%2B%C2%B2%C2%A7R%C2%B1a%19%26G%C3%9D%C2%ACO%C2%B0%C2%B4%C2%A2%C2%84%C2%A9%C3%B8%C3%94%C2%AC%C3%BB%C3%A5%1BYb%C2%AE%7D%2F0)%C3%9D~%C2%A0%13%C2%88%C3%A1%C3%AB%C2%88%C2%837%1E%C2%A8o%3EQ%C3%A8-%C3%96%C3%9B%3Cy%7F%C2%B0%C3%A5%22%C2%AE%24%C3%B1%0F%C3%9CS%C3%92%C3%A9S%02G%C3%B3%C2%9D%C3%85%02%C3%A4%C2%A8*%26%04%C2%83%1A%C2%BDY%0Bl%C3%88w6%0B%04%C2%97%C3%A0%C3%B7%1CV%01%C3%84%C2%84%C3%A0)%C2%8D%C3%9E%3C%00%C2%AC%06%C2%B4%C2%80*%C2%AF%C2%A9%3Dz%C3%A2%C3%80%C3%8F%C3%80%01%C3%81%C3%AF9%0C%C3%B0%0F%C2%9B%C2%9B%C3%AB%C3%92%11%C3%A6%3A%19%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgExportME = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%C3%9A%00%00%00%1E%08%06%00%00%00Jd%00y%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%C2%9A%C2%9C%18%00%00%04%C3%B5iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Aphotoshop%3D%22http%3A%2F%2Fns.adobe.com%2Fphotoshop%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstEvt%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceEvent%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.3%20(Macintosh)%22%20xmp%3ACreateDate%3D%222023-03-25T14%3A12%3A17%2B01%3A00%22%20xmp%3AModifyDate%3D%222023-03-25T14%3A12%3A39%2B01%3A00%22%20xmp%3AMetadataDate%3D%222023-03-25T14%3A12%3A39%2B01%3A00%22%20dc%3Aformat%3D%22image%2Fpng%22%20photoshop%3AColorMode%3D%223%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A30e7931c-55e2-4db2-a9ab-109f6b1dbca0%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A30e7931c-55e2-4db2-a9ab-109f6b1dbca0%22%20xmpMM%3AOriginalDocumentID%3D%22xmp.did%3A30e7931c-55e2-4db2-a9ab-109f6b1dbca0%22%3E%20%3CxmpMM%3AHistory%3E%20%3Crdf%3ASeq%3E%20%3Crdf%3Ali%20stEvt%3Aaction%3D%22created%22%20stEvt%3AinstanceID%3D%22xmp.iid%3A30e7931c-55e2-4db2-a9ab-109f6b1dbca0%22%20stEvt%3Awhen%3D%222023-03-25T14%3A12%3A17%2B01%3A00%22%20stEvt%3AsoftwareAgent%3D%22Adobe%20Photoshop%2024.3%20(Macintosh)%22%2F%3E%20%3C%2Frdf%3ASeq%3E%20%3C%2FxmpMM%3AHistory%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C3%96%7Bt%C3%8C%00%00%094IDATx%C2%9C%C3%AD%C2%9C_L%5B%C3%97%19%C3%80%7F%C2%BE%C3%86%60c%3Cb7sW%3F%109hb%0Bf%5B5G%C2%96*x%00%C2%89%3D4%23%2F%C2%91%1A%0B%C2%B4%11)%C3%93D2%C2%89%C2%96I%C3%99%C2%B0%16EZ%C2%84%C3%A4T%C2%91F%C2%8B%C2%B4%C3%80%C2%AA%C3%B0%10M%20Ri%C3%9A%04%C3%A9%C3%B6%C2%90%C3%89%C3%91%04%2F%C2%96P%C2%BB%0A%C3%B3%C2%80%C2%A2%C3%84%C2%A979%C3%AD%1D%C3%82%25%60%0C16%7Bp%C3%8F%C3%81%C3%A6%C2%AF%01S%12%C3%B7%C3%BE%5E%C3%80%C3%A7%C3%9E%7B%C3%AEw%C2%BE%C3%BB%C3%BD%3D%C3%97%C2%A0%C3%A3%2B%C2%AA%C3%AA%5B%5B%C2%81w%C2%80%1F%01%06444%C3%B6K%12%C3%B87%C3%B0%5Edbx%18%40%07PU%C3%9F%C3%BAG%C3%A0%C3%B2%C3%91%C3%89%C2%A5%C2%A1Q%C2%B4%C3%9C%C2%8AL%0C%C3%BFJ%C3%B7U%26%1B%3Aji44%C2%8A%C2%986%05x%C3%BB%C2%A8%C2%A5%C3%90%C3%90(r%C3%9EV%C2%80%C3%97%C2%8FZ%0A%0D%C2%8D%22%C3%A7%C3%B5%12%C3%B6%C2%B8%C3%B1aR%C3%8C%C2%9C%2CuQ%C2%AA%2B%2B%C2%98%14k%C2%AC%C3%B14%C3%B9%C2%84%2FV%C3%BFS%C2%B0954%5E%20%0C%25%7B9%C3%BB%7B%C3%86%1Fs%C3%AE%C3%98%25%3EOFH%C2%A4%17%0B%26%C2%85N%C2%A7%C3%B0f%C3%A5%C3%8F%C2%99Y%C3%BE%C2%98%C2%BF~%C3%B9'%C3%92%C2%A4%0B6%C2%B7%C2%86%C3%86%C2%8B%40%C3%9E%C2%8E%C3%B6-%C2%BD%C2%8Ds%C3%87.%C3%B3a%C2%AC%C2%8F%C2%87%2B%C2%9F%16%5C%C2%90r%C2%A5%C2%82%0B%C2%B6%C3%9F%C3%B1F%C3%85%C2%9BL%2C%C3%9E%2B%C3%B8%C3%BC%1A%1AG%C2%89%C2%92%C3%AF%C2%89%C2%A7%C2%8C%C2%A7y%C2%BC%12%3A%14'%03XJ%2F%C3%B2%C3%8F%C2%85%0F%C3%B9%C2%81%C3%B1%C2%8DC%C2%99_C%C3%A3(%C3%89%C3%9B%C3%91LJ%05_%C2%A6f%0FS%16%C2%9E%C2%A5%C3%A70*%C3%A6C%C2%BD%C3%87%C3%8B%C3%8A%C3%B5%C3%97%C2%86h%C2%B7%C3%B9%C2%8EZ%C2%8C%7D%C3%91n%C3%B3q%C3%BD%C2%B5o%C3%B6%1B%C2%A4%3D%C3%B5h%C3%99%C2%B8%C3%8B%C2%9Bh%C2%A8h%01%60r)%C3%80%C3%B8%C3%A2%C2%98%3CfR%C3%8C%C2%BC%C3%B3%C3%AD%5E%C2%96%C3%97%C3%A2%C3%8C%C2%AD%C2%AA%C3%9C%C2%99%C3%B3%1F%5C%C3%92%0D%C3%94%C2%BB%5D%0C%C3%B5%C3%A6%1A%C3%9E%C3%84d%C2%88%C2%B6%C2%AE%C3%82%C3%9Fk%2B%C2%86z%7D%C3%B4%0F%C2%8D11%19%C3%9At%C3%AC%C2%BC%C2%B5%C2%93Z%C2%A3%C2%87h2%C3%8C%C3%80%C3%ACU9%C3%9Ee%C3%AF%C3%85%C2%AA%C2%B7s%7Fa%24G_%7B%C3%A5l%C3%A5E%C2%ACz%C3%BB%C2%9E%C3%B5%C2%BA%C2%95%C2%B1%C3%9F%C2%99%C3%B3%C3%B3he%C3%B3%1A4%0A%C3%8B%C2%BE%1D%C3%8D%C2%AA%C2%B7c%C3%95%C3%9B%01%C2%A85zr%0C%C2%A7%C3%96%C3%A8%C3%81%C2%A4%C2%981qx%C3%99%C2%A9%C3%8A%C2%91%C2%B9%C3%B7O%7F%C2%B1n%C3%88%C3%B3%0B%C3%B1C%C2%BB%C3%9FF%C3%AA%C3%9D.%3Ez%10%C3%9C%C3%B2%C2%98Q%C2%97Y%C2%B7%C3%83%C3%A0%C3%84%C2%A4%C2%98I%C2%A4%C3%A38%0CN%C2%A9%C2%AF%C2%A3%24%C2%96R%C2%99%5C%0A%C3%88%C3%8F%C2%89%C3%B4%C3%97%C2%A7%C2%B3o2%C3%BBv4A4%19%C3%8E1(%C2%80%C3%AA2%17%C2%B1%C2%94z%60%C3%A1%C3%B2aj%26%C2%BCil%C3%BCn%2F%C2%91%C2%A8J%5B%C2%97%C2%9FJ%C2%8B%C2%99%C3%B1%C2%BB%C2%BD%C3%9C%18%18ab2%C3%84%C2%AD%C3%AB%C2%9D%C3%94%C3%958%01%C3%B8%C3%A8A%C2%90%C3%8B%C3%97%C3%BA%C2%80%C2%8C%C3%A3%C3%BA%C2%AF%5C%C2%A4%C3%9E%C3%ADbj%26%C3%8C%C3%A5k%7DD%C2%A2%C2%995%7C6%3E%C3%84%C3%B0h%C2%803%C2%8D%1E._%C3%AB%C3%A3%C3%96%C3%B5N%00y%C2%BE%C2%98%23%C2%9BD%3A%C2%8EI1Sk%C3%B40%C2%B9%14%C2%A0%C3%96%C3%A8%C2%91c%C3%99T%C2%97%C2%B9h%C2%B6x%C2%B1%C3%AA%C3%AD%3C~%1Ebt~P%C3%AA%C2%B1%C3%96%C3%A8%C2%A1%C2%A1%C2%A2%05%C2%87%C3%81%C2%99s%C2%8DUo%C2%A7%C2%BA%C3%8C%05d%C2%AA%C2%87%C2%B7%C2%8Eu%C3%8As%26%C2%97%02%C3%9C_%18%C3%99V_s%C2%AB%C3%AA%C2%A6l%C3%9An%C3%B3a%2B%C2%B13%C2%B7%C2%AA%C3%8Agw7%C3%96G4%C2%99%C3%91%C2%AD%C3%83%C3%A0%C2%A4%C3%99%C3%A2%C2%A5%C2%BA%C3%8CE%22%1D%C3%A7%C2%BD%C3%BFu%C2%91H%C3%87%C2%A5%C3%AC%0E%C2%83%C2%93h2%C3%8C%C3%BD%C2%85%11%C2%99%1D%C3%855%C3%826%C3%B2Ys%C2%BB%C3%8D%C2%87I1%13M%C2%86%C2%A95z%C3%B0%7F%C3%B1%C3%8Bm%C3%97%C3%B1%C2%B2%C2%91w%C2%8F%C2%B6%11%5BI%26%3A%0B%C3%85%C2%9E%2C%5D%7F%C3%B0'K%5D%C3%B2!m%C3%84ap%C3%92n%C3%B3%C3%A1%7B%C3%B5%03%3A%C2%8E%C3%B7%C3%A0.o%C3%9A%C2%AF%08%C3%9B%C3%A2%C2%BB9H%C2%BD%C3%9B%C3%85%C2%99F%0F%C3%9D%1D%5E%22Q%C2%95%C3%A1%C3%91%00%C3%B5n%17u5N%C3%9A%C2%BA%C3%BC%C2%B4u%C3%B9%C2%A9%C2%ABq%C3%A2%C2%BFr%11%C2%80%5B%C3%97%3B%C2%99_%C2%88%C3%93%C3%96%C3%A5g~!%C2%BE%C2%A9%2C%C2%ADw%C2%BB%C3%A8%1F%1Acj%26%2C%C2%B3h%C3%BF%C3%90%18%C2%BE%C2%9B%C2%83%C2%9B%C3%AEo%2B%C3%89%18%C2%900F%C3%88%18%C3%97%C3%B4r%26%03%C2%8A%C3%8Cf%C3%95%C3%9By%C3%ABX'%C2%89t%C2%9C%C2%89%C3%B8%18%C2%B5F%0F%C3%8D%16%2F%C2%90q%C2%B2%C3%B3%C3%96%C2%8CC%C3%AFTf%1AufL%C2%8A%C2%99%C3%89%C2%A5%00%C3%91d%C2%98%C2%86%C2%8A%16j%C2%8D%C2%9E%3D%C3%AB%C3%8C%C2%AA%C2%B7%C2%B3%C2%BC%16g%7Cq%0C%C2%AB%C3%9E%C3%8E%C3%99%C3%8A%C2%8C%5E%C3%84%C3%B3%C2%B2%C2%95%C3%98%19_%1C%C2%93%C3%99P%C2%8C%0B%C3%B9L%C2%8A%C2%99v%C2%9B%C2%8F%C3%AA2%17V%C2%BD%C2%9Dv%C2%9B%0F%C2%87%C3%81%C3%89%C3%A4R%20'%C3%A8%C3%AE%C2%B4f1%C2%AF(%C2%BB%C2%8B%C2%89%03g%C2%B4%C3%87%C3%8FC4%C3%90%C2%82%C3%8B%C3%A4az9%C3%88%C3%89R%17%26%C3%85L(%11%C2%94%C3%A5Rv%C3%B9%C3%94q%C2%BC%C2%87D%3AN4%19%C3%86V%C2%B2%C3%BE%40%C2%B3%C3%8B%C2%99%C2%BD%C3%B0%C3%99%C3%B8z%C3%9F%C3%A1%C2%BB9%C3%88%C3%B0h%C2%80%C2%89%C3%89%10%1F%3D%08%C3%92%C3%9D%C3%A1%C2%A5%C3%8Aa%C3%8F)%2F%01%C3%99W%C3%B5%0F%C2%8D%C3%A1%C2%BFr%C2%91%C3%A1%C3%91%00u5N%7C7%07%C2%99%C2%9A%093%C2%BF%10%C3%A7%C3%9E%C3%AD%1E%C3%AAj%C2%9C2c%C3%9E%18%18%C2%91%C2%A5%C2%A2(Q%23Qu%C3%9Br5%C2%91%C2%8E%C3%B3%C3%B8y%C2%88%C2%93%C2%A5%19%C3%83s%18%C2%9C%C2%8C%2F%C2%8E%C3%A5%04%16wy%13%26%C3%85%C3%8C%C3%A8%C3%BC%20%C2%B1%C2%94*%C2%8Dlt~%C2%90%C2%86%C2%8A%16%12%C3%A98w%C3%A6%C3%BC%24%C3%92q%C3%99%0Fo%24%C2%96Re%1FhR%C3%8C%C3%B8%5E%C3%BD%20%C3%87%C2%A97R%5D%C3%A6%C3%8A%C3%A9%C3%95%C2%AE%3Dm%C2%93%C2%BF%C3%9F%C2%8De2%C2%B3%C3%83%C3%A0%C2%94%01B%C3%88xg%C3%96%C2%9Fc%C3%BC%C3%8D%C2%96%26yM%2C%C2%A52%C2%BD%1C%C2%A4%C3%A3xON%C3%A6%1E%C2%98%C2%BD*%2B%1E%11%5CvZ%C2%B3%40d%C3%8Cb%C3%A2%40%3D%1AdJ%C2%91XJ%C2%95%19M%3C%C2%A0%C3%87%C3%8F%C3%97%1Bl%C2%A3%C3%8EL%C2%82%C2%B8%C2%8C%5C%03%C2%B3W%C2%89%C2%A5Ti%18%C3%AE%C3%B2%C2%A6%7D%3BZ%C2%B6%13%C2%89R%0F2Nt%C3%AFv%0FS3%C3%A1-%C3%8B%C3%8BlD))%C3%8E%13%3F%C2%B3%1D%C2%AD%C3%92%C2%92%7F%C2%BF)t%C3%B3h%25D%C2%AD%C3%91%23%C2%9D%2B%5B'%C2%80%2C%C3%B7%C2%BA%C3%AC%C2%BD%C2%9B%C3%A6p%18%C2%9C%3CZ%09%C3%ADjp%26%C3%85L%C2%B3%C3%85%2B%C3%BB%C3%A2%C3%9D%C3%98%C3%98%C2%A3%C3%AD%C2%86X%C3%8B%C3%86%0C%23%C3%86E%C2%B6%12%C3%873%C2%BD%3B%5B%5E%03%3B%C2%AFYPlN%06%07%C3%8Ch%C2%89t%C2%9CXJ%C2%955%C2%B5%C2%88N%5B%19%C2%88I1K'%C2%BC%C3%B0%C2%8Ao%C3%93%C2%B1%C3%BD%C2%B2%C2%9D%13%5Djkaj%26L%5D%C2%8D%C2%933%C2%8D%C2%9E-7.%C2%AA%1Cv%22Qu%C2%93cmt%C2%BC%C3%BD%22%C3%8A%C3%AA%C2%86%C2%8A%16%C2%A2%C3%89%C2%B0%C3%94%C2%890%C3%92%C3%A5%C2%B5%C3%8C%C3%A7%C3%BB%0B%23%C3%B2%C2%980%C3%9CXJ%C2%95%C3%A5%C3%B9N4%5B%C2%BC%C2%B8%C3%8B%C2%9B%C3%A4%1C%C2%A2B%C3%98%C2%8E%C2%ADz%C2%B4%C2%9D%10%C3%B2%C2%88%3El%C2%BBq%C3%A1%40%1B%C3%8B%C3%84%C2%8D%C2%BD%C3%BANk.f%0E%C2%94%C3%91%C2%84%C3%92D%C3%A4n%C2%B6x1)%C3%A6M%C2%91%1B%C3%96w%C3%A2%00B%C2%89%5C%C2%A3%17%C3%B3%C3%AC%07%C3%A1%14%C2%90)%C3%A9%22Q%C2%953%C2%8D%1E%C3%8E4zh8%C3%9FEw%C2%87%C2%97%C3%AE%0Eo%C2%8E%C2%A3%C3%95%C3%958%C2%A9w%C2%BB%C2%B8%C3%94%C3%96%22%C3%8B%C3%85%C2%A9%C2%990%C3%9D%1D%5E%C3%BA%C2%87%C3%86%C2%A4%C2%93%C3%AE%C3%A6h%C2%95%16%C2%B3tV%C2%81%08%1A%C2%B1T%26%C3%93%C2%8B2J%C2%94r%C3%99%01(%C2%94%08Rk%C3%B4%C3%88%C3%A0%C2%94%7D%7Cr)%40%C2%B3%C3%85K%C3%87%C3%B1%C2%9Em%C3%8B%C3%80%C3%AC%C3%BB%C3%A5%C2%8B%C2%AD%C3%84%C2%9ES%C2%86%C3%AE%C3%96%0BM%2F%07q%C2%977%C3%91n%C3%B3%C3%89L8%11%C3%8F%C3%B4j%C3%AE%C3%B2%26%C3%8E%5B%3B%09%25%C2%82%C2%B8L%1E)%C2%B7I1%C3%A3.o%C3%A2%C3%82%2B%3EB%C2%89%60N%C3%80%C3%98i%C3%8D%C3%85%C3%8C%C2%BE%1D-%C3%9B9%C2%84%C3%82D%C3%86%12%C2%8E%C2%94H%C3%87%C2%B1%C3%AA%C2%91%3BI%22%C3%B2E%C2%93%C3%A1%1D%C2%8D'%1F%C2%84q%C3%9F%C2%BB%C3%9D%C2%933~%C2%A2%C2%A1%C2%8D%C3%AE%0E%2F%C3%83%C2%A3%01%22Q%C2%95%1B%03%23%C2%8C%C3%9F%C3%AD%C3%A5R%5B%C2%8B%C3%AC%C2%A7%C3%AE%C3%9D%C3%AE!%12UeO%07%C3%88%C3%9D%C3%84%C2%A1%5E%C2%9F%C3%9Cu%C3%9C%C3%AA~%C2%82%C3%BE%C2%A11%C2%BA%3B%C2%BCTZ%C3%8C%C3%9C%18X%C3%9F%C3%A5%C3%8B%0E(%C2%B0n%C2%A8BG%C3%99z%C2%9B%5E%0E2%3A%3F(%C3%9FI%C2%8A%C3%AA%00%C3%967%40%C3%9C%C3%A5M4%5B%C2%BCD%C2%93%C3%A1-%03%C2%98%C3%A8m%C3%AA%C3%8D-R%C3%8F%3B%C2%BD%17%C2%B3%C3%AA%C3%AD9%C2%9B%0F%3B%C3%ADPB%C3%A6%C3%99%C3%9E%C2%99%C3%B3%C3%93l%C3%B1%C3%8A%C2%BEq%22%3EF4%19%C3%8E%19%C2%8F%26%C3%83%C2%8C%C3%8E%C2%AF%C3%B7qwc%7D4T%C2%B4%C3%88u%09'%C3%9Di%C3%8D%C3%85%C2%8C%C2%AE%C2%AA%C2%BEu-%C2%9F%13%1B-%C3%A70%C3%AA%C3%8A%C3%B9%C3%87%C2%B3%3Fc%C3%95%C3%9B%C3%A9%C2%B2%C3%B7%12K%C2%A9%C3%B4%C2%AA%5D%C3%80%C3%BA%C3%8B%C3%98%C3%AC%C2%B1%C2%8E%C3%A3%3D8%0CN%C3%99%14W%C2%97%C2%B9%C3%A4N%C2%95%C2%88%C3%B6V%C2%BD%C2%9D%C3%91%C3%B9A%C2%A6%C2%97%C2%83%7C%C3%87p%C2%82V%C3%AB%C2%AF%C3%B9%C2%83z8%7F%22%C3%97z%C2%B6%09%C3%BF%C2%95%C2%8B%C2%9Chh%C3%9B%C3%BDd%0D%C2%8D%02%C2%B2%C3%AF%C3%AD%C3%BDXJenu%3D%C3%8A%C2%87%12Ab)5%C2%A7%2C%14%3D%C2%9C(oDt%7C%C2%B4%12%C3%82%C2%A83c%C3%95%C3%9Be%C2%A6%C3%93%C3%90(f%C3%B2.%1D%C3%93k)%C3%B4J%C3%A6%C3%B4%C3%AC%C2%AC%25%C2%B8%C2%BF0%C2%B2%C2%A9%0C%C3%99%C3%AA%2BB%C2%8FVB%C3%9B%C2%966%0A%0Ak%C3%A4%C2%95%60%C3%B7%C3%85%C3%94Lx%C3%9Boshh%1C%26yg%C2%B4%C2%A7%C3%89'%7C%C2%B7%C3%AC%C2%87%18t%C2%A5%C2%87%26%C3%8C)%C3%A3i%C2%9E%26%C2%9F%1C%C3%9A%C3%BC%5B%C3%B5%5E%1A%1A_%07yg%C2%B4%C2%87%2B%C2%9F2%C2%B7%C3%BA9%3F%C2%B3%C3%BD%C2%96%7F-%C3%BE%C2%8Dx%C3%BAY%C3%81%C2%84%C3%90%C2%A3%C3%A7%C3%BBF7%1E%C3%B3O%C2%B8%3D%C3%BB%C3%BB%C2%82%C3%8D%C2%AB%C2%A1%C3%B1%C2%A2%C2%90%C3%B7f%08%C2%80AWJC%C3%85YN%19OS%C2%AA3%16L%C2%885%C3%92%3CM%3E!%C2%B0%C3%B0%17%C3%94%C3%95%C3%BF%16l%5E%0D%C2%8D%17%05%5DU%7D%C3%ABs%C2%B4%7F%C2%98%C2%AA%C2%A1q%C2%98%24%15%C3%A0%C2%93%C2%A3%C2%96BC%C2%A3%C3%88%C3%B9D%01%C3%9E%3Fj)44%C2%8A%C2%9C%C3%B7%C3%B5%C3%B3%C2%91%C2%A9%C2%A9%C3%8A%C2%AA%3A%3Bp%C3%BA%C2%A8%C2%A5%C3%91%C3%90(BnE%26%C2%86%C3%9F%C3%95%03%C3%8CG%C2%A6%C3%BE%5EYU%C3%B7%10%C2%A8%02%C3%AC%C2%80%C3%BEHE%C3%93%C3%90x%C2%B9I%02%1F%03%C2%BF%C2%89L%0C%C2%BF%0B%C3%B0%7F%26QjD%C2%81%06%1A%5C%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgAErender = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%C2%97%00%00%00%1E%08%06%00%00%00!%20%C2%8Ci%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C3%89e%3C%00%00%03)iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.3%20(Macintosh)%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3ABF1D1664C6FF11ED9E53AA306BAC7CBA%22%20xmpMM%3ADocumentID%3D%22xmp.did%3ABF1D1665C6FF11ED9E53AA306BAC7CBA%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3ABF1D1662C6FF11ED9E53AA306BAC7CBA%22%20stRef%3AdocumentID%3D%22xmp.did%3ABF1D1663C6FF11ED9E53AA306BAC7CBA%22%2F%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C3%90%C3%A5x%00%00%00%08-IDATx%C3%9A%C3%AC%5B%09lTE%18%C3%BE%C3%B7%C3%AC%C2%B9%C3%9Dv%5BKA-rH%11A%C2%A8%1C%C3%B5%C2%A8G9%24%C3%A1%14%C2%A3%C2%82mTTB%C2%A4(R%C3%91hc%03B%C2%88%60%1A%23%60D%04%11%C2%88%C3%A12%24%22%C2%B4%24%20b%C2%94VEE%03%05%0F%C3%A4%C2%88%0Dr%C3%B4%C2%82m%C2%BB%C2%BB%C3%9D%C3%9B%C3%B9%C2%A6%C2%9D%C3%A5m%C2%B7%C2%BB%7D%C3%9Bn%0D-%C3%AF%7B%C2%99%C2%BC%C3%B7f%C3%A6%C3%8D%7B%3B%C3%B3%C3%B5%C3%BB%C2%BF%C2%99%C3%B7%C2%AA%C2%A2%16%C2%A4g%C3%A7%C3%A6%C2%B2%C3%9D%2B%2Ce%C2%B2%C2%A4%23%05%0A%C2%9A%C3%A1d%C3%A9(K%C3%AFU%C2%96m%C3%9B%15%C3%8E%C2%85%C2%AA%16b%7D%C3%88v%C3%B9J%3F*h%07%C2%AB%18%C3%81%0Ad%C2%93%C2%ABE%C2%B1%C2%B6*%C3%BD%C2%A6%40%26%1Ec%04%C3%BBBNEmK(%0C%C2%89%C2%8C%C3%A8%C2%BB)%23*%C2%93%C3%9C%5E%17y%C3%99%C2%A6Vi%C3%88%C3%AE%C2%B1%C3%92O%C3%96%C2%83dv%C3%97*%C3%9D%7Dca!K%C2%B2%C3%89%C2%95%19%C2%AC0J%15M%C2%93%C2%8C%C3%8F%C3%92Y%C3%BBI%C3%9Ak%C3%BE%C2%94%13K%20%5E%C2%9DH%0F%19%1E%C2%A5%C3%B3%C2%8E%C3%93t%C3%8CV%C2%A6t%C3%B9%C2%8D%C2%83%C3%91r%2B%C2%AA%C2%83%C2%99w5%C3%9B%C2%A6%18%C2%9F%C2%A3o%1Bws%C3%B2%C2%80X)%26%23M%1F%7F%1F%2Fo%C3%B4%5C%C2%A5R%C3%B3fF2%23%0D%C2%89%1E%C2%A3t%C3%B9%C2%8D%C2%83%18%C2%B9%15%C2%B5%C3%81%0AF%C3%84%3EH%15%C2%B6%1F%C2%A8%C3%8Eu%C3%99%C2%97%C2%97%C2%935%C2%9C%C2%8A%0B%C3%A7%C3%92%C2%97%07%C2%BF%C3%B7%C3%A5%C2%95%5BJ%C3%A9%C3%B1%C3%84%C3%B9%C3%A4%C3%B2%3A%C3%88%C3%A9%C2%B5w%C3%AA%C2%A9%1B%3Cf%C2%AAq%5DP%C2%86%C2%AF%C2%87%20(%C2%B9%C3%92u%C2%83h%C2%B7u%7D%C3%A0%0C%40%C2%A5%0A%C3%88%3Bb%C3%99Oy%C2%A6%C3%97(Vm%C3%A8%C3%94%C3%83%40%1DWW%2F%C3%B2%23%C2%B4%C2%82%1EF.%C2%9DJO6o%23%3FNL%C2%88%C2%A7%C3%81%03n%C3%A5%C3%87%03%C3%BA%C3%B6%C3%A1%C3%BB%7B2%C3%AF%C3%A0%7B%C2%BB%C3%9DI%C2%BF%C3%BD~%C2%9A%C3%8E%3B%C3%8F%C3%B00%09rU%3AN%C3%91gu%C3%AF%C2%92%C3%9D%C3%9B%C3%A4k%2FN%C2%9D%40s%C2%92%C2%97P%C2%B26%C2%8D%C2%AE%C2%BAkhC%C3%8D%12%C2%A6RW%7D%C3%A5z%C3%A6%C3%AD%C3%B2L%C2%8B%C2%A8%C2%9F~%08%19%C3%95%26%C2%AA%23%C2%85%5C%C3%973%C3%92%C2%B3s%C3%B5l%C3%86%C3%A8%C2%90%C3%A3%C2%B9%02%00%C2%92X%C3%9C%C3%B5%C3%BC%C3%B8%C2%A5g%C2%A6%C3%93%C3%8E5E%3C%C3%8D%C3%8B%C2%9B%C3%8A%C3%B3%C3%84%C3%B9%C3%AE%C2%8F%C2%97%C3%92m%C2%B7%C3%B4%C3%A2%C2%8A%C3%A3%C3%B4%3Ay%C2%99%C2%83%C2%91%C3%8A%C3%A9%C3%B5%C2%BF%C2%AF%C3%9Dk%23%175%C2%97%23%7C6y%C2%AD~%C3%A5%08%C2%A7M%1Ek%C2%97u%C3%86%3F%C2%87%C2%B7R%C3%B6%C2%A8%C2%A1a%C2%97u%17%3Ck*%C2%A4e%C2%BD%C3%BF%C3%97%C3%95%C2%A4%C3%A3%C2%8C%60%C3%A3%3A%C2%A4%5C%16O%3D%C3%85k%C2%8C%C3%BC%C2%B8x%C3%BD%C3%A7%C2%B4y%C3%97%01~%3C)g%0C%C2%BD%C2%95%C2%9FK%C3%B7%3F%C2%B1%C2%B0%C2%99(n%17%5D%C2%AA%C2%BE%C3%82%C3%8D%3Ff%C2%96%C3%80%C3%80%C2%A8%C2%BB%C3%A8%C2%AD%C2%B4%C2%8D%C3%A4ft%C2%BAv%13%1DiU%C3%8D%C3%B3%C2%86%14m%1F*%C3%AC%C2%B5%C3%9EG%C2%B6f%C2%86k%C2%98zE%C2%85%C3%BD%0Bs%C2%A7%C2%8D%C2%A5%15%C2%AF%C2%BF%40%C2%A5%C3%9F%1C%C2%A1%C3%BC%C3%85kB%C3%BF%C2%B5%C3%B5I%C3%ADP%C2%99%18%C2%B4u5Et%C3%81y.%20_%C2%8A-u%2B%C3%A8%C2%8C%C3%BDD%C3%80%C3%80%0F%C2%88j%26%C2%AF%C3%8Dc%C2%A1%C2%93MG%C3%A8%C2%AB%C2%86%1D%C3%BC%C2%B8%1B%23%C2%83%C2%A5%C2%83%C2%8C%60%C3%9B%C3%99~%11S%C2%B1%C2%8B%C2%B2%C3%89%C3%A5b*%14%C2%AD%C2%8A%23%15%C3%9B%C3%AC%0E'%C2%9D%C2%BFT%C3%8D%C3%B3%C2%AF%5Cm%C3%A0%7Bq.%C3%90W%C2%9F%C3%81B%C2%9F%C3%91%2F%C2%AC%C3%AAH%1F%C2%9C%C3%91%C2%8Ch%C3%9A%08%C2%BCa%1A%C2%96%C3%91%C2%8F%C3%AF%C2%BBJy%04)%C2%80%3B%C2%A3%C2%B3%C3%BC%C3%88%C3%85%C3%BB%C3%83%5DE%C2%BFX%0F%C3%B9%C3%8EC%11%06%C2%84%C3%AA%C2%A3%C3%ABG%C2%A3b%C3%87R%C2%8C%3A%C2%8Ev%5EY%C3%93%13%22%C3%A4S%2CMa%24%2Bb%C3%BB%C2%B5%C2%8Cd.Y%C2%86%C3%BE%C2%B4%C3%A38%C3%AF%C3%90%13M%3F%C3%BA%19n%C2%B7%C3%87%C3%A3o%C3%B0%C3%996%C3%8E%C3%B0%04%C3%AF0%C2%81%12%C3%B3%26%C3%8A%C2%8E%C2%9FJ%C2%89%C2%9A%C2%94.%C3%BDe%C2%93s%C2%B2h%C3%A5%C2%BA%1D%C3%B4%C3%A6%C2%8B%C2%B38%C3%81%C3%8A~%C2%B9%C2%A6%1A%C3%88%C2%83%C2%B2%19%0Dq%01%C3%97%C2%85*%C2%93%C2%A2%C2%BF~('%0CH54%26%C2%8B%13D%C2%8A%3AW%15%1Dn%C3%9C%2B%C3%ABYE%C2%BD%17S%C2%96%C3%B3v%C2%A5%04%C2%9E%60%C2%98EI%C2%9AT%3A%C3%AB8A%7B%C3%8C%1B%C3%B9%3D%C2%A1x%26m*%C2%BF%07%C3%AA%C2%80%C3%88%20%C2%A4%208%C2%88%C2%8A%C3%AB%C2%B0%C2%97%C3%B6%7D%7Bm%C2%A2.%C3%9A%C3%80%C3%98%C2%AE%C2%B8%3C7%12%C3%83%C2%80Y%C3%9Cj%C2%96%C2%9Ec%24%C2%9B%C3%87%08%C3%B6cH%C3%8F%05%C2%9C%C2%B4%1Da!n%18%C2%A5%C3%A9%C3%92%7Dy%C3%BB%C2%BF%3BJO%C2%BF%C2%BA%C3%92%C2%8FX%C2%93%C2%8D%C2%B3%C2%A9%C2%97%C2%A4%0Ep%C3%8A~%C2%8C%3E%C2%A8~%C2%9D%C3%8A%2C%25%C3%A4!O%C2%97%10%0Bd%029%C2%B6%C3%AD9D%15%7F%C2%9D%C3%A3D%13X%C2%BBl%01%3F%2F%2C%C3%9EHS%C3%A6%14%C3%B9%5D%17%C2%AA%C2%AC5%40(%0C%04%06%08%03%25U%C2%B2H%00m%3E%C2%99%C2%B8%C2%80%0F%7C%C2%99e%2F%1Fp%C2%90BZ%C3%9E%C3%A4%C2%B5pb%C3%A2x%C2%9A%C3%B1%05_%3E%C2%88%02bA9A%3C%C2%B9m%C3%A2%C2%9A%C2%B6T8%02%18%C3%81%C3%92%C3%B7%C2%8C%60%1BX2%C2%85T.%C2%A8TI%C3%BDf%C2%9Ah%C3%88%C2%A5Z%C3%BD%25%3Aj%C3%BD%C2%86%1A%2CV*%3Fz%C2%B2%C3%85%3B%C3%B5%C2%A6%C3%89%09%C2%B3%C3%A9f%7D%7F%C3%A6%C2%B7%02%C3%97%C3%95%60%C3%AA%0F%C3%94o%C2%A7c%C2%B6r%C2%9A%C3%8E%3A%C3%A5%16%C3%9D%C3%80%C2%88%C2%AB%16%C2%94%C3%8A%C3%9C%60%C3%A1%C2%9E%0B%C2%93%0D%10%06%C3%BE%09ey%05%2B%C3%BC%C2%94Lx%C2%AB%60em%C2%85D%0C%14%06%0F%3Ej%C2%82%C2%A1Y%C3%89%C2%A4%C2%9E%0Au%C2%A4%C3%9Ek%C3%B1%C3%85%C2%BC%C2%A0%C3%AD%3D%C3%80%C2%94%1C%03%C2%8B%24TL%C2%84H(%0B%08%22%06%1E%C3%A7%02%22%7C%C2%A2L%C2%90%5B%5C'%7C%20%C3%8A%C3%B0%C2%ACr%C3%9B%5CU%5D%C3%90U%C2%9E%0F%C3%ABTsX%C2%9A%C3%81%08%C3%B6%C2%866TMx%C2%AF%C3%92%C3%BA-%C2%94%C2%AE%1F%C3%84W%C3%ABM%C3%AC%07%C2%B8%C3%98%16%C2%AD%C2%8A%C3%A5%C2%AF%7F%C2%8C%1AS%C2%BBw%C2%BB%C3%AC%C2%AC%C2%A4%0D5o%C3%93T%C3%A3%C3%B3%C3%BC%C2%87G%C2%92%5CP.%C3%8C%C3%B6%C2%A4j%26%C3%8Cy%5B%C3%A4%11%C3%9E%C2%AC%3Db%C2%89%C2%90(%C2%94%00%C2%83%23%C2%94L%1A%1A%5B%7B%C2%AEP%10%C3%AA!%0C%C2%BD%20%0CP%C2%90%C3%BA~X%C2%BF%5D%5C%C3%97%C2%96%C3%BA%C3%88i%C3%B3%7F%C2%98L%C3%98X2k%C3%A5%C3%94%C3%84%C3%9A%C2%95%C3%83k%C2%A7%C3%BC%C2%94w%C3%82%C2%BE%0BT%0D%C2%9EldlN%C3%84C%22%14%08%C3%8A%05%60%C3%96%08%1F%C3%B5%C3%91%C3%96%C2%BD%3E%C2%B3%C2%8Fp)%C2%858o%C2%AB%C2%AC%C2%AD%C2%90(%C2%94%40%1Ar%C2%A0%1EB%C2%BD%C3%82%C3%B1%5CP5%C2%842%C2%90%16%C3%AD%C2%80%C2%98%08y%C3%82%C3%AC%C2%8B%01%C2%97%C2%86%C2%B8%60%10uD%3BRt%C2%B4%C3%8D%08%C3%81%0Dadi)%C3%B3%5E%0D%C3%AA%C2%AE%C2%BC%C3%93%C2%90%C3%A8%C3%91%C3%B4%C3%B2M%C3%85tO%C3%9CD%C3%AE%C3%8F%22%C2%A9Z%20%07%14%08%7B%24%C2%84F%C2%91_y%C2%A1%C2%8A%C2%93%0D%24%C2%94%C3%8E%24C%C2%95%C2%B5%C3%BE%C3%AB%C3%87%C3%80%C2%818%20%05%12%C2%96%19%C2%A4%C2%8A%06%C3%80p%23%C3%9C%C2%89%C3%94%C2%9E'ChB%C3%88%C2%9A%C2%99%C2%B4%C2%80%C2%9F%C2%9F%60%C2%BEV%C3%8CDq%3F%24%C3%8C%C3%92%C3%9B%03%C3%94%0F%C2%98%C2%9D%5C%C3%88%15%11%C3%8F!%C3%90%C3%916%23%00%C2%BC%13%C3%8Cd%C2%A4z%0D%C3%84%0Ai%C3%A8%3B%C2%83DM2%C3%A5%25-%C2%A2YI%0B)A%C2%93%14%C3%B1%C3%B6%C2%A1P%20%C2%93%14%C3%A2%5Cx*(%C3%9A%C3%96%C3%B7%0By%12D%04B%C2%95%C2%B5%5E%C2%82%10%C2%83%08%40%C2%AD%C2%A0%00B%C3%91%C2%84r%60pE%12!)%C2%94%C3%A2%C2%88%25%09%C2%90%11%C3%AD%0B%2F%C2%84si%C3%9B%C2%A1%C2%80g%C2%81%17%C2%832%C3%A1%3A%40%C2%84%C3%A7%C2%8E%C2%B6%C3%99%09%C3%94%C2%B6%C3%B8%C2%AClF%C2%AA%0A%3F%03%C3%86%C2%8C%C2%97WN%0Bi%C2%BA%C2%BE%C2%B2%C3%83%C2%A2%C2%87%C2%A9%23%16F%3B%C2%82M%C2%B5%C3%8B%C3%A9%C2%9C%C3%A3%0FR%C3%90-%C3%B0%09Vv%18%C2%A9je%2F%C2%A2v%16%1D%25%C2%96%C2%82n%C2%83%C3%A3X%C2%B2c%C2%A4%C3%BA!T%C2%A5%C2%B0%C3%89%C3%95%C3%A81%C3%93%C2%AF%C3%96o%C3%BD%5E%C3%AF%60%169%3C%26%C3%9B%C2%B7%04%C2%81%2FT%1D%C2%92%17%C3%97xW9%3Av%1C%7FM%C2%84%25%C2%8E%C2%9F%C2%AD_%C3%B3WL%02X%C3%91Gy%5BK%1A%0A%C2%AEK%C2%8Cl%C2%BD%1A%1F%11r%C2%957%C2%96P%C2%B9e_%40%3E%5E%01%25jn%C2%A2%C3%A3%C2%B6r%C3%9A_%1F%C3%B8%C3%9E-Y%C2%93%C3%86%17e%C3%BFq%C3%BC%C3%89W%C3%B0%03%1FD%C3%87%C2%8D%C2%BF%C2%82%C3%AB%1Fr%C2%88%C3%95!r%C2%8D%C2%89%7B%C2%A4%C3%85W%5D%5By7jR8%C2%B1%C3%84%0C%11%C3%86U%C3%BAeD4%C2%9B!%C3%9D%C2%A6%1F%C3%8C%C2%8Fo%C3%95%C3%9DNc%0D%C2%8F33%C3%9Ax%C3%AD!T%3A%1A%16s%C2%AF2j%3D%0C%C2%B2%C3%89%C2%85%7F%C3%84%C3%807XI%C2%8CD%13%13%C2%82%C2%AFD%C3%87%C2%A8%C3%A3i%C2%BCaf%C3%90r%C2%8DJK%0F%C3%87%C3%8Fh%C2%B3%0C%C2%A1%C2%B2%C3%8A%C3%B5%C2%AF2*%3D%C2%88%5C%C3%B8%C3%B6%C2%A5%C3%9DO%14%C2%A04%C3%85%C2%97%C3%A7%2B%3D%C2%A6%C3%80%26%7FbG%C3%B4%C2%9B%C3%92_%0A%C3%82%C3%80%C3%8F%C3%A1%C2%90k%C2%B5%C3%92_%0A%C3%82%C3%80*%C2%B9%155%C3%A6%C3%8A%C2%8A%0Ac%C3%BA0%C2%BC%3F%18%C2%AD%C3%B4%C2%9B%C2%82%C3%B6%C2%88%C3%85f%C2%8A%C3%B2%C3%89%C3%85%C3%8Dze%C3%85%3EF%C2%B0%C2%BF1%C2%99c)U%C3%A4%2BP%C3%90%C3%A2%C3%89%11%0A%0B%18%C2%B1%C3%82%C3%BA%7C%C3%A3%3F%01%06%00%C3%82%22%C2%9E-%0F%C3%9A1%C3%A7%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgAErenderAlpha = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%C2%97%00%00%00%1E%08%06%00%00%00!%20%C2%8Ci%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C3%89e%3C%00%00%03)iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.3%20(Macintosh)%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3A6C008D41C71411ED9E53AA306BAC7CBA%22%20xmpMM%3ADocumentID%3D%22xmp.did%3A6C008D42C71411ED9E53AA306BAC7CBA%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3ABF1D1666C6FF11ED9E53AA306BAC7CBA%22%20stRef%3AdocumentID%3D%22xmp.did%3A6C008D40C71411ED9E53AA306BAC7CBA%22%2F%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%17%C2%A90P%00%00%06%C3%B8IDATx%C3%9A%C3%AC%C2%9B%0BlSU%18%C3%87%C2%BF%C2%BE%C2%B6v%5D7%0Ac%C3%A3!%5B%04%C2%95(%1B%C3%84%C2%841%C2%8D%C2%9B%C3%82%08%C2%9A%C3%A16%03%C2%86%406%C2%881h%C2%90%C3%85%C2%8031qH%C2%88!%C3%8A%0Ch%40%12%15I%C2%8C%C2%8A%19%C2%99F%C2%83%C2%8A%3C%04%03%02K%608%C3%A5%C2%B1MFd%C2%90%C2%95%C3%87d%1B%C2%B0%C2%8D%C2%B5%C3%9D%C3%96v%C3%B5%7Cg%3D%C3%8D%C2%BD%C2%B7%C2%BD%C2%BD%C3%B7%C2%B6%0C%C2%86%3B%C3%BF%C3%A5%C2%A4%C3%B7%C2%9Egz%C3%8E%C3%AF~%C3%9FwN%C3%AFt%10PznI%09%C3%B9XM%C3%92%C3%A3%24%C2%99%C2%80%C2%8BkP%1E%C2%92%C3%BE%24%C3%A9%23G%C3%8D%C3%8E%C3%AF%C2%B54%C3%94%05%C3%80%C3%BA%C2%84%7C%C2%94%C3%B1y%C3%A4R%C3%90%16%02X%C2%B9j%C2%B8%02%16%C2%AB%C2%8A%C3%8F%1B%C2%97J-%24%C2%80%C3%ADRSQ%1Fp%C2%85%C2%AAd%20%7Ff%5D%02%C2%9F%C3%9E%C2%91%C2%AD7%C3%94V4%06b%2Cy%C2%A0tF%C3%88N%C2%98%0Bi%C3%86I%C3%90%C3%A7wC%C2%BF%C2%BF%0F%C2%AC%C3%BA%24Zv%C3%8Au%04%C2%AEx%C2%9A%C3%B9t%C2%8F%2Cek%C2%81K6x%C2%B7%19%C3%ACP%60%5B%0A%C2%B5%C2%AE%03p%C3%82%C3%B9%C2%AB%C2%B8%C2%A1%C3%8E%04y%C3%96b%C2%98ny%0A%C3%B6v%C3%AF%10%C2%95M3%C3%8F%C2%828%C2%9D9x%C3%9F%C3%AF%C3%AF%C2%85%C3%86%C3%9E%C2%93%C2%A2%3A%C3%A3L%190%C3%9E%C2%98!%C3%8Ak%C3%AA%C3%BB%0B%C3%9C%03%3D%7C%C3%B9%C2%86%C2%B7%2CZ%C3%A0%0A_%40%C3%A0A%C2%B0~%C3%A9%C3%BE%0A%5C%03%C2%B7i%5E%C3%86%C3%844%C2%98%3F%7B%16%7CV%C2%B5%1B%C2%BC~%0F%1C%C3%AE%C3%B9%01fXr!%C3%87%C3%BA%2C%C3%94%3A%0F%04%C3%9B%3E%C2%97T%0A%C2%A3%0C)%C3%81%C3%BBN_G%08%5C%C2%8F%C2%9Ag%C3%82%C2%9C%C3%84%C2%85%C2%A2%C2%BCO%3B%C3%96p%C2%B8%C3%BEG%C3%92%C3%8B%15%C3%8CJ%C2%98%07%C3%87%C2%9D%C3%BB%C2%82%60%C3%91%C2%BC%C3%A9S%C3%A1%C3%AD%C3%97%C2%96%C2%88%C3%AA%C2%9Dq%C3%97%40%C2%8AqB%C3%90Urq)%C3%825%C2%96%00s%C3%99sAU'u%C2%AEC%C2%90ey%C2%92%C3%8F%C3%A6%08Qzn%C2%899j%C2%B80%5Er%05%C3%9CS%C3%BA%C2%84TXT%C3%B04M%C3%99%C3%84r%C2%A1%C3%98%7D%C3%91%C3%9C'%C3%80%C2%A0%C3%97%C3%83u%C2%8F%03%C3%86%18%C3%86%0D%C3%9B%C3%89h9V%05%C2%B9335%C2%97q%C3%89%C2%AA%C2%91%006%3F%C2%AA%C2%98%C3%8B%C2%ACO%00%C2%B7%7F%10%C2%AE%C3%85%C2%85%C2%B3%C3%A1%C3%B5e%2F%C2%88%C3%8A%3F%5C%C2%B3%C2%82~z%C2%BD%3E8%C3%BDw3%5Cnm%C2%87%C2%B1%C2%A6%C2%89Pb%7F%C2%93%C3%A6%C2%9Fp%C3%AE'%C2%B1%C2%933X%C3%9F%C2%A4%C2%8B%0B%C2%961%C2%B5z%5B%60W%C3%A7%C3%A7%C2%A2%C2%BC.%C3%9F%0DM%C3%9F%C2%B0%C2%A48%1F*%C3%9FZ%0E%7B%0E%C3%97B%C3%99%C2%BA%C2%AD%C2%91%C2%9F6%C3%B2%C2%90DS%C2%B6~%C3%BC%C3%A0%11%C3%A0%C2%B6%C2%8E%C2%B5p%C3%8Ds)%24_%C2%A8%C2%AFoVBs_%C2%83%C3%A6~%C2%B0%0D%C2%B6%C2%95%C2%AA%22m%3BX%C3%B4Vz%C2%8Dm%C3%90C%60%C2%92k%17.ofB%3E%14'%2F%C2%87%5B%C2%BE6%C3%98%C3%9CV~%C2%A7%C3%A0%C2%9AL%C3%92%1E%02%18%C2%9Ew%C2%ADv%C3%94%C3%AC%C2%BC%C2%AC%1A.%C2%A7%C2%AF%0Blz%3B%C2%BD%C3%9E%C2%B4%C3%BD%3B%C2%9A%C2%98%C3%85B%C2%B02%C3%B2JC%C2%82%C3%BFd%C3%BDh%18%137%C2%9E%C3%9Ec%C2%ACv%C2%A9%C3%BF%C2%9ChgX%C2%98%C3%BC%C2%B2%C2%A8%C3%8D-g%3B%C2%9Cr%1F%C2%8D%C3%A9%1BfM%7D%C2%90~%0E%C2%95%C3%A5%C2%99%12%C2%9F)%C3%98%01%C3%A7%C2%88%C2%A0%C2%A0%C3%9F%C2%81%2C%18%5Bl%C2%94%C3%B0%C2%81%C3%92%C3%92%C2%8F%C3%AC%C2%B6%C2%8C%C2%80%C2%85c4%C2%B8ki%1F%0C%129%C2%80%C3%83i%C2%82ip%C2%8E%C3%AC%C2%86Tz%C2%ADvl%C2%95Z%C2%80%C3%BB7%02%C3%99%C2%BB0xz%C3%AFQt%C2%8B%3E%C3%B2%17O%5C%C2%A3%1E%0C%C2%AAFx8~%06%24%1A%C3%ACw%C3%9D6%3F%3F'%07%3E%C3%98V%0D%C3%896k%08%60%C2%B8%C3%B18%C2%BBw%3Bu%7BRE*%13%3D%C2%9Eq%C2%99%14%18%5C%C3%8CLKNH%C3%B9Mo%1B%1C%C3%AB%C3%99%1DLr%0B%C2%A7%C3%94O%24%C3%A1%18%07oW%C3%83%C2%B7%C2%B7%C2%B6%06-%C2%91%16!%C3%8C%0CF%C2%BC%1E%02%C3%A1%C2%A9%C3%BAF%C2%92N%13%C3%88%C2%9EQ%15%C3%90%C3%97%C3%B7%C2%9E%08%C3%B9%22%5E%C3%9F%00%C3%B4%7BDp%C3%92C%C3%96%C3%99%C2%89%0B(%C2%8CwS%08%13B%C2%B5%C3%B3%C3%A7CP%7F%C3%BE%12%05-x%C2%A4%C2%B1~%15%C2%BD%C2%AF%C3%98%C3%B4%05%14%C2%BE%C2%B2V%7C%C3%9C%11%C2%A1L*%04%01%C2%81%C2%B9%C3%98%C3%9F%40%C2%9F%7C%C2%A1%05%C3%92%C2%A2%3B%C3%91%0FZ%2C%1A%C2%B2%C3%A8%C2%AC%C2%9A%2C%2FZ%3F%C2%B4%C2%AE%C3%98%5E%2B%C3%98%1A%C3%B5%18I%C2%BF%13%C3%80v%C2%90%C2%94%1A%C3%B1%C2%9C%C2%AB%C2%B9%C2%AF%1E%C2%A6%24e%C3%82C%C3%B1%C3%93%C3%A1B%C3%9FY%C2%9A%C2%B7%C3%BB%C3%90q8%C3%93%C3%94%2C%02kA%C3%B2%0A%C2%B2%C2%B3%C2%9CxO%C2%ACVM%5D%03t%C3%9Dv%C3%92%C2%98kei%11%05%06%C3%A3'%2C%2B-%C2%AF%C2%A4%C3%A5%C3%92%C3%98J%C2%AE%2C%C3%9C%C3%82%20%08%C2%B80%C3%B8%C3%A4%C3%8F%C2%B3%0DZ%20%C2%A1K%C3%82%3A%C3%82%C3%98k%5DkiT%C3%BD%C2%A8%11%7B%C3%90%11P%C2%B9%C3%B1%C3%83Y-%C3%96%06%C3%87%C3%83%3E%C2%86%C3%805J%C2%B5%C2%8C%C2%A4%22%02%C3%98%3B%C3%86H%C2%B5%0EvWC%5Eb1L%C2%8E%C2%9F%06'%C2%9D%C2%BFA%C2%A7%C2%B7%1D.%3AZ%C2%89%C2%B9%C3%93%13%C3%A8%C2%B2%20%C3%9F%C2%B6%08%3A%C2%BC%C3%97%60c%C2%9B%C3%B8%C2%85%C2%8A%C2%B2%C2%94%C3%8A%C2%90C%C3%94%0D%C3%97_%15%5B%1Eka%C3%88%C3%84%C3%A0!%C3%AA%C2%BF%C2%9E%16%C3%95p%C2%A1%C3%A5%12%C2%BA6%C2%B4f%2C8%0F%07%0Fs%C2%9DJ%601W%C3%86b%15%C2%B6H%C3%B8%C3%A4%C2%A3%C2%8B%C2%92%C2%8B%C2%B9%C2%A2%C3%ADG%09r6O%2C%C2%A8%C2%97%1B%7F%C2%9EmI%08%5C%C3%A8%C2%8E%11*%1C_k%C3%8C%17%C2%83%3AIrD%C2%84%C3%8BO%C3%BE%C2%8E%C3%B6%C3%BCDA%C3%81%C2%93x%C2%BB1%15%C3%92%C2%8C%0F%10%17h!1%C3%96(%C3%BA%23vK%C3%BFy%C3%A8%1Dp)%C2%8E%26%C2%AD%C2%83q%5D%C2%AC.%11-%10Z.%14%C3%AE%1Aq%C3%B7%C2%88%C2%BF%1E%C2%B0%60%1F%C3%9D%C2%A5%C3%88%C3%95%07%C3%AE%C3%83%C2%95%C2%85se%C3%92%18%C2%87%C2%B94fuX%C3%8C%15k%3FJ%C3%AE%10%01%C3%82%C2%B1%1A%7Bk%C3%83%C3%86%7C%C3%A1%C3%A0b.Q%C2%9A%C2%AF%05%C3%AC(%C2%841%C3%93%26%C2%92%C3%9E'%C3%81%C2%BD%C3%8B%C2%A8%0ACby%C2%8E%C3%B4%C3%BCHw%7De)%1B%C3%AE%C3%B9!%0BZ-%C2%84Ch%C2%81%C3%905b%C2%A0%C2%8EG%12%C2%8Ekm%146%0C%C3%B6%C2%A5p%C3%89%C2%95IwX%08%00.%1C%5B%08%5C%C2%AC%C2%97FW%C2%88%5C%C3%9Ah%C3%B2%C2%B0%C3%A5%25%16%05%C3%9B%C2%A1E%10%02s'%C3%BAQ%03p%24%C2%8B%C2%89%C3%87%0F%2C%5E%5Bl_E-%C3%97%10%C2%B9%C3%86%C3%83%C3%A8%C2%B4%08TM%C2%8A%01%C3%BDp%16Z(%C2%84I(v%C3%8Fb*%C2%B4hU%C2%9B%2Bh%12%C2%82%18%C2%A9Lzt%20%C2%B4%14%C2%B8%C3%98%C3%92%C2%A0%18%C3%81A%C2%AB%C3%80%12%C3%9B%C3%B6%C3%87%C3%9A%C2%8F%C2%96%C2%A0%5Di%13%C3%81%C3%80B1%17%1A%C3%AD%C3%86DF8%C3%80R%02U%C2%BE%10%2C%14%C2%BE%2C%C3%A8W%C3%9B%C2%8B%C3%9D0%16%0A%C2%92%C2%96%C2%89%C3%B2%C2%AEz.B%C2%9B%C3%B7%C2%8Ax%C3%9B%60%C3%8E%C2%A6%C2%AE3%C3%A8%12%C3%BD.8%C3%97%5B'%C2%AA3%C3%868%0E%C3%92M%C2%8F%C2%88%C3%B2%C3%B6u%7FC%26%C2%A3%C2%9D%C2%9F%7F%C3%9F%1F%1A%C3%803a%C2%92%C3%96%10%C2%A8%C2%BA%C3%82U%C3%90%04W8%C3%8D%C2%B1%C2%BD%18%C3%B2v%C3%83%C2%977%C3%9E%0B9D%C2%95%C2%BA%C3%93%C3%A3%C3%8E%C3%BD%14%26%C2%AE%C3%BBRh)V%12%C2%A8%C3%AA%22U2%C3%B2y%C3%A2%C2%8AB9%04%C2%AC%01%C2%A5Jz%3EO%5CZ%C2%A5%06%2C%0E%17%C3%97%C2%90*f%C2%B7%C2%88%C2%81%3A%1E%C2%AE%0A%C3%95%C3%AEm%15%C3%9D%C3%A3%C3%9B%0E%C3%927%20%C3%9A%C2%BDW%C3%B9%C3%AC%C2%8F%00%C2%B8%C3%B0%C3%A0%2B%C3%AA%7F%C2%82%C3%85%13u%C2%A5Su%7Cu9%C3%967%20%C2%B8%C2%86%C2%8D%C3%9Cj%2B%C2%A2%5B%3C%C3%85%C3%A7%C2%8BK%C2%83%C3%BE%C3%90%02%C3%97%C3%87%7C%C2%BE%C2%B84h%C2%8B%C3%9A%C2%8A%C2%86.G%7D%7Drz%16%C3%BE%C2%AA%C2%99%C3%8D%C3%A7%C2%8DK%09%2C%C2%B2ST%0F%17%0D%C2%B8%1D%C3%B5%7B%09%60%C3%BF%C2%90%C3%8BI%24%C2%A5%C2%B2%7C.%C2%AE%40L%C2%8E%C2%AE%C2%B0%C2%9C%C2%80%C2%B5YK%C3%83%C3%BF%04%18%00T%23J%2C%09%C2%97%C3%A5%C3%B7%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+    var imgExport = "%C2%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%008%00%00%00E%08%06%00%00%00%1F%3A%25%01%00%00%00%19tEXtSoftware%00Adobe%20ImageReadyq%C3%89e%3C%00%00%03)iTXtXML%3Acom.adobe.xmp%00%00%00%00%00%3C%3Fxpacket%20begin%3D%22%C3%AF%C2%BB%C2%BF%22%20id%3D%22W5M0MpCehiHzreSzNTczkc9d%22%3F%3E%20%3Cx%3Axmpmeta%20xmlns%3Ax%3D%22adobe%3Ans%3Ameta%2F%22%20x%3Axmptk%3D%22Adobe%20XMP%20Core%209.0-c001%2079.c0204b2def%2C%202023%2F02%2F02-12%3A14%3A24%20%20%20%20%20%20%20%20%22%3E%20%3Crdf%3ARDF%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%20%3Crdf%3ADescription%20rdf%3Aabout%3D%22%22%20xmlns%3Axmp%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2F%22%20xmlns%3AxmpMM%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2Fmm%2F%22%20xmlns%3AstRef%3D%22http%3A%2F%2Fns.adobe.com%2Fxap%2F1.0%2FsType%2FResourceRef%23%22%20xmp%3ACreatorTool%3D%22Adobe%20Photoshop%2024.3%20(Macintosh)%22%20xmpMM%3AInstanceID%3D%22xmp.iid%3ABF1D1660C6FF11ED9E53AA306BAC7CBA%22%20xmpMM%3ADocumentID%3D%22xmp.did%3ABF1D1661C6FF11ED9E53AA306BAC7CBA%22%3E%20%3CxmpMM%3ADerivedFrom%20stRef%3AinstanceID%3D%22xmp.iid%3ABF1D165EC6FF11ED9E53AA306BAC7CBA%22%20stRef%3AdocumentID%3D%22xmp.did%3ABF1D165FC6FF11ED9E53AA306BAC7CBA%22%2F%3E%20%3C%2Frdf%3ADescription%3E%20%3C%2Frdf%3ARDF%3E%20%3C%2Fx%3Axmpmeta%3E%20%3C%3Fxpacket%20end%3D%22r%22%3F%3E%C2%AEuV%C2%B4%00%00%05%C3%BCIDATx%C3%9A%C3%AC%5BYlTU%18%C3%BE%C3%A7%C3%8EL%3B%C3%93%C2%99%C3%A9%C2%B4t%01*%C2%A9%C2%82%26%C2%A2%16%04i%24J%1B%02F%C2%A3%C3%81%12b%C2%94%C2%A5%C3%95%C2%B8%60H%C3%A1%C2%A1%C2%A41%12%C2%AB%C2%95%18%C3%92%C2%A4D%1E%C2%B0%60h5%60b%C2%A4%C2%95%12%C2%9F(%C3%B5%C2%81%C2%9A%C3%B2%C3%90%1AS%C2%83%C2%A2%C2%B4%C3%86%18%C3%90JI%0A%C2%A5Ci%3B%C2%9Dn%C2%B3%C3%94%C3%B3%C2%9D%C3%B6%C3%9C%C3%9E%C2%B1%C2%8B3%C3%83%2C%C2%9D%C3%AB%C3%BD%C2%9B%C2%93%7B%C3%8F%C3%BE%7F%C3%BFv%C3%BE3%5Ct4E%C3%99y%C2%85%C2%85%C3%AC%C2%B1%C2%9F%C2%95%C2%B5%C2%AC%18)%3E%C3%89%C3%8D%C3%8AeV%C2%AA%C2%BAZ%C3%AB%C3%AA%C3%90%C2%A0%C2%9B%02W%C3%8D%1E%C3%85%C2%A4.%C2%AAa%20%C3%B7%C3%AA%18%C2%B8%22V9M%C3%AA%C2%A4W%C2%A5)%C2%B3T%2B%C3%AD%07%C3%805*%06%C2%B8V%C2%8A%C3%A3%C2%80%12%08%19%24R9i%00%C3%A3%C3%9EF%C3%AFi%C2%B2%C3%8EHo%C2%A5%C2%95S%C2%BA!%2Bb%0C%0Ez%C3%BB%C3%A8%C2%8B%3B%154%C3%ACsF%1F%60%C2%9Aa)-3%3ED%7D%C2%9E%1Ejq5%C2%90o%C3%82%2B%C3%B7Y%C3%B5vz%C3%86%C3%B6%0A3%11%3Dcn%C2%88%C2%9A%C2%9D%C3%9F%C2%90%7BbL%C3%AEO%C3%90%25%C2%B2%C3%BE%C3%ADd%C2%92%C2%92%C3%88%3B%C3%A1%C2%A1%C3%AF%C2%9Cg%C3%BD%40H%3A%3Dm%C2%B4n%C2%A3L%C3%832Z%C3%8CJ%C3%A7%C3%B8%C3%AF%C3%91%07%C2%A8%C2%9BL%C2%84%C2%A8%7D%C3%B4%07%C3%BAi%C3%B8%C3%A2%C2%8C%C3%BE%C3%87%C3%8Dy%C2%9C%C3%81%C2%BF%C3%86%3B%C3%A8%C3%87%C3%A1%C2%A6%19%C3%BD%2B%12s%C3%A8%11S.%C3%B5xn%C3%90%C3%B7%C2%AE%C3%86%19%C3%BD%C3%A9L%C2%80%1B%2C%5Bbg%C2%A2%C2%82%C2%9E%C2%B2%3CO%16)%C2%99ih%5CnK%C3%91%C2%A7sp%C2%A0GMO%C3%92K)%C3%854%C3%A2s%C3%89%C3%BDI%C2%92%C2%95V%C2%9A%C3%96%C3%B1%C3%B7%2C%C3%A3r%C3%9A%C2%95ZJ%C3%BD%5E%C2%87%C2%9F%C2%86W%C2%9B7%C3%84%C3%96%07%C2%A7%C2%991Qn%C3%92%C3%A6y%22%C2%99Dk%C3%8C%C3%B9%C3%B3%C2%AE%01M%C3%86u%14%C2%BD%3A%C3%B6%2BM%C2%B0%3F%C3%95%1E%13M%C3%8Ez%3A%C3%A9%C3%B8%C2%88%C3%BB%C2%9Bj%C3%8F%C3%81%1B%C3%AEkT%C3%9D%C3%BB%01%5Dp~%C3%AD%C3%A7%C2%AF%C2%AA%3A%C3%A8%7D%C3%A4%C2%A5%C3%96%C2%A1%C3%B3t%C2%BC%C3%B7%00%5D%1B%C2%BB%C2%A2%C3%9EL%26Y%C2%9FJv%7D%C3%9A%C3%82%C3%8EdB!%C2%B3d%C2%A1%C3%A7l%C2%BBh%5D%C3%92%C2%A6%C2%85%C2%9F%C2%AA%05K%C2%AB%C3%8DO%C3%93%0B%C3%89%C2%AF%C3%B133.r%C3%91%60%C3%A8%C3%A5%C2%94%7D%C3%B2%C3%81%C2%AF%C3%8A(%1A%0Bpa%C3%95%C2%A0%C3%83%C3%93M%1E%C2%964O'%C3%9B%C3%89d%C2%95R%C3%A4z%C2%BF%C2%B7%C2%97F%7D%23r%1DI6%C3%929AN_%3F%C2%B9%C2%BC%C2%83r%C3%9D%C3%88n*H%C3%A6%17%04%C3%806%C3%97%05j%1C%C3%BCr%C3%86U%C2%AA%24%C3%A3%08%03%C2%91%C3%81%C2%8F%C2%83%C2%AF%C3%BA%3E%C3%B6%C3%8Bd%C2%90%C2%A8%C2%BF%C3%89%C2%AEZ%0F%24%C2%AC%C2%A4%3B%C2%9E%5B%C3%B4)%3B6%C2%BC%C3%A4%C3%B5%5Bc%C2%9B%7D%0F%3D%C2%91%C2%B41%C3%B6%003%0C%C3%B71i%2Fa%C3%97%C2%9Ei%06m%C2%92%C2%9Di%C3%89%C3%82%C3%9Fq%1C%60%C3%8C%C2%B8%C3%A2%C2%BA%C2%94(%C2%99)YJ%C2%9D%C2%8A%C2%ACVZb%C2%BC%C2%9F%5C%C2%8A%C3%AB%C2%92%5Eg%C3%A0k%C3%9E%2B%C3%A1w%C3%91%C2%90%13D%1B3%C3%81w%16%1F%C3%A7%C3%89t%24%C3%A9%C2%84%C3%A3%7D%C2%BA%C3%A5%C2%BE%1E%7D%0D%C3%82o%3Es%7C%C3%A8%C3%A7K%C3%A1%26%5C%C2%82C%05%17%16%13%C2%BD%C3%A9%C3%BE%C2%9B%17%C3%ADG'%0D%C2%A0%06P%03%C2%A8%01%C3%BC%C3%9F%03%C3%8C%C3%8B%C3%8D%C2%A1%C3%AB-%C2%B5~%C2%A5%C3%B6hYT%18%C2%B5%C3%9B%2C%C3%94R%7F4%C2%B2%C3%A7%60vV%26%7F%C2%BE%C3%B8v%C2%B9%C3%9C6%C3%A0tE%05%C3%A0%C2%AA%C2%87%C2%97%C3%8B%C3%BBG%C3%9CD%C3%9B%C3%BF%C3%A8%C2%94KW%C3%B7m%C3%9A%5BT%C3%80%C2%B5)%188q%C2%A8%C2%84%C3%8E%C2%9F%C2%AC%C3%A0%C3%AF%C3%90%C3%B0%C2%95o%3F%C3%A7%C3%BDhS2%C2%89w%C3%B4%C3%8F%C3%96%C2%87%C2%B6%C3%8Aww%C3%B3%C2%B9%C2%85%5B7%C3%8B%C2%96%C2%82v%C3%94%C2%A3%C3%AA%C2%83%C3%95%C2%B5%0D%1C%C3%A8%7B%C3%85%3B%C2%B9%C2%A4%C2%B7lZOeGN%C3%89f%C2%8D%C3%BE%C2%A2%C3%92J%C2%AEm%C2%A5IC%10h%C2%9B%C2%ADO9%C2%B7%C3%B1b%1B%7F%0A%C3%ABA%3D%C2%A2%C2%A9%1A%C2%A4(%08%40%C3%AA%C3%8E5%C3%B3'%18%04%40%C3%94%C2%A1%5D%C2%A5%19%C2%B7%5E%C3%AA%C3%A0B%C2%80%1F%C2%81q%C2%B4a%2C%C3%A6a%2C%C3%AA%C3%90%22%C3%9A%C3%84%C3%9C%C3%835gd0%C2%98%2B%C2%AC'%C3%A2%C2%B9%C2%A8%C3%92%07%C3%85%C3%86%02%00%C3%8CLH%C3%BB%C3%9F%24%C3%86*MQ0%2C%C2%9EJ%C2%80%08%2C19%26%C2%94%3E(%C2%82%0C%C2%B4%02%C3%86%C2%85%C2%A9%C3%8E%15%C2%85A%C3%90%C2%8A%12%C2%90%C3%B2%19%C2%AC%C2%86%22%02%10%C3%8C%C2%88%22%C2%B4%C2%81%C2%80%00%C3%8D%C3%81%C2%AC%C3%A0%C2%83%02%C2%8C%C3%90%04%C3%9A0%06%C3%A0%20%14!%20%08%03c%C3%B1%14m%C3%B3i%1Fc%C2%83%C3%91lP%26*6%11%11R%10%40aS%00%14%C3%BE%060%C3%B9%3BJy%3F%C2%98G%3B%7C%13c%05%C3%AD%3Bx%C2%8C%07%1A%C3%B8.%C2%80%C2%A1%3E%C3%9B~%C3%82%050%06c%C2%85%C3%9FG%C3%BCF%1Fh%40%0A%C2%86!-U%5Bh%00%C3%A1s0%C2%AFXQ%C3%84MT%C2%BBML%C3%91%C3%AB%C2%8B%C3%8A%C3%A8%C3%90%C3%92%C3%9A%C2%B0%C2%AFk%08t%C3%B3%07%13'%C3%83%3E%3E%24%C3%B8m%C2%B4%C2%8D%C2%9A%C2%9Cg%C3%BC%3E*P%C2%85%06%01%0A%C2%9F%C2%84%C3%A0%C2%83%C2%83%C2%AD%C3%B6%C3%9Dqa%C2%A2A%C2%9D%C2%83-C%C2%93)Xqz%05%C2%ADH%C2%98%3E%C3%88%C2%A1%C3%9Dgm%3B)U%C2%9F%C3%89%05pn%C3%A0%14%C3%97.L%C3%AE%C3%8F%C2%B1%0E%C3%BEo%C2%82%C3%B8T%04%C3%AFg%C3%BB%C2%8F%C3%89%C2%9AG%1B%C3%A6%C3%A1i%C2%96%C3%BC%0F%C3%AF%C2%B9%C3%96%C2%845al%C2%B7%C2%BB%C2%93%1E3%C2%B1%C3%A4%C2%A1gOd%7D%10%0ClO)%C3%A1%C2%9B%C2%B7%C2%BA%1A%C3%B8%C2%A6%60L%10%C2%98%0730k0%C2%9Dg)%C2%90%C3%A7%C2%81Y%C3%B4_%1An%C2%A6%C2%BB%C3%9E%C3%9BA%C2%AD%C2%896%C2%AC%1BV%0D%C3%A6%5B%0B%C3%B8%C3%A2(B%C2%9B0WH%14%12%06%C2%93bs%C3%94A%60B%C2%BCC%C2%A3%C3%A8W%C3%8E%C2%ABq%C2%94%C3%B31h%07%C2%B0%40%C3%96%04%7D%C3%92%5B%1AP%0C%08%0A%C2%A0%C2%90%C2%A2%082B%C2%9A%C2%A0%C3%92%C3%8C%C3%A0~N%10%C3%B3f%C3%93B%20k%06%1A%C3%A0%C2%82%02x%C3%B0f%117%2B%C3%B8%1F%C2%A4%0D%C3%A9%C2%8EN%C2%B8%C3%A4%00%246U%C2%9A%C3%9B%5C%24%C3%86%C2%88u%C2%94%14%C3%AA%C2%9Aa%C3%B1A%C2%98%09%C3%8CgGj%09%C2%AFw%C2%8CL%5EHaB%60%16%C3%85%C2%A4%C3%BB%C3%AFl%1FV%00z%23%C2%AD%C2%8C%5B%C3%86%22%C3%83%C3%B4%1D1%C3%945%C3%83%02%10%C2%92%C2%84daF%C3%B0I0*%7C%03%C3%B5%1C%C3%B3%C3%BA%C2%80%C3%96AD%C2%AD%C2%BF%3B%19Q1%0F%C2%84%60%23%C3%80%C2%87%C2%B2%C2%A6%C2%96%C2%AAi%005%C2%80%1A%40%0D%60%24%00%C2%BAU%C2%8C%C3%8F%03%C2%80%C2%BF%C2%A8%18%C3%A0e%00%C2%ACR1%C3%80*%C3%BD%40W%7B%C2%BB%3D%7B%15%3E)%C3%8AU%198%C3%BC%0F%C3%90J%3D%C3%9E%18%C3%88F%06%C3%B2*%7B%C3%8Df%05I%C2%A1%3ENA!%C2%9E%C3%BC%C3%8C%C3%8A%01%06%C3%AE0%1A%C3%BE%11%60%00%C2%9D%C3%9E%C3%99o%C3%B0%C2%BE%C2%94i%00%00%00%00IEND%C2%AEB%60%C2%82"; 
+  
+    var btnCreateStructure = groupLigne1.add("iconbutton", undefined, File.decode(imgCreateStructure), {name: "CreateStructure", style: "toolbutton"});
+        btnCreateStructure.helpTip = "Créé la structure de dossiers dans le system et AfterEffects";
+  
+    var btnBrief = groupLigne1.add("iconbutton", undefined, File.decode(imgBrief), {name: "imgBrief", style: "toolbutton"});
+        btnBrief.helpTip = "Brief du projet";  
+
+    var btnSettingsWindow = groupLigne1.add("iconbutton", undefined, File.decode(imgSettings), {name: "imgSettings", style: "toolbutton"});
+        btnSettingsWindow.helpTip = "Settings";
+  
+    var btnSyncFolder = groupLigne2.add("iconbutton", undefined, File.decode(imgSyncFolder), {name: "imgSyncFolder", style: "toolbutton"});
+        btnSyncFolder.helpTip = 'Synchronise le dossier "' + defaults[1] + '"';
+  
+    var btnOrganizeProject = groupLigne2.add("iconbutton", undefined, File.decode(imgOrganize), {name: "imgOrganize", style: "toolbutton"});
+        btnOrganizeProject.helpTip = "Range le projet";
+
+    var btnVide = groupLigne2.add("iconbutton", undefined, undefined);
+        btnVide.enabled = false; 
+
+    var btnCollectFiles = groupLigne2.add("iconbutton", undefined, File.decode(imgCollect), {name: "imgCollect", style: "toolbutton"});
+        btnCollectFiles.helpTip = "Rassembler les fichiers…";
+
+    // GRPEXPORT
+    var grpExport = groupLigne3.add("group", undefined, {name: "grpExport"}); 
+        grpExport.orientation = "row"; 
+        grpExport.alignChildren = ["left","center"]; 
+        grpExport.spacing = 0; 
+        grpExport.margins = 0; 
+
+    // GRPAERENDER
+    var grpAErender = grpExport.add("group", undefined, {name: "grpAErender"}); 
+        grpAErender.orientation = "column"; 
+        grpAErender.alignChildren = ["left","center"]; 
+        grpAErender.spacing = 0; 
+        grpAErender.margins = 0; 
+   
+    var btnAERender = grpAErender.add("iconbutton", undefined, File.decode(imgAErender), {name: "imgAErender", style: "toolbutton"});
+        btnAERender.helpTip = "Veuillez créer le Module de sortie 'toolforspeed'";
+  
+    var btnAERenderAlpha = grpAErender.add("iconbutton", undefined, File.decode(imgAErenderAlpha), {name: "imgAErenderAlpha", style: "toolbutton"});
+        btnAERenderAlpha.helpTip = "Veuillez créer le Module de sortie 'toolforspeed_ALPHA'";
+  
+    var btnExport = grpExport.add("iconbutton", undefined, File.decode(imgExport), {name: "imgExport", style: "toolbutton"});
+        btnExport.helpTip = 'Lance le rendu dans le dossier "' + defaults[6] + '"';
+
+    var btnExportMediaEncoder = groupLigne3.add("iconbutton", undefined, File.decode(imgExportME), {name: "imgExportME", style: "toolbutton"});
+        btnExportMediaEncoder.helpTip = 'Export Media Encoder dans le dossier "' + defaults[6] + '"';
+  
+      ///////////// Creer dossiers et fichier //////////////
+
+
+      btnCreateStructure.onClick = function() {
+        var panelGlobal = this;
+
+        // STRUCTUREFOLDER
+        // ===============
+        var StructureFolder = (panelGlobal instanceof Panel) ? panelGlobal : new Window("palette"); 
+            if ( !(panelGlobal instanceof Panel) ) StructureFolder.text = "Folder Structure"; 
+            StructureFolder.orientation = "column"; 
+            StructureFolder.alignChildren = ["center","top"]; 
+            StructureFolder.spacing = 10; 
+            StructureFolder.margins = 15; 
+        
+        // PANEL1
+        // ======
+        var panel1 = StructureFolder.add("panel", undefined, undefined, {name: "panel1"}); 
+            panel1.text = "Folder name"; 
+            panel1.orientation = "column"; 
+            panel1.alignChildren = ["left","top"]; 
+            panel1.spacing = 10; 
+            panel1.margins = 16; 
+        
+        var txtNumberFolder = panel1.add('edittext {justify: "center", properties: {name: "txtNumber"}}'); 
+            txtNumberFolder.text = "0000_Client_Type"; 
+            txtNumberFolder.preferredSize.width = 400; 
+        
+        
+        // GROUP5
+        // ======
+        var group5 = StructureFolder.add("group", undefined, {name: "group5"}); 
+            group5.orientation = "row"; 
+            group5.alignChildren = ["left","center"]; 
+            group5.spacing = 65; 
+            group5.margins = 0; 
+        
+        // GROUP6
+        var group6 = group5.add("group", undefined, {name: "group6"}); 
+            group6.orientation = "row"; 
+            group6.alignChildren = ["left","center"]; 
+            group6.spacing = 10; 
+            group6.margins = 0; 
+        
+        var btnImportCSV = group6.add("button", undefined, undefined, {name: "importCSV"}); 
+            btnImportCSV.text = "Import csv"; 
+        
+        var statictextRepertoire = group6.add("statictext", undefined, undefined, {name: "statictextRepertoire"}); 
+            statictextRepertoire.text = ""; 
+            statictextRepertoire.preferredSize.width = 114; 
+        
+        // GROUP5
+        var btnStructure = group5.add("button", undefined, undefined, {name: "btnStructure"}); 
+            btnStructure.text = "Create Structure"; 
+
+        var csvFileFirst;
+
+        btnImportCSV.onClick = function() {
+          csvFileFirst = File.openDialog("Sélectionnez le fichier CSV", "*.csv", false);
+          if (csvFileFirst !== null) {
+              csvFileFirst.open("r");
+                var csvContent = csvFileFirst.read();
+                csvFileFirst.close();
+                
+                var csvLines = csvContent.split("\n");
+                if (csvLines.length > 1) {
+                    var headers = csvLines[0].split(",");
+                    var data = csvLines[1].split(",");
+                    
+                    // Récupération des valeurs
+                    var numeroDossier = data[0].replace(/"/g, "");
+                    var client = data[1].replace(/"/g, "");
+                    var typeprojet = data[2].replace(/"/g, "");
+                    
+                    txtNumberFolder.text = numeroDossier + "_" + client + "_" + typeprojet;
+                    statictextRepertoire.text = csvFileFirst.name;
+                }
+            }
+
+        };
+        
+        btnStructure.onClick = function() {
+          try {
+          var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+          !targetFolder.exists && targetFolder.create();
+          var defaults = [];
+          var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+          if(!defaultFile.exists) {
+              defaultFile.open("w");
+              defaultFile.close();
+          } else {
+              defaultFile.open("r");
+              while(!defaultFile.eof) {
+                  defaults.push(defaultFile.readln().toString());
+              }
+          }
+  
+          // Récupération du nom du dossier à partir du champ de texte
+          //var folderNameClient = prompt("Entrer le nom de dossier", "0000_Client_Type");
+          var folderNameClient = txtNumberFolder.text;
+          var folderName = folderNameClient; //ancienne methode folderNameClient.text
+          
+          if (folderNameClient == null) {
+              return;
+          } else {
+          // Ouvre une fenêtre de dialogue "Enregistrer sous" pour sélectionner un dossier
+          var saveFolder = Folder.selectDialog("Selectionner le dossier de destination");
+          
+          // Si l"utilisateur a sélectionné un dossier, crée le dossier et enregistre le fichier After Effects
+          if (saveFolder) {
+              // Création du chemin d"accès au dossier et creation du dossier
+              var folderPath = saveFolder.fsName + "/" + folderName;
+              var folder = new Folder(folderPath);
+              folder.create();
+              }
+  
+  
+          /////////// Structure dossiers System //////////
+          var foldersrc = defaults[0];
+          var Dossier1 = [foldersrc, defaults[1]];
+          var Dossier1b = [foldersrc, defaults[1], defaults[2]];
+          var Dossier1c = [foldersrc, defaults[1], defaults[3]];
+          var Dossier1d = [foldersrc, defaults[1], defaults[4]];
+          var Dossier1e = [foldersrc, defaults[1], defaults[5]];
+          var Dossier2 = [defaults[6]];
+          var Dossier3 = [defaults[7]];
+  
+          /////////
+          var baseFolder1 = folderPath;
+          var baseFolder1b = folderPath;
+          var baseFolder1c = folderPath;
+          var baseFolder1d = folderPath;
+          var baseFolder1e = folderPath;
+          var baseFolder2 = folderPath;
+          var baseFolder3 = folderPath;
+  
+          // Boucle sur la liste des noms de dossiers
+          for (var i = 0; i < Dossier1.length; i++) {
+              var folderName1 = Dossier1[i];
+              var folderPath1 = baseFolder1.toString() + "/" + folderName1;  // Chemin d"accès du dossier à créer
+              var folder1 = new Folder(folderPath1); 
+              folder1.create();
+              baseFolder1 = folder1;  // Met à jour le dossier courant pour la prochaine itération de la boucle
+              }
+          for (var i = 0; i < Dossier1b.length; i++) {
+              var folderName1b = Dossier1b[i];
+              var folderPath1b = baseFolder1b.toString() + "/" + folderName1b;
+              var folder1b = new Folder(folderPath1b); 
+              folder1b.create();
+              baseFolder1b = folder1b;
+              }
+          for (var i = 0; i < Dossier1c.length; i++) {
+              var folderName1c = Dossier1c[i];
+              var folderPath1c = baseFolder1c.toString() + "/" + folderName1c;
+              var folder1c = new Folder(folderPath1c); 
+              folder1c.create();
+              baseFolder1c = folder1c; 
+              }
+          for (var i = 0; i < Dossier1d.length; i++) {
+              var folderName1d = Dossier1d[i];
+              var folderPath1d = baseFolder1d.toString() + "/" + folderName1d;
+              var folder1d = new Folder(folderPath1d); 
+              folder1d.create();
+              baseFolder1d = folder1d;
+              }
+          for (var i = 0; i < Dossier1e.length; i++) {
+              var folderName1e = Dossier1e[i];
+              var folderPath1e = baseFolder1e.toString() + "/" + folderName1e;
+              var folder1e = new Folder(folderPath1e); 
+              folder1e.create();
+              baseFolder1e = folder1e;
+              }
+  
+          for (var i = 0; i < Dossier2.length; i++) {
+              var folderName2 = Dossier2[i];
+              var folderPath2 = baseFolder2.toString() + "/" + folderName2; 
+              var folder2 = new Folder(folderPath2); 
+              folder2.create();
+              baseFolder2 = folder2;
+              }
+  
+          for (var i = 0; i < Dossier3.length; i++) {
+              var folderName3 = Dossier3[i];
+              var folderPath3 = baseFolder3.toString() + "/" + folderName3; 
+              var folder3 = new Folder(folderPath3); 
+              folder3.create();
+              baseFolder3 = folder3;
+              }
+  
+          /////////// Structure dossiers System //////////
+              
+          /////////// After Effects //////////
+  
+          // Enregistrement du fichier After Effects dans le dossier
+          app.newProject(); //pour eviter de perdre un fichier deja ouvert
+          app.project.save(new File (folderPath + "/" + foldersrc + "/" + folderName + ".aep"));
+  
+          //Creer et Renomer la compo principale et mettre une couleur verte
+          var compW = parseInt(defaults[8]); //8
+          var compH = parseInt(defaults[9]); //9
+          var projName = app.project.file.name.replace(/.aep/gi,"_1.0");
+          var masterComp = app.project.items.addComp(projName, compW, compH, 1, defaults[10], 25);
+          masterComp.label = 9; //couleur du calque
+          masterComp.name = masterComp.name.replace(/%20/g, " "); //pour avoir des espaces dans le nom de la composition -> old : .trim();
+  
+          //Creation des dossiers Ae
+          var folderAssets = app.project.items.addFolder(defaults[1]);
+          folderAssets.items.addFolder (defaults[2]);
+          folderAssets.items.addFolder (defaults[3]);
+          folderAssets.items.addFolder (defaults[4]); 
+          folderAssets.items.addFolder (defaults[5]); 
+          var folderComps = app.project.items.addFolder(defaults[11]); 
+          folderComps.items.addFolder (defaults[12]); 
+  
+          // Supprime les dossiers Ae en double
+          var project = app.project;
+          var folders = [];
+          for (var i = 1; i <= project.numItems; i++) {
+              var item = project.item(i);
+              if (item instanceof FolderItem) {
+                  folders.push(item);
+              }
+          }
+          var folderNames = {};
+          for (var i = 0; i < folders.length; i++) {
+              var folder = folders[i];
+              if (folderNames[folder.name]) {
+                  folder.remove();
+              } else {
+                  folderNames[folder.name] = true;
+              }
+          }
+
+  
+          //Ouvrir la compo principale (masterComp)
+          masterComp.openInViewer(); 
+          app.project.save();
+
+            //Open folder Master
+            var folderMaster = Folder(folderPath.toString()); // your folder here
+            var cmd = ($.os.indexOf("Win") != -1) ? "explorer " + Folder.decode(folderMaster.fsName) : "open \"" + Folder.decode(folderMaster.fsName) + "\"";
+            system.callSystem(cmd);
+          }
+          /////////// After Effects //////////
+  
+        /////////// file CSV ////////
+        if (csvFileFirst) {
+          var projectPath = app.project.file.path; // Récupérer le chemin du projet
+          var assetsFolderPath = projectPath + "/" + defaults[1];
+          var newFileName = "Fiche_de_brief.csv"; // Nouveau nom du fichier
+          var destinationFile = new File(assetsFolderPath + "/" + newFileName);
+          csvFileFirst.copy(destinationFile);
+        }
+          /////////// file CSV ////////
+
 
         } catch (e) {
             // Affiche un message d"erreur si une erreur est survenue
             alert("An error occurred: " + e.message);
         }
-};
-
-///////////// fenetre settings //////////////
-btnSettingsWindow.onClick = function () {  
-
-    var targetFolder = new Folder(Folder.userData.fullName +"/"+ "Aescripts"+"/"+"MyFolderStructure");
-    !targetFolder.exists && targetFolder.create();
-    var defaults = [];
-    var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
-        if(!defaultFile.exists) {
-            defaultFile.open("w");
-            defaultFile.close();
-        } else {
-            defaultFile.open("r");
-            while(!defaultFile.eof) {
-                defaults.push(defaultFile.readln().toString());
-            }
-        }
-    
-    try {
-
-    // SETTINGSWINDOW
-    var settingsWindow = new Window("dialog"); 
-        settingsWindow.text = "Settings"; 
-        settingsWindow.orientation = "column"; 
-        settingsWindow.alignChildren = ["center","top"]; 
-        settingsWindow.spacing = 10; 
-        settingsWindow.margins = 16; 
-
-    // GROUP1
-    var group1 = settingsWindow.add("group", undefined, {name: "group1"}); 
-        group1.orientation = "row"; 
-        group1.alignChildren = ["left","top"]; 
-        group1.spacing = 20; 
-        group1.margins = 0; 
-
-    // PANEL1
-    var panel1 = group1.add("panel", undefined, undefined, {name: "panel1"}); 
-        panel1.text = "System"; 
-        panel1.orientation = "column"; 
-        panel1.alignChildren = ["left","top"]; 
-        panel1.spacing = 10; 
-        panel1.margins = 10; 
-
-    // PANEL2 Creer dans le system les dossiers 1
-    var panel2 = panel1.add("panel", undefined, undefined, {name: "panel2"}); 
-        panel2.text = "Source Folder"; 
-        panel2.orientation = "column"; 
-        panel2.alignChildren = ["left","top"]; 
-        panel2.spacing = 10; 
-        panel2.margins = 10; 
-
-    var edittextSrc = panel2.add('edittext {properties: {name: "edittextSrc"}}'); 
-        edittextSrc.helpTip = "Source Folder"; 
-        edittextSrc.text = defaults[0]; 
-        edittextSrc.preferredSize.width = 190; 
-
-    // GROUP2
-    var group2 = panel2.add("group", undefined, {name: "group2"}); 
-        group2.orientation = "row"; 
-        group2.alignChildren = ["left","center"]; 
-        group2.spacing = 2; 
-        group2.margins = 0; 
-
-    var caseAssetsDossier = group2.add('edittext {properties: {name: "caseAssetsDossier"}}'); 
-        caseAssetsDossier.text = defaults[1]; 
-        caseAssetsDossier.helpTip = "Assets Folder"; 
-        caseAssetsDossier.preferredSize.width = 50; 
-        caseAssetsDossier.alignment = ["left","top"]; 
-
-    // GROUP3
-    var group3 = group2.add("group", undefined, {name: "group3"}); 
-        group3.orientation = "column"; 
-        group3.alignChildren = ["left","center"]; 
-        group3.spacing = 0; 
-        group3.margins = 0; 
-
-    var caseImageDossier = group3.add('edittext {properties: {name: "caseImageDossier"}}'); 
-        caseImageDossier.text = defaults[2]; 
-        caseImageDossier.helpTip = "Images: jpg, png, psd, pdf, heif, tif, tga, hdr";
-        caseImageDossier.preferredSize.width = 140; 
-
-    var caseVideoDossier = group3.add('edittext {properties: {name: "caseVideoDossier"}}'); 
-        caseVideoDossier.text = defaults[3]; 
-        caseVideoDossier.helpTip = "Videos: mp4, mov, m4v, gif, mpg, 3gp, avi, wmv";
-        caseVideoDossier.preferredSize.width = 140; 
-
-    var caseAiDossier = group3.add('edittext {properties: {name: "caseAiDossier"}}'); 
-        caseAiDossier.text = defaults[4]; 
-        caseAiDossier.helpTip = "Illustrator: ai"; 
-        caseAiDossier.preferredSize.width = 140; 
-
-    var caseAudioDossier = group3.add('edittext {properties: {name: "caseAudioDossier"}}'); 
-        caseAudioDossier.text = defaults[5]; 
-        caseAudioDossier.helpTip = "Audios: mp3, wav, aac, aif, m4a";
-        caseAudioDossier.preferredSize.width = 140;     
-
-    // PANEL3 Creer dans le system les dossiers 2
-    var panel3 = panel1.add("panel", undefined, undefined, {name: "panel3"}); 
-        panel3.text = "Exports Folder"; 
-        panel3.orientation = "column"; 
-        panel3.alignChildren = ["left","top"]; 
-        panel3.spacing = 5; 
-        panel3.margins = 10; 
-
-    // GROUP4
-    var group4 = panel3.add("group", undefined, {name: "group4"}); 
-        group4.orientation = "row"; 
-        group4.alignChildren = ["left","center"]; 
-        group4.spacing = 2; 
-        group4.margins = 0; 
-
-    var caseExportDossier = group4.add('edittext {properties: {name: "caseExportDossier"}}'); 
-        caseExportDossier.text = defaults[6]; 
-        caseExportDossier.helpTip = "Export Videos";
-        caseExportDossier.preferredSize.width = 190; 
-
-    // PANEL4 Creer dans le system les dossiers 3
-    var panel4 = panel1.add("panel", undefined, undefined, {name: "panel4"}); 
-        panel4.text = "Elements Folder"; 
-        panel4.orientation = "column"; 
-        panel4.alignChildren = ["left","top"]; 
-        panel4.spacing = 5; 
-        panel4.margins = 10; 
-
-    // GROUP5
-    var group5 = panel4.add("group", undefined, {name: "group5"}); 
-        group5.orientation = "row"; 
-        group5.alignChildren = ["left","center"]; 
-        group5.spacing = 2; 
-        group5.margins = 0; 
-
-    var caseElementsDossier = group5.add('edittext {properties: {name: "caseElementsDossier"}}'); 
-        caseElementsDossier.text = defaults[7]; 
-        caseElementsDossier.helpTip = "Storyboard, Brief, Fonts, etc";
-        caseElementsDossier.preferredSize.width = 190; 
-
-    // PANEL5
-    var panel5 = group1.add("panel", undefined, undefined, {name: "panel5"}); 
-        panel5.text = "After Effects"; 
-        panel5.orientation = "column"; 
-        panel5.alignChildren = ["left","top"]; 
-        panel5.spacing = 30; 
-        panel5.margins = 10; 
-
-
-    // PANEL6 AfterEffects Creer compo principale
-    var panel6 = panel5.add("panel", undefined, undefined, {name: "panel6"}); 
-        panel6.text = "Master Comp"; 
-        panel6.orientation = "column"; 
-        panel6.alignChildren = ["left","top"]; 
-        panel6.spacing = 10; 
-        panel6.margins = 10; 
-
-    // GROUP6
-    var group6 = panel6.add("group", undefined, {name: "group6"}); 
-        group6.orientation = "row"; 
-        group6.alignChildren = ["left","center"]; 
-        group6.spacing = 3; 
-        group6.margins = 0; 
-
-    var caseCompWAe = group6.add('edittext {properties: {name: "caseCompWAe"}}'); 
-        caseCompWAe.text = defaults[8]; 
-        caseCompWAe.preferredSize.width = 50; 
-
-    var statictext1 = group6.add("statictext", undefined, undefined, {name: "statictext1"}); 
-        statictext1.text = "x"; 
-
-    var caseCompHAe = group6.add('edittext {properties: {name: "caseCompHAe"}}'); 
-        caseCompHAe.text = defaults[9]; 
-        caseCompHAe.preferredSize.width = 50; 
-
-    var divider1 = group6.add("panel", undefined, undefined, {name: "divider1"}); 
-        divider1.alignment = "fill"; 
-
-    var caseCompSecAe = group6.add('edittext {properties: {name: "caseCompSecAe"}}'); 
-        caseCompSecAe.text = defaults[10]; 
-        caseCompSecAe.preferredSize.width = 50; 
-
-    var statictext2 = group6.add("statictext", undefined, undefined, {name: "statictext2"}); 
-        statictext2.text = "sec"; 
-
-    // PANEL7 After effects creer les dossiers dans le projet
-    var panel7 = panel5.add("panel", undefined, undefined, {name: "panel7"}); 
-        panel7.text = "Project Folder"; 
-        panel7.orientation = "column"; 
-        panel7.alignChildren = ["left","top"]; 
-        panel7.spacing = 10; 
-        panel7.margins = 10; 
-
-    // GROUP7 
-    var group7 = panel7.add("group", undefined, {name: "group7"}); 
-        group7.orientation = "row"; 
-        group7.alignChildren = ["left","center"]; 
-        group7.spacing = 2; 
-        group7.margins = 0; 
-
-    var caseAssetsDossier0 = group7.add('edittext {properties: {name: "caseAssetsDossier0"}}'); 
-        caseAssetsDossier0.text = defaults[11]; 
-        caseAssetsDossier0.preferredSize.width = 50; 
-        caseAssetsDossier0.alignment = ["left","top"]; 
-
-    // GROUP8
-    var group8 = group7.add("group", undefined, {name: "group8"}); 
-        group8.orientation = "column"; 
-        group8.alignChildren = ["left","center"]; 
-        group8.spacing = 0; 
-        group8.margins = 0; 
-
-    var caseImagesAe = group8.add('edittext {properties: {name: "caseImagesAe"}}'); 
-        caseImagesAe.text = defaults[12]; 
-        caseImagesAe.helpTip = "Images: jpg, png, psd, pdf, heif, tif, tga, hdr"; 
-        caseImagesAe.preferredSize.width = 140; 
-
-    var caseVideoAe = group8.add('edittext {properties: {name: "caseVideoAe"}}'); 
-        caseVideoAe.text = defaults[13]; 
-        caseVideoAe.helpTip = "Videos: mp4, mov, m4v, gif, mpg, 3gp, avi, wmv"; 
-        caseVideoAe.preferredSize.width = 140; 
-
-    var caseAiAe = group8.add('edittext {properties: {name: "caseAiAe"}}'); 
-        caseAiAe.text = defaults[14]; 
-        caseAiAe.helpTip = "Illustrator: ai"; 
-        caseAiAe.enabled = true; 
-        caseAiAe.preferredSize.width = 140; 
-
-        var caseAudioAe = group8.add('edittext {properties: {name: "caseAudioAe"}}'); 
-        caseAudioAe.helpTip = "Audios: mp3, wav, aac, aif, m4a"; 
-        caseAudioAe.text = defaults[15]; 
-        caseAudioAe.preferredSize.width = 140; 
-
-
-    // GROUP9
-    var group9 = panel7.add("group", undefined, {name: "group9"}); 
-        group9.orientation = "row"; 
-        group9.alignChildren = ["left","center"]; 
-        group9.spacing = 2; 
-        group9.margins = 0; 
-
-    var caseCompsAe = group9.add('edittext {properties: {name: "caseCompsAe"}}'); 
-        caseCompsAe.text = defaults[16]; 
-        caseCompsAe.helpTip = "Folder Composition"; 
-        caseCompsAe.preferredSize.width = 50; 
-        caseCompsAe.alignment = ["left","top"]; 
-
-
-    // GROUP10
-    var group10 = group9.add("group", undefined, {name: "group10"}); 
-        group10.orientation = "column"; 
-        group10.alignChildren = ["left","center"]; 
-        group10.spacing = 0; 
-        group10.margins = 0; 
-
-    var casePrecompAe = group10.add('edittext {properties: {name: "casePrecompAe"}}'); 
-        casePrecompAe.text = defaults[17]; 
-        casePrecompAe.helpTip = "Folder Pre-composition"; 
-        casePrecompAe.enabled = true; //false
-        casePrecompAe.preferredSize.width = 140;
+        StructureFolder.close();
+        };
+                
+        StructureFolder.layout.layout(true);
+        StructureFolder.layout.resize();
+        StructureFolder.onResizing = StructureFolder.onResize = function () { this.layout.resize(); }
         
-        
-    // GROUPBTNFIN
-    var groupBtnFin = settingsWindow.add("group", undefined, {name: "groupBtnFin"});
-        groupBtnFin.orientation = "row";
-        groupBtnFin.alignChildren = ["left","center"];
-        groupBtnFin.spacing = 100;
-        groupBtnFin.margins = 0;
+        if ( StructureFolder instanceof Window ) StructureFolder.show();
 
-    var resetButton = groupBtnFin.add("button", undefined, "Reset"); 
-    var saveButton = groupBtnFin.add("button", undefined, "Save"); 
+      };
 
-    
-    ///////// Btn Reset et Save /////////
-    resetButton.onClick = function() {
-        defaultFile.open("w");
-        defaultFile.write("src\rassets\rimages\rvideos\rai\raudios/_preview\rexports\relements\r1920\r1080\r120\rassets\rimages\rvideos\rai\raudios\rcomps\rpre-comps");
-        defaultFile.open();
-        settingsWindow.close();
-    }
+      ///////////// Brief du projet //////////////
+      btnBrief.onClick = function() {
 
-    saveButton.onClick = function() {
-        defaultFile.open("w");
-        defaultFile.write(edittextSrc.text+"\r"+caseAssetsDossier.text+"\r"+caseImageDossier.text+"\r"+caseVideoDossier.text+"\r"+caseAiDossier.text+"\r"+caseAudioDossier.text+"\r"+ caseExportDossier.text+"\r"+caseElementsDossier.text+"\r"+caseCompWAe.text+"\r"+caseCompHAe.text+"\r"+caseCompSecAe.text+"\r"+caseAssetsDossier0.text+"\r"+caseImagesAe.text+"\r"+caseVideoAe.text+"\r"+caseAiAe.text+"\r"+caseAudioAe.text+"\r"+caseCompsAe.text+"\r"+casePrecompAe.text); 
-        defaultFile.open();
-        settingsWindow.close();
-    }
-
-    settingsWindow.center();
-    settingsWindow.show();
-
-    } catch (e) {
-        // Affiche un message d"erreur si une erreur est survenue
-        alert("An error occurred: " + e.message);
-    }
-
-};
-
-///////////// Range les fichiers et dossiers dans le projet //////////////
-btnOrganizeProject.onClick = function () {
-    app.beginUndoGroup("Organize Project");
-
-    var targetFolder = new Folder(Folder.userData.fullName +"/"+ "Aescripts"+"/"+"MyFolderStructure");
-    !targetFolder.exists && targetFolder.create();
-    var defaults = [];
-    var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
-        if(!defaultFile.exists) {
-            defaultFile.open("w");
-            defaultFile.close();
+        if (app.project.file === null) {
+          alert("( ͡• ͜ʖ ͡•) Greg say: Veuillez enregistrer le projet.");
         } else {
-            defaultFile.open("r");
-            while(!defaultFile.eof) {
-                defaults.push(defaultFile.readln().toString());
+
+            var panelGlobal = this;
+            
+            // Chemin vers le fichier CSV
+            //var desktopPath = Folder.desktop.absoluteURI;
+      
+            var projectPath = app.project.file.path;
+            //var projName = app.project.file.name.replace(/.aep/gi,"_brief");
+            var projName = "Fiche_de_brief";
+      
+            var assetsFolderPath = projectPath + "/" + defaults[1];
+      
+            var csvFilePath;
+
+            // Vérifier si le fichier existe dans le dossier "assets"
+            var assetsCSVFile = new File(assetsFolderPath + "/" + projName + ".csv");
+            if (assetsCSVFile.exists) {
+              csvFilePath = assetsCSVFile.fsName;
+            } else {
+              // Vérifier si le fichier existe dans le dossier du projet
+              var projectCSVFile = new File(projectPath + "/" + projName + ".csv");
+              if (projectCSVFile.exists) {
+                csvFilePath = projectCSVFile.fsName;
+              } else {
+                // Si aucun fichier n'existe, enregistrer le fichier dans le dossier "assets" s'il existe, sinon au même niveau que le projet
+                if (Folder(assetsFolderPath).exists) {
+                  csvFilePath = assetsFolderPath + "/" + projName + ".csv";
+                } else {
+                  csvFilePath = projectPath + "/" + projName + ".csv";
+                }
+              }
             }
+        
+            // Vérifier si le fichier existe déjà
+            var csvFile = new File(csvFilePath);
+            var defaultRow = "Numero de dossier,Client,Type de projet,Chargé(s) de projet,Statut,Commentaire,Date de rendu,Musique,Format en pixel,Sous-titres,Voix-Off,Traduction,Série,Durée maximum,Poids maximum\n\"000000\",\"Nom Client\",\"Motion\",\"Nom Prenom\",\"Brief\",\"Inserer ici vos commentaires\",\"date\",\"https://www.premiumbeat.com/\",\"1920x1080\",\"Non\",\"Non\",\"Non\",\"Non\",\" \",\" \"";
+        
+            if (!csvFile.exists) {
+            // Création du fichier CSV avec la ligne par défaut
+            csvFile.open("w");
+            csvFile.writeln(defaultRow);
+            csvFile.close();
+            }
+              
+          
+          // Fonction pour mettre à jour les données dans le fichier CSV
+          function updateData() {
+            var file = new File(csvFilePath);
+            var lines = [];
+            var newData = [
+                NumeroEditText.text,
+                clientsEditText.text,
+                projectEditText.text,
+                projectManagersEditText.text,
+                statusDropdown.selection.text,
+                commentaireEditText.text.replace(/\r?\n/g, "\ "), // Remplace les sauts de ligne par le caractère spécial "\n"
+                finalDeliveryEditText.text,
+                musiqueEditText.text,
+                formatPixelEditText.text,
+                subtitlesCheckbox.value ? "Oui" : "Non",
+                voixOffCheckbox.value ? "Oui" : "Non",
+                translationCheckbox.value ? "Oui" : "Non",
+                SerieCheckbox.value ? "Oui" : "Non",
+                DureeMaxEditText.text,
+                PoidsMaxEditText.text
+            ];
+    
+            // Lire les lignes existantes
+            if (file.open("r")) {
+                while (!file.eof) {
+                lines.push(file.readln());
+                }
+                file.close();
+            }
+    
+            // Mettre à jour la ligne par défaut avec les nouvelles données
+            lines[1] = '"' + newData.join('","') + '"';
+    
+            // Écrire les lignes dans le fichier CSV
+            if (file.open("w")) {
+                //file.encoding = "BINARY";
+                file.encoding = "UTF-8";
+                file.lineFeed = "Windows"; // "Unix" si nécessaire
+                file.writeln(lines.join("\n"));
+                file.close();
+                //alert("Données mises à jour avec succès !");
+            }
+          }
+      
+          function parseCSVLine(line) {
+              var columns = [];
+              var isInQuotes = false;
+              var currentColumn = "";
+      
+              for (var i = 0; i < line.length; i++) {
+                  var charac = line.charAt(i);
+      
+                  if (charac === '"') {
+                  // Détection des guillemets ouvrants/fermants
+                  isInQuotes = !isInQuotes;
+                  } else if (charac === ',' && !isInQuotes) {
+                  // Ajout de la colonne actuelle à la liste des colonnes
+                  columns.push(currentColumn);
+                  currentColumn = "";
+                  } else {
+                  // Ajout du caractère à la colonne actuelle
+                  currentColumn += charac;
+                  }
+              }
+      
+              // Ajout de la dernière colonne à la liste des colonnes
+              columns.push(currentColumn);
+      
+              return columns;
+          }
+      
+          // Fonction pour charger les données du fichier CSV dans l'UI
+          function loadCSVData() {
+              var file = new File(csvFilePath);
+          
+              // Lire la première ligne pour obtenir l'en-tête
+              if (file.open("r")) {
+              var header = parseCSVLine(file.readln());
+              if (header.length === 15) {
+                  // Mettre à jour les étiquettes des éléments de l'UI avec l'en-tête
+                  NumeroLabel.text = header[0];
+                  clientsLabel.text = header[1];
+                  projectLabel.text = header[2];
+                  projectManagersLabel.text = header[3];
+                  statusLabel.text = header[4];
+                  commentaireLabel.text = header[5];
+                  finalDeliveryLabel.text = header[6];
+                  musiqueLabel.text = header[7];
+                  formatPixelLabel.text = header[8];
+                  subtitlesCheckbox.text = header[9];
+                  voixOffCheckbox.text = header[10];
+                  translationCheckbox.text = header[11];
+                  SerieCheckbox.text = header[12];
+                  DureeMaxLabel.text = header[13];
+                  PoidsMaxLabel.text = header[14];
+              }
+              file.close();
+              }
+          
+              // Lire la deuxième ligne pour obtenir les données par défaut
+              if (file.open("r")) {
+              file.readln(); // Ignorer la première ligne
+              var defaultValues = parseCSVLine(file.readln());
+              if (defaultValues.length === 15) {
+              // Charger les valeurs par défaut dans l'UI
+              NumeroEditText.text = defaultValues[0].replace(/""/g, "");
+              clientsEditText.text = defaultValues[1].replace(/""/g, "");
+              projectEditText.text = defaultValues[2].replace(/""/g, "");      
+              projectManagersEditText.text = defaultValues[3].replace(/""/g, "");
+              
+              // Mettre à jour la sélection du menu déroulant (Dropdown)
+              for (var i = 0; i < statusDropdown.items.length; i++) {
+                  if (statusDropdown.items[i].text === defaultValues[4].replace(/""/g, "")) {
+                  statusDropdown.selection = statusDropdown.items[i];
+                  break;
+                  }
+              }
+              commentaireEditText.text = defaultValues[5].replace(/""/g, "");
+              finalDeliveryEditText.text = defaultValues[6].replace(/""/g, "");
+              musiqueEditText.text = defaultValues[7].replace(/""/g, "");
+              formatPixelEditText.text = defaultValues[8].replace(/""/g, "");
+              subtitlesCheckbox.value = (defaultValues[9].replace(/""/g, "") === "Oui");
+              voixOffCheckbox.value = (defaultValues[10].replace(/""/g, "") === "Oui");
+              translationCheckbox.value = (defaultValues[11].replace(/""/g, "") === "Oui");
+              SerieCheckbox.value = (defaultValues[12].replace(/""/g, "") === "Oui");
+              DureeMaxEditText.text = defaultValues[13].replace(/""/g, "");
+              PoidsMaxEditText.text = defaultValues[14].replace(/""/g, "")
+              }
+              file.close();
+              }
+          }
+              
+              
+          // Création du panneau principal
+          var mainPanel = new Window("palette", "Mon Interface", undefined, {resizeable: true});
+          mainPanel.orientation = "column";
+          
+          // Ajout des éléments à la UI
+          // MAINPANEL
+          var mainPanel = (panelGlobal instanceof Panel) ? panelGlobal : new Window("palette"); 
+              if ( !(panelGlobal instanceof Panel) ) mainPanel.text = "Suivi de projet"; 
+              mainPanel.orientation = "column"; 
+              mainPanel.alignChildren = ["center","top"]; 
+              mainPanel.spacing = 25; 
+              mainPanel.margins = 10; 
+      
+          // GRPGLOBAL
+          var grpGlobal = mainPanel.add("group", undefined, {name: "grpGlobal"}); 
+              grpGlobal.orientation = "column"; 
+              grpGlobal.alignChildren = ["left","center"]; 
+              grpGlobal.spacing = 10; 
+              grpGlobal.margins = 0; 
+      
+          // GRPLIGNE1
+          var grpLigne1 = grpGlobal.add("group", undefined, {name: "grpLigne1"}); 
+              grpLigne1.orientation = "row"; 
+              grpLigne1.alignChildren = ["left","center"]; 
+              grpLigne1.spacing = 10; 
+              grpLigne1.margins = 0; 
+      
+          // GROUP1
+          var group1 = grpLigne1.add("group", undefined, {name: "group1"}); 
+              group1.orientation = "row"; 
+              group1.alignChildren = ["left","center"]; 
+              group1.spacing = 10; 
+              group1.margins = 5; 
+      
+          var NumeroLabel = group1.add("statictext", undefined, undefined, {name: "NumeroLabel"}); 
+              NumeroLabel.text = "Numero de dossier :"; 
+      
+          var NumeroEditText = group1.add('edittext {properties: {name: "NumeroEditText"}}'); 
+              NumeroEditText.preferredSize.width = 130; 
+      
+          // GROUP2
+          var group2 = grpLigne1.add("group", undefined, {name: "group2"}); 
+              group2.orientation = "row"; 
+              group2.alignChildren = ["left","center"]; 
+              group2.spacing = 10; 
+              group2.margins = 5; 
+      
+          var clientsLabel = group2.add("statictext", undefined, undefined, {name: "clientsLabel"}); 
+              clientsLabel.text = "Clients :"; 
+      
+          var clientsEditText = group2.add('edittext {properties: {name: "clientsEditText"}}'); 
+              clientsEditText.preferredSize.width = 180; 
+      
+          // GRPLIGNE2
+          var grpLigne2 = grpGlobal.add("group", undefined, {name: "grpLigne2"}); 
+              grpLigne2.orientation = "row"; 
+              grpLigne2.alignChildren = ["left","center"]; 
+              grpLigne2.spacing = 10; 
+              grpLigne2.margins = 0; 
+      
+          // GROUP3
+          var group3 = grpLigne2.add("group", undefined, {name: "group3"}); 
+              group3.orientation = "row"; 
+              group3.alignChildren = ["left","center"]; 
+              group3.spacing = 10; 
+              group3.margins = 5; 
+
+          var projectLabel = group3.add("statictext", undefined, undefined, {name: "projectLabel"}); 
+              projectLabel.text = "Type de projet :"; 
+      
+          var projectEditText = group3.add('edittext {properties: {name: "projectEditText"}}'); 
+              projectEditText.preferredSize.width = 220; 
+
+          var group5 = grpLigne2.add("group", undefined, {name: "group5"}); 
+              group5.orientation = "row"; 
+              group5.alignChildren = ["left","center"]; 
+              group5.spacing = 10; 
+              group5.margins = 5; 
+      
+          var statusLabel = group5.add("statictext", undefined, undefined, {name: "statusLabel"}); 
+              statusLabel.text = "Statut :"; 
+      
+          var statusDropdown_array = ["Brief","En cours","En attente","Validé","Problème"]; 
+          var statusDropdown = group5.add("dropdownlist", undefined, undefined, {name: "statusDropdown", items: statusDropdown_array}); 
+              statusDropdown.selection = 0; 
+
+          // GRPLIGNE3
+          var grpLigne3 = grpGlobal.add("group", undefined, {name: "grpLigne3"}); 
+              grpLigne3.orientation = "row"; 
+              grpLigne3.alignChildren = ["left","center"]; 
+              grpLigne3.spacing = 10; 
+              grpLigne3.margins = 0; 
+      
+          // GROUP4
+          var group4 = grpLigne3.add("group", undefined, {name: "group4"}); 
+              group4.orientation = "row"; 
+              group4.alignChildren = ["left","center"]; 
+              group4.spacing = 10; 
+              group4.margins = 5; 
+      
+              var projectManagersLabel = group4.add("statictext", undefined, undefined, {name: "projectManagersLabel"}); 
+              projectManagersLabel.text = "Chargé(s) de projet :"; 
+      
+          var projectManagersEditText = group4.add('edittext {properties: {name: "projectManagersEditText"}}'); 
+              projectManagersEditText.preferredSize.width = 370; 
+
+      
+          // GRPLIGNE4
+          var grpLigne4 = grpGlobal.add("group", undefined, {name: "grpLigne4"}); 
+              grpLigne4.orientation = "column"; 
+              grpLigne4.alignChildren = ["left","center"]; 
+              grpLigne4.spacing = 10; 
+              grpLigne4.margins = 0; 
+      
+          // GROUP6
+          var group6 = grpLigne4.add("group", undefined, {name: "group6"}); 
+              group6.orientation = "row"; 
+              group6.alignChildren = ["left","center"]; 
+              group6.spacing = 10; 
+              group6.margins = 5; 
+
+          var commentaireLabel = group6.add("statictext", undefined, undefined, {name: "commentaireLabel"}); 
+              commentaireLabel.text = "commentaire :"; 
+      
+          var commentaireEditText = group6.add('edittext {properties: {name: "commentaireEditText", multiline: true, scrollable: true}}'); 
+              commentaireEditText.preferredSize.width = 400; 
+              commentaireEditText.preferredSize.height = 126; 
+
+      
+          // GROUP7
+          var group7 = grpLigne4.add("group", undefined, {name: "group7"}); 
+              group7.orientation = "row"; 
+              group7.alignChildren = ["left","center"]; 
+              group7.spacing = 10; 
+              group7.margins = 5; 
+      
+          var musiqueLabel = group7.add("statictext", undefined, undefined, {name: "MusiqueLabel"}); 
+              musiqueLabel.text = "Musique :"; 
+              musiqueLabel.preferredSize.width = 66; 
+      
+          var musiqueEditText = group7.add('edittext {properties: {name: "musiqueEditText"}}'); 
+              musiqueEditText.preferredSize.width = 400; 
+              //musiqueEditText.preferredSize.height = 50; 
+      
+          // GRPLIGNE5
+          var grpLigne5 = grpGlobal.add("group", undefined, {name: "grpLigne5"}); 
+              grpLigne5.orientation = "row"; 
+              grpLigne5.alignChildren = ["left","center"]; 
+              grpLigne5.spacing = 10; 
+              grpLigne5.margins = 0; 
+      
+          // GROUP8
+          var group8 = grpLigne5.add("group", undefined, {name: "group8"}); 
+              group8.orientation = "row"; 
+              group8.alignChildren = ["left","center"]; 
+              group8.spacing = 10; 
+              group8.margins = 5; 
+      
+          var finalDeliveryLabel = group8.add("statictext", undefined, undefined, {name: "finalDeliveryLabel"}); 
+              finalDeliveryLabel.text = "Date de rendu :"; 
+      
+          var finalDeliveryEditText = group8.add('edittext {properties: {name: "finalDeliveryEditText"}}'); 
+              finalDeliveryEditText.preferredSize.width = 90; 
+      
+          // GROUP9
+          var group9 = grpLigne5.add("group", undefined, {name: "group9"}); 
+              group9.orientation = "row"; 
+              group9.alignChildren = ["left","center"]; 
+              group9.spacing = 10; 
+              group9.margins = 5; 
+      
+          var formatPixelLabel = group9.add("statictext", undefined, undefined, {name: "formatPixelLabel"}); 
+              formatPixelLabel.text = "Format en pixel :"; 
+      
+          var formatPixelEditText = group9.add('edittext {properties: {name: "formatPixelEditText"}}'); 
+              formatPixelEditText.preferredSize.width = 200; 
+      
+          // GRPLIGNE6
+          var grpLigne6 = grpGlobal.add("group", undefined, {name: "grpLigne6"}); 
+              grpLigne6.orientation = "row"; 
+              grpLigne6.alignChildren = ["left","center"]; 
+              grpLigne6.spacing = 10; 
+              grpLigne6.margins = 0; 
+      
+          // GROUP10
+          var group10 = grpLigne6.add("group", undefined, {name: "group10"}); 
+              group10.orientation = "row"; 
+              group10.alignChildren = ["left","center"]; 
+              group10.spacing = 50; 
+              group10.margins = 5; 
+      
+          var subtitlesCheckbox = group10.add("checkbox", undefined, undefined, {name: "subtitlesCheckbox"}); 
+              subtitlesCheckbox.text = "Sous-titres"; 
+      
+          var voixOffCheckbox = group10.add("checkbox", undefined, undefined, {name: "voixoffCheckbox"}); 
+              voixOffCheckbox.text = "Voix-Off"; 
+              
+          var translationCheckbox = group10.add("checkbox", undefined, undefined, {name: "translationCheckbox"}); 
+              translationCheckbox.text = "Traduction"; 
+      
+          var SerieCheckbox = group10.add("checkbox", undefined, undefined, {name: "SerieCheckbox"}); 
+              SerieCheckbox.text = "Série"; 
+      
+
+          // GRPLIGNE7
+          var grpLigne7 = grpGlobal.add("group", undefined, {name: "grpLigne7"}); 
+              grpLigne7.orientation = "row"; 
+              grpLigne7.alignChildren = ["center","center"]; 
+              grpLigne7.spacing = 40; 
+              grpLigne7.margins = 0; 
+
+          var group10b = grpLigne7.add("group", undefined, {name: "group10"}); 
+              group10b.orientation = "row"; 
+              group10b.alignChildren = ["left","center"]; 
+
+          var group10c = grpLigne7.add("group", undefined, {name: "group10"}); 
+              group10c.orientation = "row"; 
+              group10c.alignChildren = ["left","center"]; 
+      
+          var DureeMaxLabel = group10b.add("statictext", undefined, undefined, {name: "DureeMaxLabel"}); 
+              DureeMaxLabel.text = "Durée maximum :"; 
+          var DureeMaxEditText = group10b.add('edittext {properties: {name: "DureeMaxEditText"}}'); 
+              DureeMaxEditText.preferredSize.width = 100; 
+
+          var PoidsMaxLabel = group10c.add("statictext", undefined, undefined, {name: "PoidsMaxLabel"}); 
+              PoidsMaxLabel.text = "Poids maximum :"; 
+          var PoidsMaxEditText = group10c.add('edittext {properties: {name: "PoidsMaxEditText"}}'); 
+              PoidsMaxEditText.preferredSize.width = 100; 
+
+
+          // GRPLIGNE7
+          var grpLigne8 = mainPanel.add("group", undefined, {name: "grpLigne7"}); 
+              grpLigne8.orientation = "row"; 
+              grpLigne8.alignChildren = ["center","center"]; 
+              grpLigne8.spacing = 10; 
+              grpLigne8.margins = 0; 
+      
+          // GROUP11
+          var group11 = grpLigne8.add("group", undefined, {name: "group11"}); 
+              group11.orientation = "row"; 
+              group11.alignChildren = ["center","center"]; 
+              group11.spacing = 40; 
+              group11.margins = 5; 
+      
+          var cancelbutton = group11.add("button", undefined, undefined, {name: "cancelbutton"}); 
+              cancelbutton.text = "Cancel"; 
+              cancelbutton.onClick = function () {
+                  mainPanel.close();
+              };
+      
+          var saveButton = group11.add("button", undefined, undefined, {name: "saveButton"}); 
+              saveButton.text = "Sauvegarder"; 
+              saveButton.onClick = function () {
+                  updateData();
+                  mainPanel.close();
+              };
+      
+      
+          loadCSVData();
+      
+        mainPanel.layout.layout(true);
+        mainPanel.layout.resize();
+        mainPanel.onResizing = mainPanel.onResize = function () { this.layout.resize(); }
+        
+        if ( mainPanel instanceof Window ) mainPanel.show();
         }
+      };
 
+      ///////////// fenetre settings //////////////
+      btnSettingsWindow.onClick = function () {  
+  
+          var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+          !targetFolder.exists && targetFolder.create();
+          var defaults = [];
+          var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+              if(!defaultFile.exists) {
+                  defaultFile.open("w");
+                  defaultFile.close();
+              } else {
+                  defaultFile.open("r");
+                  while(!defaultFile.eof) {
+                      defaults.push(defaultFile.readln().toString());
+                  }
+              }
+          
+          try {
+  
+          // SETTINGSWINDOW
+          var settingsWindow = new Window("dialog"); 
+              settingsWindow.text = "Settings"; 
+              settingsWindow.orientation = "column"; 
+              settingsWindow.alignChildren = ["center","top"]; 
+              settingsWindow.spacing = 10; 
+              settingsWindow.margins = 16; 
+  
+          // GROUP1
+          var group1 = settingsWindow.add("group", undefined, {name: "group1"}); 
+              group1.orientation = "row"; 
+              group1.alignChildren = ["left","top"]; 
+              group1.spacing = 20; 
+              group1.margins = 0; 
+  
+          // PANEL1
+          var panel1 = group1.add("panel", undefined, undefined, {name: "panel1"}); 
+              panel1.text = "System"; 
+              panel1.orientation = "column"; 
+              panel1.alignChildren = ["left","top"]; 
+              panel1.spacing = 10; 
+              panel1.margins = 10; 
+  
+          // PANEL2 Creer dans le system les dossiers 1
+          var panel2 = panel1.add("panel", undefined, undefined, {name: "panel2"}); 
+              panel2.text = "Folder: Source files"; 
+              panel2.orientation = "column"; 
+              panel2.alignChildren = ["left","top"]; 
+              panel2.spacing = 10; 
+              panel2.margins = 10; 
+  
+          var edittextSrc = panel2.add('edittext {properties: {name: "edittextSrc"}}'); 
+              edittextSrc.helpTip = "Source Folder"; 
+              edittextSrc.text = defaults[0]; 
+              edittextSrc.preferredSize.width = 190; 
+  
+          // GROUP2
+          var group2 = panel2.add("group", undefined, {name: "group2"}); 
+              group2.orientation = "row"; 
+              group2.alignChildren = ["left","center"]; 
+              group2.spacing = 2; 
+              group2.margins = 0; 
+  
+          var caseAssetsDossier = group2.add('edittext {properties: {name: "caseAssetsDossier"}}'); 
+              caseAssetsDossier.text = defaults[1]; 
+              caseAssetsDossier.helpTip = "Assets Folder"; 
+              caseAssetsDossier.preferredSize.width = 50; 
+              caseAssetsDossier.alignment = ["left","top"]; 
+  
+          // GROUP3
+          var group3 = group2.add("group", undefined, {name: "group3"}); 
+              group3.orientation = "column"; 
+              group3.alignChildren = ["left","center"]; 
+              group3.spacing = 0; 
+              group3.margins = 0; 
+  
+          var caseImageDossier = group3.add('edittext {properties: {name: "caseImageDossier"}}'); 
+              caseImageDossier.text = defaults[2]; 
+              caseImageDossier.helpTip = "Images: jpg, png, psd, pdf, heif, tif, tga, hdr";
+              caseImageDossier.preferredSize.width = 140; 
+  
+          var caseVideoDossier = group3.add('edittext {properties: {name: "caseVideoDossier"}}'); 
+              caseVideoDossier.text = defaults[3]; 
+              caseVideoDossier.helpTip = "Videos: mp4, mov, m4v, gif, mpg, 3gp, avi, wmv";
+              caseVideoDossier.preferredSize.width = 140; 
+  
+          var caseAiDossier = group3.add('edittext {properties: {name: "caseAiDossier"}}'); 
+              caseAiDossier.text = defaults[4]; 
+              caseAiDossier.helpTip = "Illustrator: ai"; 
+              caseAiDossier.preferredSize.width = 140; 
+  
+          var caseAudioDossier = group3.add('edittext {properties: {name: "caseAudioDossier"}}'); 
+              caseAudioDossier.text = defaults[5]; 
+              caseAudioDossier.helpTip = "Audios: mp3, wav, aac, aif, m4a";
+              caseAudioDossier.preferredSize.width = 140;     
+  
+          // PANEL3 Creer dans le system les dossiers 2
+          var panel3 = panel1.add("panel", undefined, undefined, {name: "panel3"}); 
+              panel3.text = "Folder: Export .mp4 .mov"; 
+              panel3.orientation = "column"; 
+              panel3.alignChildren = ["left","top"]; 
+              panel3.spacing = 5; 
+              panel3.margins = 10; 
+              
+  
+          // GROUP4
+          var group4 = panel3.add("group", undefined, {name: "group4"}); 
+              group4.orientation = "column"; 
+              group4.alignChildren = ["left","center"]; 
+              group4.spacing = 8; 
+              group4.margins = 0; 
+  
+          var caseExportDossier = group4.add('edittext {properties: {name: "caseExportDossier"}}'); 
+              caseExportDossier.text = defaults[6]; 
+              caseExportDossier.helpTip = "Export Videos";
+              caseExportDossier.preferredSize.width = 190; 
 
-    var imageFolder = findFolder(defaults[12]) || createFolder(defaults[12]);
-    var videoFolder = findFolder(defaults[13]) || createFolder(defaults[13]);
-    var aiFolder = findFolder(defaults[14]) || createFolder(defaults[14]);
-    var audioFolder = findFolder(defaults[15]) || createFolder(defaults[15]);
-    var compsFolder = findFolder(defaults[16]) || createFolder(defaults[16]);
-    var precompsFolder = findFolder(defaults[17]) || createFolder(defaults[17]);
+              var CaseExportDesktop = group4.add("checkbox", undefined, "Export Desktop Folder"); 
+              if(defaults[15].toString() == "true"){
+                  CaseExportDesktop.value = true;
+                }
+  
+          // PANEL4 Creer dans le system les dossiers 3
+          var panel4 = panel1.add("panel", undefined, undefined, {name: "panel4"}); 
+              panel4.text = "Folder: Storyboard, brief, etc"; 
+              panel4.orientation = "column"; 
+              panel4.alignChildren = ["left","top"]; 
+              panel4.spacing = 5; 
+              panel4.margins = 10; 
+  
+          // GROUP5
+          var group5 = panel4.add("group", undefined, {name: "group5"}); 
+              group5.orientation = "row"; 
+              group5.alignChildren = ["left","center"]; 
+              group5.spacing = 2; 
+              group5.margins = 0; 
+  
+          var caseElementsDossier = group5.add('edittext {properties: {name: "caseElementsDossier"}}'); 
+              caseElementsDossier.text = defaults[7]; 
+              caseElementsDossier.helpTip = "Storyboard, Brief, Fonts, etc";
+              caseElementsDossier.preferredSize.width = 190; 
 
-    // Store all items in the project array
-    var items = [];
-    for (var i = 1; i <= app.project.numItems; i++) {
-        items.push(app.project.item(i))
-    }
+          // PANEL9 SyncFolder
+          var panel9 = panel1.add("panel", undefined, undefined, {name: "panel9"}); 
+              panel9.text = "SyncFolder"; 
+              panel9.orientation = "column"; 
+              panel9.alignChildren = ["left","top"]; 
+              panel9.spacing = 10; 
+              panel9.margins = 10; 
 
+          var CaseRenameSyncFolder = panel9.add("checkbox", undefined, "Rename special characters"); 
+              CaseRenameSyncFolder.helpTip = "Renommer les caractères spéciaux avant d'importer les fichiers"; 
+              if(defaults[16].toString() == "true"){
+                  CaseRenameSyncFolder.value = true;
+                }
 
-    //Ranger le dossier " Calques" 
-    for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-        if (item instanceof FolderItem && item.name.endsWith(" Calques")) {
-            var hasAi = false;
-            var hasImages = false;
-            for (var j = 1; j <= item.numItems; j++) {
-                var subItem = item.item(j);
-                if (subItem instanceof FootageItem && subItem.file) {
-                    var file = new File(subItem.file.fsName);
-                    var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
-                    if (extension == "ai") {
-                        hasAi = true;
-                    } else if (extension == "psd") {
-                        hasImages = true;
+  
+          // PANEL5
+          var panel5 = group1.add("panel", undefined, undefined, {name: "panel5"}); 
+              panel5.text = "After Effects"; 
+              panel5.orientation = "column"; 
+              panel5.alignChildren = ["left","top"]; 
+              panel5.spacing = 30; 
+              panel5.margins = 10; 
+  
+  
+          // PANEL6 AfterEffects Creer compo principale
+          var panel6 = panel5.add("panel", undefined, undefined, {name: "panel6"}); 
+              panel6.text = "Master Comp"; 
+              panel6.orientation = "column"; 
+              panel6.alignChildren = ["left","top"]; 
+              panel6.spacing = 10; 
+              panel6.margins = 10; 
+  
+          // GROUP6
+          var group6 = panel6.add("group", undefined, {name: "group6"}); 
+              group6.orientation = "row"; 
+              group6.alignChildren = ["left","center"]; 
+              group6.spacing = 3; 
+              group6.margins = 0; 
+  
+          var caseCompWAe = group6.add('edittext {properties: {name: "caseCompWAe"}}'); 
+              caseCompWAe.text = defaults[8]; 
+              caseCompWAe.preferredSize.width = 50; 
+  
+          var statictext1 = group6.add("statictext", undefined, undefined, {name: "statictext1"}); 
+              statictext1.text = "x"; 
+  
+          var caseCompHAe = group6.add('edittext {properties: {name: "caseCompHAe"}}'); 
+              caseCompHAe.text = defaults[9]; 
+              caseCompHAe.preferredSize.width = 50; 
+  
+          var divider1 = group6.add("panel", undefined, undefined, {name: "divider1"}); 
+              divider1.alignment = "fill"; 
+  
+          var caseCompSecAe = group6.add('edittext {properties: {name: "caseCompSecAe"}}'); 
+              caseCompSecAe.text = defaults[10]; 
+              caseCompSecAe.preferredSize.width = 50; 
+  
+          var statictext2 = group6.add("statictext", undefined, undefined, {name: "statictext2"}); 
+              statictext2.text = "sec"; 
+  
+  
+          // PANEL7 After effects creer les dossiers dans le projet
+          var panel7 = panel5.add("panel", undefined, undefined, {name: "panel7"}); 
+              panel7.text = "Project Folder"; 
+              panel7.orientation = "column"; 
+              panel7.alignChildren = ["left","top"]; 
+              panel7.spacing = 10; 
+              panel7.margins = 10; 
+  
+          // Creer les comps et pre-comps
+          // GROUP9
+          var group9 = panel7.add("group", undefined, {name: "group9"}); 
+              group9.orientation = "row"; 
+              group9.alignChildren = ["left","center"]; 
+              group9.spacing = 2; 
+              group9.margins = 0; 
+  
+          var caseCompsAe = group9.add('edittext {properties: {name: "caseCompsAe"}}'); 
+              caseCompsAe.text = defaults[11]; 
+              caseCompsAe.helpTip = "Folder Composition"; 
+              caseCompsAe.preferredSize.width = 50; 
+              caseCompsAe.alignment = ["left","top"]; 
+  
+          // GROUP10
+          var group10 = group9.add("group", undefined, {name: "group10"}); 
+              group10.orientation = "column"; 
+              group10.alignChildren = ["left","center"]; 
+              group10.spacing = 0; 
+              group10.margins = 0; 
+  
+          var casePrecompAe = group10.add('edittext {properties: {name: "casePrecompAe"}}'); 
+              casePrecompAe.text = defaults[12]; 
+              casePrecompAe.helpTip = "Folder Pre-composition"; 
+              casePrecompAe.enabled = true; //false
+              casePrecompAe.preferredSize.width = 140;
+  
+
+          // PANEL8 render Mail
+          var panel8 = panel5.add("panel", undefined, undefined, {name: "panel8"}); 
+              panel8.text = "Email Render"; 
+              panel8.orientation = "column"; 
+              panel8.alignChildren = ["left","top"]; 
+              panel8.spacing = 10; 
+              panel8.margins = 10; 
+
+          var renderMail = panel8.add('edittext {properties: {name: "renderMail"}}'); 
+              renderMail.helpTip = "Adresse e-mail de réception"; 
+              renderMail.text = defaults[13]; 
+              renderMail.preferredSize.width = 200; 
+
+          var CaseMail = panel8.add("checkbox", undefined, "Send mail after render"); 
+              if(defaults[14].toString() == "true"){
+                  CaseMail.value = true;
+                }
+
+             
+          // GROUPBTNFIN
+          var groupBtnFin = settingsWindow.add("group", undefined, {name: "groupBtnFin"});
+              groupBtnFin.orientation = "row";
+              groupBtnFin.alignChildren = ["left","center"];
+              groupBtnFin.spacing = 100;
+              groupBtnFin.margins = 0;
+  
+          var resetButton = groupBtnFin.add("button", undefined, "Reset"); 
+          var saveButton = groupBtnFin.add("button", undefined, "Save"); 
+  
+          
+          ///////// Btn Reset et Save /////////
+          resetButton.onClick = function() {
+              defaultFile.open("w");
+              defaultFile.write("src\rassets\rimages\rvideos\rai\raudios\rexports\relements\r1920\r1080\r120\rcomps\rpre-comps\re-mail de reception\rfalse\rfalse\rtrue");
+              defaultFile.open();
+              settingsWindow.close();
+          }
+  
+          saveButton.onClick = function() {
+              defaultFile.open("w");
+              defaultFile.write(edittextSrc.text+"\r"+caseAssetsDossier.text+"\r"+caseImageDossier.text+"\r"+caseVideoDossier.text+"\r"+caseAiDossier.text+"\r"+caseAudioDossier.text+"\r"+ caseExportDossier.text+"\r"+caseElementsDossier.text+"\r"+caseCompWAe.text+"\r"+caseCompHAe.text+"\r"+caseCompSecAe.text+"\r"+caseCompsAe.text+"\r"+casePrecompAe.text+"\r"+renderMail.text+"\r"+CaseMail.value.toString()+"\r"+CaseExportDesktop.value.toString()+"\r"+CaseRenameSyncFolder.value.toString()); 
+              defaultFile.open();
+              settingsWindow.close();
+          }
+  
+          settingsWindow.center();
+          settingsWindow.show();
+  
+          } catch (e) {
+              // Affiche un message d"erreur si une erreur est survenue
+              alert("An error occurred: " + e.message);
+          }
+  
+      };
+  
+      ///////////// Synchronise le dossier assets dans le dossier du projet //////////////
+      btnSyncFolder.onClick = function() {
+  
+        var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+            if(!defaultFile.exists) {
+                defaultFile.open("w");
+                defaultFile.close();
+            } else {
+                defaultFile.open("r");
+                while(!defaultFile.eof) {
+                    defaults.push(defaultFile.readln().toString());
+                }
+            }
+  
+        var folderAssets = defaults[1]; //"assets"
+
+        if (app.project.file === null) {
+          alert("( ͡• ͜ʖ ͡•) Greg say: Veuillez enregistrer le projet en utilisant Folder Structure.");
+        } else {
+          var currentProjectPath = app.project.file.parent.fsName;
+          var ExistfolderAssets = new Folder(currentProjectPath+ "/" +folderAssets);
+
+          if (ExistfolderAssets.exists) {
+
+              function SyncFolder() {
+                  this.assetsFolderItem = this.findFolderInProject(folderAssets, app.project.rootFolder);
+                  this.importedFiles = this.getImportedFiles();
+              }
+              
+              SyncFolder.prototype.getAssetsFolderPath = function() {
+                  var projectPath = app.project.file.path;
+                  return projectPath + "/" + folderAssets;
+              }
+              
+              SyncFolder.prototype.findFolderInProject = function(folderName, parentFolder) {
+                  for (var i = 1; i <= parentFolder.numItems; i++) {
+                      if (parentFolder.item(i).name === folderName && parentFolder.item(i) instanceof FolderItem) {
+                          return parentFolder.item(i);
+                      }
+                  }
+                  return null;
+              }
+              
+              SyncFolder.prototype.getImportedFiles = function() {
+                var importedFiles = {};
+            
+                if (this.assetsFolderItem) {
+                    var assetsItems = this.assetsFolderItem.items;
+                    for (var i = 1; i <= assetsItems.length; i++) {
+                        var item = assetsItems[i];
+                        this.collectImportedFiles(item, importedFiles); // Ici, j'ai changé addImportedFiles en collectImportedFiles
+                    }
+                }
+            
+                return importedFiles;
+              }
+              
+              SyncFolder.prototype.collectImportedFiles = function(item, importedFiles) {
+                  if (item instanceof FolderItem) {
+                      var folderItems = item.items;
+                      for (var i = 1; i <= folderItems.length; i++) {
+                          this.collectImportedFiles(folderItems[i], importedFiles);
+                      }
+                  } else if (item instanceof FootageItem) {
+                      if (item.file) { // Ajouter cette condition
+                          importedFiles[item.file.fsName] = true;
+                      }
+                  }
+              }
+
+              //Si la case est coche 2 versions de sync
+              if(defaults[16].toString() == "true"){
+                  SyncFolder.prototype.importFilesFromFolder = function(folder, parentFolder) {
+                    var files = folder.getFiles();
+                    var renamedFiles = []; // Liste des fichiers renommés
+                
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+                        if (file.displayName === '.DS_Store' || file.displayName === '._.DS_Store' || file.displayName.slice(0, 2) === '._' || file.displayName.slice(-4) === '.csv' || file.displayName === 'styles.json') {
+                          continue;
+                        }
+                
+                        if (file instanceof Folder) {
+                            var existingFolder = this.findFolderInProject(file.displayName, parentFolder);
+                            var newFolder = existingFolder ? existingFolder : parentFolder.items.addFolder(file.displayName);
+                            this.importFilesFromFolder(file, newFolder);
+                        } else {
+
+                            // Renommer le fichier pour supprimer les caractères spéciaux
+                            var newFileName = decodeURI(file.name).replace(/[^\w.\s\d\-_]/gi, '').replace(/\s+/g, '_'); // \s pour espace
+                            
+                            // Vérifier si le nom du fichier a été modifié
+                            if (newFileName !== file.name) {
+                              renamedFiles.push(file.name + ' -> ' + newFileName); // Ajouter le nom original et le nouveau nom à la liste des fichiers renommés
+                              file.rename(newFileName); // Renommer le fichier
+                            }
+
+                            if (this.importedFiles.hasOwnProperty(file.fsName)) { // Modification ici
+                                continue;
+                            }
+                
+                            try {
+                                var importOptions = new ImportOptions(file);
+                
+                                if (file.name.match(/\.ai$/i)) {
+                                    importOptions.importAs = ImportAsType.COMP_CROPPED_LAYERS;
+                                    importOptions.sequence = false;
+                                    importOptions.forceAlphabetical = false;
+                                } else if (file.name.match(/\.psd$/i)) {
+                                    importOptions.importAs = ImportAsType.COMP_CROPPED_LAYERS;
+                                    importOptions.sequence = false;
+                                    importOptions.forceAlphabetical = false;
+                                }
+                
+                                var importedFile = app.project.importFile(importOptions);
+                                importedFile.parentFolder = parentFolder;
+                
+                                this.importedFiles[file.fsName] = true; // Modification ici
+                            } catch (e) {
+                                alert("Erreur lors de l'importation du fichier :\n" + file.fsName + "\n" + e.toString());
+                            }
+                        }
+                    }
+                    // Afficher une alerte si des fichiers ont été renommés
+                    if (renamedFiles.length > 0) {
+                      var message = 'Les fichiers suivants ont été renommés :\n';
+                      message += renamedFiles.join('\n').replace(/%20/g, ' ');
+
+                      alert(message);
+                    }
+                  }
+              } else {
+                  SyncFolder.prototype.importFilesFromFolder = function(folder, parentFolder) {
+                    var files = folder.getFiles();
+                
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+
+                        if (file.displayName === '.DS_Store' || file.displayName === '._.DS_Store' || file.displayName.slice(0, 2) === '._' || file.displayName.slice(-4) === '.csv' || file.displayName === 'styles.json') {
+                          continue;
+                        }
+                
+                        if (file instanceof Folder) {
+                            var existingFolder = this.findFolderInProject(file.displayName, parentFolder);
+                            var newFolder = existingFolder ? existingFolder : parentFolder.items.addFolder(file.displayName);
+                            this.importFilesFromFolder(file, newFolder);
+                        } else {
+                            if (this.importedFiles.hasOwnProperty(file.fsName)) { // Modification ici
+                                continue;
+                            }
+                
+                            try {
+                                var importOptions = new ImportOptions(file);
+                
+                                if (file.name.match(/\.ai$/i)) {
+                                    importOptions.importAs = ImportAsType.COMP_CROPPED_LAYERS;
+                                    importOptions.sequence = false;
+                                    importOptions.forceAlphabetical = false;
+                                } else if (file.name.match(/\.psd$/i)) {
+                                    importOptions.importAs = ImportAsType.COMP_CROPPED_LAYERS;
+                                    importOptions.sequence = false;
+                                    importOptions.forceAlphabetical = false;
+                                }
+                
+                                var importedFile = app.project.importFile(importOptions);
+                                importedFile.parentFolder = parentFolder;
+                
+                                this.importedFiles[file.fsName] = true; // Modification ici
+                            } catch (e) {
+                                alert("Erreur lors de l'importation du fichier :\n" + file.fsName + "\n" + e.toString());
+                            }
+                        }
+                    }
+                  }
+              }
+              
+              SyncFolder.prototype.refreshImportedFiles = function() {
+                  this.importedFiles = {};
+                  this.collectImportedFiles(app.project.rootFolder, this.importedFiles);
+              }
+              
+              SyncFolder.prototype.syncFolder = function() {
+                  var assetsFolderPath = this.getAssetsFolderPath();
+                  var assetsFolder = new Folder(assetsFolderPath);
+              
+                  if (assetsFolder.exists) {
+                      if (!this.assetsFolderItem) {
+                          this.assetsFolderItem = app.project.items.addFolder(folderAssets);
+                      }
+              
+                      app.beginUndoGroup("Sync Folder");
+                      this.refreshImportedFiles(); // Remplacez "this.importedFiles = this.getImportedFiles();" par ceci
+                      this.importFilesFromFolder(assetsFolder, this.assetsFolderItem);
+                      app.endUndoGroup();
+                  } else {
+                      alert("( ͡• ͜ʖ ͡•) Greg say: Le dossier 'assets' est introuvable.");
+                  }
+              }
+              
+              var syncFolderScript = new SyncFolder();
+              syncFolderScript.syncFolder();
+
+            } else {
+              alert("( ͡• ͜ʖ ͡•) Greg say: Le dossier " + folderAssets + " n'existe pas! Veuillez utiliser Folder Structure");
+          }
+        }
+      };
+  
+      ///////////// Range les fichiers et dossiers dans le projet //////////////
+      btnOrganizeProject.onClick = function () {
+  
+          var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+          !targetFolder.exists && targetFolder.create();
+          var defaults = [];
+          var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+              if(!defaultFile.exists) {
+                  defaultFile.open("w");
+                  defaultFile.close();
+              } else {
+                  defaultFile.open("r");
+                  while(!defaultFile.eof) {
+                      defaults.push(defaultFile.readln().toString());
+                  }
+              }
+  
+          var folderAssets = defaults[1]; //"assets"
+
+          var currentProjectPath = app.project.file.parent.fsName;
+          var ExistfolderAssets = new Folder(currentProjectPath+ "/" +folderAssets);
+
+          if (ExistfolderAssets.exists) {
+
+          app.beginUndoGroup("Organize Project");
+
+          var imageFolder = findFolder(defaults[2]) || createFolder(defaults[2]); //12
+          var videoFolder = findFolder(defaults[3]) || createFolder(defaults[3]); //13
+          var aiFolder = findFolder(defaults[4]) || createFolder(defaults[4]); //14
+          var audioFolder = findFolder(defaults[5]) || createFolder(defaults[5]); //15
+          var compsFolder = findFolder(defaults[11]) || createFolder(defaults[11]); 
+          var precompsFolder = findFolder(defaults[12]) || createFolder(defaults[12]); 
+  
+          // Store all items in the project array
+          var items = [];
+          for (var i = 1; i <= app.project.numItems; i++) {
+              items.push(app.project.item(i))
+          }
+  
+  
+            //Ranger le dossier " Calques" 
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                if (item instanceof FolderItem && item.name.slice(-8) === " Calques") {
+                    var hasAi = false;
+                    var hasImages = false;
+                    for (var j = 1; j <= item.numItems; j++) {
+                        var subItem = item.item(j);
+                        if (subItem instanceof FootageItem && subItem.file) {
+                            var file = new File(subItem.file.fsName);
+                            var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
+                            if (extension == "ai") {
+                                hasAi = true;
+                            } else if (extension == "psd") {
+                                hasImages = true;
+                            }
+                        }
+                    }
+                    if (hasAi && !hasImages) {
+                        item.parentFolder = aiFolder;
+                    } else if (!hasAi && hasImages) {
+                        item.parentFolder = imageFolder;
                     }
                 }
             }
-            if (hasAi && !hasImages) {
-                item.parentFolder = aiFolder;
-            } else if (!hasAi && hasImages) {
-                item.parentFolder = imageFolder;
+  
+  
+          for (var i = 0; i <= items.length; i++) {
+            var item = items[i];
+            if (item instanceof FootageItem && item.file) {
+                var file = new File(item.file.fsName);
+                var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
+                if (extension.toLowerCase() == "ai" || extension.toLowerCase() == "eps") {
+                    item.parentFolder = aiFolder;
+                } else if (extension.toLowerCase() == "jpg" || extension.toLowerCase() == "jpeg" || extension.toLowerCase() == "png" || extension.toLowerCase() == "psd" || extension.toLowerCase() == "webp" || extension.toLowerCase() == "heif" || extension.toLowerCase() == "pdf" || extension.toLowerCase() == "tif" || extension.toLowerCase() == "tga" || extension.toLowerCase() == "hdr") {
+                    item.parentFolder = imageFolder;
+                } else if (extension.toLowerCase() == "mp3" || extension.toLowerCase() == "wav" || extension.toLowerCase() == "aac" || extension.toLowerCase() == "aif" ||  extension.toLowerCase() == "aiff" || extension.toLowerCase() == "m4a") {
+                    item.parentFolder = audioFolder;
+                } else if (extension.toLowerCase() == "mp4" || extension.toLowerCase() == "mov" || extension.toLowerCase() == "m4v" || extension.toLowerCase() == "mpg" || extension.toLowerCase() == "gif" || extension.toLowerCase() == "mxf" || extension.toLowerCase() == "3gp" || extension.toLowerCase() == "avi" || extension.toLowerCase() == "wmv") {
+                item.parentFolder = videoFolder;
+                }
             }
-        }
-    }
-
-
-    for (var i = 0; i <= items.length; i++) {
-        var item = items[i];
-        if (item instanceof FootageItem && item.file) {
-            var file = new File(item.file.fsName);
-            var extension = file.fsName.substring(file.fsName.lastIndexOf(".") + 1);
-            if (extension == "ai" || extension == "eps") {
-                item.parentFolder = aiFolder;
-            } else if (extension == "jpg" || extension == "jpeg" || extension == "png" || extension == "psd" || extension == "heif" || extension == "pdf" || extension == "tif" || extension == "tga" || extension == "hdr") {
-                item.parentFolder = imageFolder;
-            } else if (extension == "mp3" || extension == "wav" || extension == "aac" || extension == "aif" ||  extension == "aiff" || extension == "m4a") {
-                item.parentFolder = audioFolder;
-            } else if (extension == "mp4" || extension == "mov" || extension == "m4v" || extension == "mpg" || extension == "gif" || extension == "mxf" || extension == "3gp" || extension == "avi" || extension == "wmv") {
-            item.parentFolder = videoFolder;
+            //Ranger les compos dans le dossier "comps" sauf la compo qui est de couleur verte (label 9)
+            if (item instanceof CompItem && item.label != 9) {
+                item.parentFolder = compsFolder;
             }
-        }
-        //Ranger les compos dans le dossier "comps" sauf la compo qui est de couleur verte (label 9)
-        if (item instanceof CompItem && item.label != 9) {
-            item.parentFolder = compsFolder;
-        }
-        var compRegExp = /- Comp \d+$/;
-        if (item instanceof CompItem && item.name.match(compRegExp)) {
-            item.parentFolder = precompsFolder;
-        }
-    }
-
-
-    function findFolder(folderName) {
-        for (var i = 1; i <= app.project.numItems; i++) {
-            var item = app.project.item(i);
-            if (item instanceof FolderItem && item.name == folderName) {
-                return item;
+            //Range dans pre-comps les comps se terminant par - Comp
+            var compRegExp = /- Comp/; // old /- Comp \d+$/
+            if (item instanceof CompItem && item.name.match(compRegExp)) {
+                item.parentFolder = precompsFolder;
             }
-        }
-        return null;
-    }
-
-    function createFolder(folderName){
-        var newFolder = app.project.items.addFolder(folderName);
-        return newFolder;
-    }
-
-    app.endUndoGroup();
-};
-
-///////////// Export Media Encoder //////////////
-btnRenderExport.onClick = function () {
-
-    var targetFolder = new Folder(Folder.userData.fullName +"/"+ "Aescripts"+"/"+"MyFolderStructure");
-    !targetFolder.exists && targetFolder.create();
-    var defaults = [];
-    var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+          }
+  
+  
+          function findFolder(folderName) {
+              for (var i = 1; i <= app.project.numItems; i++) {
+                  var item = app.project.item(i);
+                  if (item instanceof FolderItem && item.name == folderName) {
+                      return item;
+                  }
+              }
+              return null;
+          }
+  
+          function createFolder(folderName){
+              var newFolder = app.project.items.addFolder(folderName);
+              return newFolder;
+          }
+        
+          app.endUndoGroup();
+        } else {
+          alert("( ͡• ͜ʖ ͡•) Greg say: Le dossier " + folderAssets + " n'existe pas! Veuillez utiliser Folder Structure");
+      }
+      };
+      
+      btnCollectFiles.onClick = function () {
+        var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
         if(!defaultFile.exists) {
             defaultFile.open("w");
             defaultFile.close();
@@ -664,25 +1477,599 @@ btnRenderExport.onClick = function () {
                 defaults.push(defaultFile.readln().toString());
             }
         }
-
-    function ameRender(comp) {
-        var bt = new BridgeTalk();
-        var pathexport = "../" + defaults[6];  //"~/Desktop"
-        var path = app.project.file.path+"/"+pathexport;
-        if(!BridgeTalk.isRunning("ame")) {
-            BridgeTalk.launch("ame"); //pour lancer AME en arriere plan ("ame", "background")
-            //alert("Ouverture de Media Encoder");
+      
+      
+        // Obtenir le projet actif
+        var proj = app.project;
+      
+        // Obtenir le nom et le chemin du projet actif
+        var projPath = proj.file.path;
+        var projName = proj.file.name;
+        var projNameFolder = projName.replace(/.aep/gi,"");
+      
+        var duplicFile = projPath + "/" + projNameFolder + "_CollectFiles.aep";
+      
+        //Selectionne une ou plusieurs compositions à reduire
+        if (app.project.selection.length > 0) {
+          var selectedComps = [];
+          for (var i = 0; i < app.project.selection.length; i++) {
+            var selected = app.project.selection[i];
+            if (selected instanceof CompItem) { selectedComps.push(selected); }
+          }
+      
+          proj.save(new File (duplicFile));
+          proj.reduceProject(selectedComps);
+          proj.save();
+      
+          // Ouvre une fenêtre de dialogue "Enregistrer sous" pour sélectionner un dossier
+          var saveFolder = Folder.selectDialog("Selectionner le dossier de destination");
+      
+          // Créer un dossier pour stocker les fichiers rassemblés
+          var collectFolder = new Folder(saveFolder.fsName + "/CollectFiles_" + projNameFolder + "/" + defaults[0]);
+          collectFolder.create();
+      
+          // Créer un dossier pour stocker les fichiers d'assets
+          var assetsFolder = new Folder(collectFolder.fsName + "/" + defaults[1]);
+          assetsFolder.create();
+      
+          // Parcourir les fichiers du projet
+          for (var i = 1; i <= proj.numItems; i++) {
+            var item = proj.item(i);
+      
+            // Vérifier si l'élément est un fichier source
+            if (item instanceof FootageItem && item.file != null && item.parentFolder != null) {
+              var file = item.file;
+              var newFilePath = assetsFolder.fsName + "/" + item.parentFolder.name;
+              
+              // Créer le dossier de destination s'il n'existe pas
+              var newFolder = new Folder(newFilePath);
+              if (!newFolder.exists) {
+                newFolder.create();
+              }
+      
+              // Copier le fichier source dans le dossier Collect
+              var newFile = new File(newFilePath + "/" + file.name);
+              file.copy(newFile);
             }
-            var rqItem = app.project.renderQueue.items.add(comp); 
+          }
+      
+          // Enregistrer une copie du projet dans le dossier Collect
+          /*var newProjFile = new File(collectFolder.fsName + "/" + projName);
+          proj.save(newProjFile);*/
+      
+          // Copie le projet dans le dossier Collect
+          var shellCommand = 'cp "' + proj.file.fsName + '" "' + collectFolder.fsName + '/"';
+          system.callSystem(shellCommand);
+      
+          File(duplicFile).remove();
+      
+          // Afficher un message lorsque la collecte est terminée
+          alert("La collecte des fichiers est terminée. Ils se trouvent dans le dossier CollectFiles_" + projNameFolder);
+      
+          // Ferme le projet
+          app.project.close(CloseOptions.DO_NOT_SAVE_CHANGES);
+      
+      
+          //Open folder Collect
+          var folder = Folder(collectFolder.toString()); // your folder here
+          var cmd = ($.os.indexOf("Win") != -1) ? "explorer " + Folder.decode(folder.fsName) : "open \"" + Folder.decode(folder.fsName) + "\"";
+          system.callSystem(cmd);
+      
+        } else {
+          alert("( ͡• ͜ʖ ͡•) Greg say: Veuillez sélectionner une ou plusieurs compositions dans le projet");
+        }
+      };
+
+      ///////////// Exports video //////////////
+ 
+      //Ajoute à la file d'attente
+      function aeRender(comp) {
+        var targetFolder = new Folder(Folder.userData.fullName + "/" + "ToolForSpeed" + "/" + "MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+        if (!defaultFile.exists) {
+            defaultFile.open("w");
+            defaultFile.close();
+        } else {
+            defaultFile.open("r");
+            while (!defaultFile.eof) {
+                defaults.push(defaultFile.readln().toString());
+            }
+        }
+
+        ////////// utilise un modele de sortie existant /////////////////
+        var pathexport = "../" + defaults[6];
+        //var path = app.project.file.parent.fsName + "/" + pathexport;
+            if(defaults[15].toString() == "true"){
+              var path = "~/desktop";
+            } else {
+              var path = app.project.file.parent.fsName + "/" + pathexport;
+            }
+
+        var rqItem = app.project.renderQueue.items.add(comp);
+        var outputModule = rqItem.outputModule(1);
+
+        try {
+            outputModule.applyTemplate("toolforspeed");
+        } catch (e) {
+            alert("( ͡• ͜ʖ ͡•) Greg say: Le modèle de sortie 'toolforspeed' n'existe pas. Veuillez le créer manuellement dans 'Module de sortie > Créer un modèle'.");
+            return;
+        }
+
+          outputModule.file = new File(path + "/" + comp.name.replace(".", "-"));
+    
+      }
+
+      function aeRenderAlpha(comp) {
+        var targetFolder = new Folder(Folder.userData.fullName + "/" + "ToolForSpeed" + "/" + "MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+        if (!defaultFile.exists) {
+            defaultFile.open("w");
+            defaultFile.close();
+        } else {
+            defaultFile.open("r");
+            while (!defaultFile.eof) {
+                defaults.push(defaultFile.readln().toString());
+            }
+        }
+
+        ////////// utilise un modele de sortie existant /////////////////
+        var pathexport = "../" + defaults[6];
+            if(defaults[15].toString() == "true"){
+              var path = "~/desktop";
+            } else {
+              var path = app.project.file.parent.fsName + "/" + pathexport;
+            }
+
+        var rqItem = app.project.renderQueue.items.add(comp);
+        var outputModule = rqItem.outputModule(1);
+
+        try {
+            outputModule.applyTemplate("toolforspeed_ALPHA");
+        } catch (e) {
+            alert("( ͡• ͜ʖ ͡•) Greg say: Le modèle de sortie 'toolforspeed' n'existe pas. Veuillez le créer manuellement dans 'Module de sortie > Créer un modèle'.");
+            return;
+        }
+
+        outputModule.file = new File(path + "/" + comp.name.replace(".", "-") + "_ALPHA");
+      }
+
+      //Lance le rendu dans After Effects
+      function renderQueue() {
+        var renderQueue = app.project.renderQueue;
+        for (var i = 1; i <= renderQueue.numItems; ++i) {
+            var rqItem = renderQueue.item(i);
+            if (rqItem.status == RQItemStatus.QUEUED) {
+                rqItem.render = true;
+            }
+        }
+        app.project.renderQueue.render();
+      }
+
+      //Lance le rendu dans After Effects et envoi un mail
+      function RenderAndEmail(){
+        var scriptName = "Render and Email";
+        var safeToRunScript = true;
+        
+        safeToRunScript = (app.project != null);
+        if (!app.project) {
+          alert ("( ͡• ͜ʖ ͡•) Greg say: Ouvrir un projet pour utiliser le script.", scriptName);
+        }
+        if (safeToRunScript) {
+          // Check the render queue and make certain at least one item is queued.
+          safeToRunScript = false;
+          for (i = 1; i <= app.project.renderQueue.numItems; ++i) {
+            if (app.project.renderQueue.item(i).status == RQItemStatus.QUEUED) {
+              safeToRunScript = true;
+              break;
+            }
+          }
+          if (!safeToRunScript) {
+            alert("You do not have any items set to render.", scriptName);
+          }
+        }
+        
+        if (safeToRunScript) {
+          // Check if we are allowed to access the network.
+          var securitySetting = app.preferences.getPrefAsLong("Main Pref Section", "Pref_SCRIPTING_FILE_NETWORK_SECURITY");
+          if (securitySetting != 1) {
+            alert ("This script requires the scripting security preference to be set.\n" +
+              "Go to the \"Scripting & Expressions\" panel of your application preferences,\n" +
+              "and make sure that \"Allow Scripts to Write Files and Access Network\" is checked.", scriptName);
+            safeToRunScript = false;
+          }
+        }
+        
+        if (safeToRunScript) {
+    
+                ////// ici le fichier email_methods //////////
+                    function EmailSocket(server, dbg)
+                    {
+                        var obj = new Socket;
+                        obj._host = server;
+                        obj._debug = (dbg == true);
+                        obj.__proto__ = EmailSocket.prototype;
+                        obj.headers = new Array();
+                        
+                        return obj;
+                    }
+                        
+                    EmailSocket.prototype.__proto__ = Socket.prototype;
+                    
+                    EmailSocket.prototype.send = function (from, to, subject, text, auth_user, auth_password) {
+                
+                        // Open the socket on port 25 (SMTP). 587 pour orange
+                        if (!this.open(this._host + ":587", "binary")) {
+                            return false;
+                        }
+                        
+                        try {
+                            // Discard the greeting.
+                            var greeting = this.read();
+                            if (this._debug) {
+                                write("RECV: " + greeting);
+                            }
+                            
+                            var client_only = from.split("@")[1];
+                            
+                            this._SMTP("EHLO " + client_only);
+                            var response = this.read();
+                            
+                            if (auth_user) {
+                                // Now send the auth stuff.
+                                this._SMTP("AUTH LOGIN");
+                                this._SMTP(this._ENCODE_BASE_64(auth_user));
+                                this._SMTP(auth_password);
+                            }
+                            
+                            this._SMTP("MAIL FROM: " + from);
+                            this._SMTP("RCPT TO: " + to);
+                            this._SMTP("DATA");
+                            
+                            // Send subject and time stamp.
+                            this.writecrlfln("From: " + from);
+                            this.writecrlfln("To: " + to);
+                            this.writecrlfln("Date: " + new Date().toString());
+                            //for (key in this.headers) {
+                            //	this.writecrlfln(key + ": " + this.headers[key]);
+                            //}
+                            if (typeof subject != undefined) {
+                                this.writecrlfln ("Subject: " + subject);
+                            }
+                            this.writecrlfln();
+                            
+                            // Send the text.
+                            if (typeof text != undefined) {
+                                this.writecrlfln(text);
+                            }
+                            
+                            // Terminate with a single dot and wait for response.
+                            this._SMTP(".");
+                            
+                            // Terminate the session.
+                            this._SMTP("QUIT");
+                            this.close();
+                            
+                            return true;
+                        } catch (e) {
+                            this.close();
+                            throw e;
+                        }
+                    }
+                        
+                    EmailSocket.prototype.auth = function (name, pass) {
+                        // Open the connection on port 110 (POP3).
+                        if (!this.open(this._host + ":110")) {
+                            return false;
+                        }
+                        
+                        try {
+                            // Discard the greeting.
+                            var greeting = this.read();
+                            if (this._debug) {
+                                write("RECV: " + greeting);
+                            }
+                            
+                            // Issue POP3 commands.
+                            this._POP3("USER " + name);
+                            this._POP3("PASS " + pass);
+                            this._POP3("QUIT");
+                            this.close();
+                            
+                            return true;
+                        } catch (e) {
+                            this.close();
+                            return false;
+                        }
+                    }
+                    
+                    EmailSocket.prototype._POP3 = function (cmd) {
+                        if (this._debug) {
+                            writeLn("SEND: " + cmd);
+                        }
+                        
+                        if (!this.writecrlfln(cmd)) {
+                            throw "Error";
+                        }
+                        
+                        var reply = this.read();
+                        if (this._debug) {
+                            write("RECV: " + reply);
+                        }
+                        
+                        // The reply starts by either + or -
+                        if (reply [0] == "+") {
+                            return;
+                        }
+                        
+                        throw "Error";
+                    }
+                    
+                    EmailSocket.prototype._SMTP = function (cmd) {
+                        if (this._debug) {
+                            writeLn("SEND: " + cmd);
+                        }
+                        if (!this.writecrlfln(cmd)) {
+                            throw "Error";
+                        }
+                        
+                        var reply = this.read();
+                        if (this._debug) {
+                            write("RECV: " + reply);
+                        }
+                        
+                        // The reply is a three-digit code followed by a space.
+                        var match = reply.match(/^(\d{3})\s/m);
+                        if (match.length == 2) {
+                            var n = Number(match [1]);
+                            if (n >= 200 && n <= 399) {
+                                return;
+                            }
+                        }
+                        
+                        throw reply;
+                    }
+                    
+                    EmailSocket.prototype.writecrlfln = function (cmd) {
+                        if (cmd) {
+                            return this.write(cmd + "\r\n");
+                        } else {
+                            return this.write("\r\n");
+                        }
+                    }
+                    
+                    EmailSocket.prototype._ENCODE_BASE_64 = function(str) {
+                        var lut = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+                        var chunk = 0;
+                        var result = "";
+                        
+                        for (var i = 0; i < str.length; i += 3) {
+                            chunk = str.charCodeAt(i) & 0xFF;
+                            chunk = chunk << 8;
+                            
+                            // Asking for a char out of range returns "".
+                            chunk |= str.charCodeAt(i+1) & 0xFF;
+                            chunk = chunk << 8;
+                            
+                            chunk |= str.charCodeAt(i+2) & 0xFF;
+                            
+                            // These are the number of gaps until we hit %3.
+                            var partialEnd = 3 - (str.length - i) ;
+                            var num6bits = 4;
+                            
+                            if (partialEnd == 2) { // one character encoded
+                                num6bits = 2;
+                            } else if (partialEnd == 1) { // two encoded
+                                num6bits = 3;
+                            }
+                            
+                            for (var j = 0; j < num6bits; j++) {
+                                result += lut.charAt((chunk & 0xFC0000) >> 18); // six bits	
+                                chunk = chunk << 6; 
+                            }	
+                            
+                            // Fill with = chars.
+                            if (partialEnd < 3) {
+                                for (var j = 0; j < partialEnd; j++) {
+                                    result += "=";
+                                }
+                            }
+                        }
+                        
+                        return result;
+                    }
+                        
+                    EmailSocket.prototype.toString = function() {
+                        return "[object Email]";
+                    }
+                 ///////////////////////////////////////
+    
+    
+          // This address isn't actually used until send() is called, but specify the loopback for now.
+          // This is a test to see if network access is enabled in the preferences.
+          // [24803] cprosser
+          {
+            var email_test = new EmailSocket("127.0.0.1");
+          }
+          
+    
+          
+          var myQueue = app.project.renderQueue // Creates a shortcut for the Render Queue.
+          
+          // Start rendering.
+          myQueue.render();
+          
+          // Now rendering is complete.
+          // Create a string for the mail message that contains:
+          // -- Start time (date);
+          // -- Render time of each item in the queue;
+          // -- Total render time.
+          var projectName = "Unsaved Project";
+          if (app.project.file) {
+            projectName = app.project.file.name.replace(/.aep/gi,"");
+          }
+          // Can't have bare LF in email, Always put \r before \n or some servers will die.
+          var myMessage = "L'export " + projectName + " est terminé.\r\n\r\n";
+          
+          // Email the message.
+          // We'll use three settings to determine how to mail.
+          // The section will be named "Email Settings".
+          // The 3 settings will be named:
+          // -- "Mail Server" - the mail server to use when sending mail.
+          // -- "Reply-to Address" - the address from which the mail will be sent.
+          // -- "Render Report Recipient" - the address to which mail will be sent.
+          
+
+          app.setTimeout(function() {  
+
+            try {
+              // Send the email.
+              var serverSetting = "ssl0.ovh.net"; //serveur smtp
+              var fromSetting = "motion@toolforspeed.fr";
+              var toSetting = defaults[13]; //adresse email de reception
+              //var toSetting2 = "gregory.hamoui@orange.fr";
+    
+              var authUser = "motion@toolforspeed.fr";
+              var authPass = "QFRvb2xGb3JTcGVlZDI="; //QFRvb2xGb3JTcGVlZDI= ou @ToolForSpeed2
+              
+    
+              var myMail = new EmailSocket(serverSetting);
+              
+                        
+              if (!myMail.send(fromSetting, toSetting, "Export " + projectName, myMessage, authUser, authPass)) {
+                alert("Sending mail failed.", scriptName);
+              }
+            } catch (e) {
+              alert("Unable to send email.\n" + e.toString(), scriptName);
+            }
+
+            alert("Mail envoyé à " + toSetting);
+
+                   /* try {
+                        if (!myMail.send(fromSetting, toSetting2, "L'export " + projectName + " est copié dans le dossier", myMessage, authUser, authPass)) {
+                            alert("Sending mail failed.", scriptName);
+                        }
+                    } catch (e) {
+                        alert("Unable to send email.\n" + e.toString(), scriptName);
+                    }*/
+
+          }, 1000); //attente d'1 seconde
+                   
+          }
+      }
+
+      function OpenFolderExport() {
+
+        var targetFolder = new Folder(Folder.userData.fullName + "/" + "ToolForSpeed" + "/" + "MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+        if (!defaultFile.exists) {
+            defaultFile.open("w");
+            defaultFile.close();
+        } else {
+            defaultFile.open("r");
+            while (!defaultFile.eof) {
+                defaults.push(defaultFile.readln().toString());
+            }
+        }
+
+        ////////// folder export /////////////////
+        var pathexport = "../" + defaults[6];
+            if(defaults[15].toString() == "true"){
+              var path = "~/desktop";
+            } else {
+              var path = app.project.file.parent.fsName + "/" + pathexport;
+            }
+
+        //Open folder export
+        var folder = Folder(path.toString()); // your folder here
+        var cmd = ($.os.indexOf("Win") != -1) ? "explorer " + Folder.decode(folder.fsName) : "open \"" + Folder.decode(folder.fsName) + "\"";
+        system.callSystem(cmd);
+      }
+
+      btnAERender.onClick = function () {
+        aeRender(app.project.activeItem);
+      };
+      
+      btnAERenderAlpha.onClick = function () {
+        aeRenderAlpha(app.project.activeItem);
+      };
+
+      btnExport.onClick = function () {
+
+        var targetFolder = new Folder(Folder.userData.fullName +"/"+ "ToolForSpeed"+"/"+"MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+            if(!defaultFile.exists) {
+                defaultFile.open("w");
+                defaultFile.close();
+            } else {
+                defaultFile.open("r");
+                while(!defaultFile.eof) {
+                    defaults.push(defaultFile.readln().toString());
+                }
+            }
+              if(defaults[14].toString() == "true"){
+
+                  RenderAndEmail();
+               
+                } else {
+                  //alert("export la video");
+                  renderQueue();
+                }
+
+        OpenFolderExport();
+      };
+
+      btnExportMediaEncoder.onClick = function () {
+  
+        var targetFolder = new Folder(Folder.userData.fullName + "/" + "ToolForSpeed" + "/" + "MyFolderStructure");
+        !targetFolder.exists && targetFolder.create();
+        var defaults = [];
+        var defaultFile = File(targetFolder.fullName + "/" + "Settings_MyFolderStructure.txt");
+        if (!defaultFile.exists) {
+            defaultFile.open("w");
+            defaultFile.close();
+        } else {
+            defaultFile.open("r");
+            while (!defaultFile.eof) {
+                defaults.push(defaultFile.readln().toString());
+            }
+        }
+    
+        function ameRender(comp) {
+            var bt = new BridgeTalk();
+            var pathexport = "../" + defaults[6];
+                if(defaults[15].toString() == "true"){
+                  var path = "~/desktop";
+                } else {
+                  var path = app.project.file.parent.fsName + "/" + pathexport;
+                }
+
+            if (!BridgeTalk.isRunning("ame")) {
+                BridgeTalk.launch("ame"); //pour lancer AME en arriere plan ("ame", "background")
+            }
+            var rqItem = app.project.renderQueue.items.add(comp);
             var module = rqItem.outputModule(1);
-            module.file = File(path+"/"+comp.name.replace(".", "-")); 
-            app.project.renderQueue.queueInAME(true); 
+            module.file = new File(path + "/" + comp.name.replace(".", "-")); // Modification ici
+            app.project.renderQueue.queueInAME(true);
             //module.file.parent.execute();
         }
-    ameRender(app.project.activeItem);
-    //system.callSystem("open " + app.project.file.path + "/" + "../" + defaults[6]);
-};
+    
+        ameRender(app.project.activeItem);
 
+        OpenFolderExport();
 
-// Affichage de la fenêtre de l"interface utilisateur
-if ( uiWindow instanceof Window ) uiWindow.show();
+      };
+  
+
+PanelFolderStructure.layout.layout(true);
+PanelFolderStructure.layout.resize();
+PanelFolderStructure.onResizing = PanelFolderStructure.onResize = function () { this.layout.resize(); }
+
+if ( PanelFolderStructure instanceof Window ) PanelFolderStructure.show();
