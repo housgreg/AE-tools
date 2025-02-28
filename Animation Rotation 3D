@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Rotation 3D</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 5px;
+            perspective: 600px;
+        }
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <script>
+        const grid = document.getElementById("grid");
+        const rows = 10, cols = 10;
+        let squares = [];
+        
+        // Remplissage de la grille
+        for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+                let square = document.createElement("div");
+                square.classList.add("square");
+                grid.appendChild(square);
+                squares.push({ element: square, x, y, distance: 0 });
+            }
+        }
+        
+        function distanceFromCenter(x, y) {
+            const centerX = (cols - 1) / 2;
+            const centerY = (rows - 1) / 2;
+            return Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
+        }
+        
+        squares.forEach(square => {
+            square.distance = distanceFromCenter(square.x, square.y);
+        });
+        
+        squares.sort((a, b) => a.distance - b.distance);
+        
+        function animateSquares() {
+            squares.forEach((square, index) => {
+                setTimeout(() => {
+                    if (square.x < 5) {
+                        square.element.style.transform = "rotateY(-180deg)";
+                    } else {
+                        square.element.style.transform = "rotateY(180deg)";
+                    }
+                }, square.distance * 250);
+            });
+        }
+        
+        setTimeout(animateSquares, 500);
+    </script>
+</body>
+</html>
